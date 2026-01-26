@@ -1,0 +1,146 @@
+/* ---------- HEADER ---------- */
+header {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+nav {
+  display: flex;
+  gap: 24px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+nav a.active {
+  border-bottom: 2px solid #000;
+  font-weight: 600;
+}
+
+/* ---------- BODY ---------- */
+body {
+  margin: 0;
+  padding-top: 56px; /* space for fixed header */
+  font-family: Noto Sans, sans-serif;
+}
+
+@font-face {
+  font-family: 'Shobhika';
+  src: url('fonts/Shobhika-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* ---------- MAIN PAGE ---------- */
+main {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- SIDEBAR ---------- */
+#sidebar {
+  position: fixed;
+  top: 56px;
+  right: 0;
+  width: 400px;
+  bottom: 0;
+  background: #fff;
+  border-left: 1px solid #ddd;
+  transform: translateX(100%);
+  transition: transform 0.25s ease;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+}
+
+#sidebar.open {
+  transform: translateX(0);
+}
+
+#sidebar header {
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+  position: relative;
+}
+
+#sidebar header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+#sidebar header button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#sidebar .content {
+  padding: 16px;
+  overflow-y: auto;
+  font-size: 14px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  flex-wrap: nowrap;   /* prevent wrapping */
+}
+
+.label {
+  font-weight: bold;
+  width: 120px; /* fixed width for labels */
+  flex-shrink: 0;
+}
+
+.value {
+  flex-grow: 1;
+  text-align: left;
+  overflow: hidden;    /* hide overflow if too long */
+  text-overflow: ellipsis; /* add ... for long text */
+  white-space: nowrap; /* keep text on a single line */
+}
+
+.big-label {
+  font-size: 16px; /* slightly bigger than default labels */
+}
+
+
+
+/* ---------- STATIC PAGES ---------- */
+.page {
+  padding: 24px;
+  max-width: 800px;
+}

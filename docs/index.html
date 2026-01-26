@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="sa">
+<head>
+  <meta charset="utf-8" />
+  <title>मानचित्रम्</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+  <h1>मानचित्रम्</h1>
+  <nav>
+    <a href="index.html" class="active">मानचित्रम्</a>
+    <a href="about.html">अस्मद्विषये</a>
+    <a href="feedback.html">प्रतिमन्त्रणम्</a>
+  </nav>
+</header>
+
+<main>
+  <div id="map"></div>
+</main>
+
+<aside id="sidebar">
+  <header>
+    <h2 id="sb-title">नाम</h2>
+    <button onclick="closeSidebar()">×</button>
+  </header>
+  <div class="content">
+    
+    <div class="row">
+      <div class="label">स्वभाषायाम्</div>
+      <div class="value" id="sb-native"></div>
+    </div>
+
+    <div class="row">
+      <div class="label">आङ्ग्लायाम्</div>
+      <div class="value" id="sb-english"></div>
+    </div>
+
+    <br>
+    <div class="label big-label">विवरणम्</div>
+    <div class="value notes" id="sb-notes"></div>
+
+    <br>
+    <hr>
+    <br>
+
+    <div class="label big-label">नामान्तराणि</div>
+    <br> <!-- space after heading -->
+    <div class="value" id="sb-altnames"></div>
+  </div>
+</aside>
+
+<script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+<script>
+  function openSidebar(data) {
+    document.getElementById("sb-title").textContent = data.sa || "";
+    document.getElementById("sb-native").textContent = data.native || "";
+    document.getElementById("sb-english").textContent = data.en || "";
+    document.getElementById("sb-notes").innerHTML = data.notes || "";   // use innerHTML for <br>
+    document.getElementById("sb-altnames").innerHTML = data.alts || ""; // use innerHTML for <strong> & <br>
+    document.getElementById("sidebar").classList.add("open");
+  }
+
+  function closeSidebar() {
+    document.getElementById("sidebar").classList.remove("open");
+  }
+
+  const map = new maplibregl.Map({
+    container: 'map',
+    style: {
+      version: 8,
+      glyphs: "https://protomaps.github.io/basemaps-assets/fonts/{fontstack}/{range}.pbf",
+      sources: { 
+        basemap: { 
+          type: 'raster', 
+          tiles: ['https://a.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',
+                    'https://b.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',
+                    'https://c.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png'], 
+          tileSize: 256 
+        } 
+      },
+      layers: [ { id: 'basemap', type: 'raster', source: 'basemap' } ]
+    },
+    center: [0, 20],
+    zoom: 2
+  });
+
+  map.on('load', () => {
+    map.addSource('countries', {
+      type: 'geojson',
+      data: 'countries.geojson'
+    });
+    map.addSource('cities', {
+      type: 'geojson',
+      data: 'cities.geojson'
+    });
+    map.addSource('rivers', {
+      type: 'geojson',
+      data: 'rivers.geojson'
+    });
+
+    // Deśāḥ
+    map.addLayer({
+      id: 'countries-fill',
+      type: 'fill',
+      source: 'countries',
+      paint: {
+        'fill-color': 'rgba(0,0,0,0)',
+        // 'fill-opacity': 0,
+        'fill-outline-color': '#999'
+      }
+    });
+    map.addLayer({
+      id: 'countries-label',
+      type: 'symbol',
+      source: 'countries',
+      layout: {
+        'text-field': ['get', 'NAME_SA'],
+        'text-font': ['Noto Sans Devanagari Regular v1'],
+        'text-size': ['interpolate', ['linear'], ['zoom'],
+                      2, 10,
+                      5, 14,
+                      8, 18],
+        'text-anchor': 'center',
+        'text-allow-overlap': false,
+        'symbol-placement': 'point'
+      },
+      paint: {
+        'text-color': '#000',
+        'text-halo-color': '#fff',
+        'text-halo-width': 1
+      }
+    });
+
+    // Rājadhānyaḥ
+    map.addLayer({
+      minzoom: 3,
+      id: 'capital-circles',
+      type: 'circle',
+      source: 'cities',
+      filter: ['==', ['get', 'FEATURECLA'], 'Admin-0 capital'], // only capitals
+      paint: {
+        'circle-radius': 3,
+        'circle-color': '#fff',
+        'circle-stroke-color': '#000',
+        'circle-stroke-width': 2
+      }
+    });
+    map.addLayer({
+      minzoom: 3,
+      id: 'capital-dot',
+      type: 'circle',
+      source: 'cities',
+      filter: ['==', ['get', 'FEATURECLA'], 'Admin-0 capital'],
+      paint: {
+        'circle-radius': 2,
+        'circle-color': '#000'
+      }
+    });
+    map.addLayer({
+      minzoom:3,
+      id: 'capital-labels-sa',
+      type: 'symbol',
+      source: 'cities',
+      filter: ['==', ['get', 'FEATURECLA'], 'Admin-0 capital'],
+      layout: {
+        'text-field': ['get', 'NAME_SA'],
+        'text-font': ['Noto Sans Devanagari Regular v1'],
+        'text-size': ['interpolate', ['linear'], ['zoom'],
+                      3, 8,
+                      5, 12,
+                      8, 16],
+        'text-anchor': 'center',
+        'text-allow-overlap': false,
+        'symbol-placement': 'point',
+        'text-max-angle': 0
+      },
+      paint: {
+        'text-color': '#000',
+        'text-halo-color': '#fff',
+        'text-halo-width': 1
+      }
+    });
+
+    // Saritaḥ
+    map.addLayer({
+      minzoom: 2,
+      id: 'rivers-line',
+      type: 'line',
+      source: 'rivers',
+      paint: {
+        'line-color': '#1ca3ec',   // river blue
+        'line-width': 1.2
+      }
+    });
+    map.addLayer({
+      id: 'rivers-labels',
+      type: 'symbol',
+      source: 'rivers',
+      layout: {
+        'text-field': ['get', 'NAME_SA'], // use the river name property
+        'text-font': ['Noto Sans Devanagari Regular v1'], // or Shobhika/Noto Devanagari for Sanskrit names
+        'text-size': 14,
+        'symbol-placement': 'line',       // aligns text along river path
+        'text-rotation-alignment': 'map',
+        'text-keep-upright': true
+      },
+      paint: {
+        'text-color': '#1ca3ec',
+        'text-halo-color': '#fff',
+        'text-halo-width': 1
+      }
+    });
+
+
+
+  });
+
+  // Clicking Logic
+
+  const clickableLayers = ['countries-label', 'capital-labels-sa'];
+
+  // Hover cursor
+  clickableLayers.forEach(layer => {
+    map.on('mouseenter', layer, () => map.getCanvas().style.cursor = 'pointer');
+    map.on('mouseleave', layer, () => map.getCanvas().style.cursor = '');
+  });
+
+  map.on('click', (e) => {
+    const features = map.queryRenderedFeatures(e.point, { layers: clickableLayers });
+    if (!features.length) return;
+
+    const props = features[0].properties;
+
+    namesArray = JSON.parse(props.names_sanskrit);
+    
+    // --- Primary ---
+    const primary = namesArray.find(n => n.primary) || {};
+    const notesText = (primary.notes || "").replace(/\n/g, "<br>");
+
+    // --- Alternates ---
+    let alternates = namesArray
+      .filter(n => !n.primary)
+      .map(n => {
+        let text = "";
+        if (n.name) text += `<strong>${n.name}</strong>`;
+        if (n.notes) text += "<br>" + n.notes.replace(/\n/g, "<br>");
+        return text;
+      })
+      .join("<br><br>");
+
+    if (!alternates) alternates = "<em>नामान्तराणि न लभ्यानि</em>";
+
+    openSidebar({
+      sa: primary.name || "",
+      native: props.NAME || "",
+      en: props.NAME_EN || "",
+      notes: notesText,
+      alts: alternates
+    });
+  });
+
+
+
+  // map.on('click', 'rivers-labels', (e) => {
+  //   const props = e.features[0].properties;
+  //   const sanskritObj = props.names_sanskrit?.[0] || {};
+  //   openSidebar({
+  //     sa: props.NAME_SA || "",
+  //     native: props.name || "",
+  //     en: props.name_en || "",
+  //     notes: sanskritObj.notes || ""
+  //   });
+  // });
+
+</script>
+</body>
+</html>
