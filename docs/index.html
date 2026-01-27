@@ -39,6 +39,11 @@
       <div class="value" id="sb-english"></div>
     </div>
 
+    <div class="row">
+      <div class="label">नामशुद्धिः</div>
+      <div class="value" id="sb-confidence"></div>
+    </div>
+
     <br>
     <div class="label big-label">विवरणम्</div>
     <div class="value notes" id="sb-notes"></div>
@@ -62,6 +67,7 @@
 
   function openSidebar(data) {
     document.getElementById("sb-title").innerHTML = data.sa || "";
+    document.getElementById("sb-confidence").textContent = data.confidence || "";
     document.getElementById("sb-native").textContent = data.native || "";
     document.getElementById("sb-english").textContent = data.en || "";
     document.getElementById("sb-notes").innerHTML = data.notes || "";   // use innerHTML for <br>
@@ -332,17 +338,16 @@
       })
       .join("") || "<em>नामान्तराण्यलभ्यानि</em>";
 
-    // Confidence
+    // Primary Name
     const primaryNameHtml = `
-      <div class="name-row">
-        <div class="name-label">${primary.name || ""}</div><div class="confidence-value">${primary.confidence != null ? (primary.confidence*100).toFixed(0) + '%' : ''}</div>
-      </div>
+        <div class="name-label">${primary.name || ""}</div>
     `;
-
+    const confidence = primary.confidence != null ? (primary.confidence*100).toFixed(0) + '%' : '';
 
 
     openSidebar({
       sa: primaryNameHtml,
+      confidence: confidence,
       native: props.NAME || props.name || "",
       en: props.NAME_EN || props.name_en || "",
       notes: notesText,
