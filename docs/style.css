@@ -138,6 +138,28 @@ main {
 }
 
 
+.name-row {
+  display: flex;                  /* put name and confidence in a row */
+  justify-content: space-between; /* push confidence to right */
+  align-items: center;            /* vertically center text */
+  padding: 4px 0;
+}
+
+.name-label {
+  font-weight: bold;
+  text-align: left;
+}
+
+.confidence-value {
+  text-align: right;
+}
+
+.alt-notes {
+  margin-top: 4px; /* space below the row */
+  text-align: left;
+  white-space: pre-line; /* preserves newlines if notes are plain text */
+  overflow-wrap: break-word;
+}
 
 /* ---------- STATIC PAGES ---------- */
 .page {

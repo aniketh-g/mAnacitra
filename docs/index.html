@@ -24,7 +24,7 @@
 
 <aside id="sidebar">
   <header>
-    <h2 id="sb-title">नाम</h2>
+    <h2 id="sb-title"></h2>
     <button onclick="closeSidebar()">×</button>
   </header>
   <div class="content">
@@ -61,7 +61,7 @@
   let highlightedRiver = null;
 
   function openSidebar(data) {
-    document.getElementById("sb-title").textContent = data.sa || "";
+    document.getElementById("sb-title").innerHTML = data.sa || "";
     document.getElementById("sb-native").textContent = data.native || "";
     document.getElementById("sb-english").textContent = data.en || "";
     document.getElementById("sb-notes").innerHTML = data.notes || "";   // use innerHTML for <br>
@@ -321,17 +321,28 @@
     let alternates = namesArray
       .filter(n => !n.primary)
       .map(n => {
-        let text = "";
-        if (n.name) text += `<strong>${n.name}</strong>`;
-        if (n.notes) text += "<br>" + n.notes.replace(/\n/g, "<br>");
-        return text;
+        return `
+          <div class="alt-container">
+            <div class="name-row">
+              <div class="name-label"><strong>${n.name}</strong></div><div class="confidence-value">${n.confidence != null ? (n.confidence*100).toFixed(0) + '%' : ''}</div>
+            </div>
+            ${n.notes ? `<div class="alt-notes">${n.notes.replace(/\n/g, "<br>")}</div>` : ''}
+          </div>
+        `;
       })
-      .join("<br><br>");
+      .join("") || "<em>नामान्तराण्यलभ्यानि</em>";
 
-    if (!alternates) alternates = "<em>नामान्तराणि न लभ्यानि</em>";
+    // Confidence
+    const primaryNameHtml = `
+      <div class="name-row">
+        <div class="name-label">${primary.name || ""}</div><div class="confidence-value">${primary.confidence != null ? (primary.confidence*100).toFixed(0) + '%' : ''}</div>
+      </div>
+    `;
+
+
 
     openSidebar({
-      sa: primary.name || "",
+      sa: primaryNameHtml,
       native: props.NAME || props.name || "",
       en: props.NAME_EN || props.name_en || "",
       notes: notesText,
