@@ -55,6 +55,11 @@
 
 <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
 <script>
+
+  let highlightedCountry = null;
+  let highlightedCity = null;
+  let highlightedRiver = null;
+
   function openSidebar(data) {
     document.getElementById("sb-title").textContent = data.sa || "";
     document.getElementById("sb-native").textContent = data.native || "";
@@ -66,6 +71,9 @@
 
   function closeSidebar() {
     document.getElementById("sidebar").classList.remove("open");
+    map.setFilter('countries-fill', ['==', ['get', 'ADM0_A3'], '']);
+    map.setFilter('capital-highlight', ['==', ['get', 'ADM0_A3'], '']);
+    map.setFilter('rivers-highlight', ['==', ['get', 'name'], '']);
   }
 
   const map = new maplibregl.Map({
@@ -91,7 +99,8 @@
   map.on('load', () => {
     map.addSource('countries', {
       type: 'geojson',
-      data: 'countries.geojson'
+      data: 'countries.geojson',
+      generateId: true
     });
     map.addSource('cities', {
       type: 'geojson',
@@ -108,9 +117,17 @@
       type: 'fill',
       source: 'countries',
       paint: {
-        'fill-color': 'rgba(0,0,0,0)',
-        // 'fill-opacity': 0,
-        'fill-outline-color': '#999'
+        'fill-color': 'rgba(255,200,0,0.4)',
+      },
+      filter: ['==', ['get', 'ADM0_A3'], ''] // nothing selected initially
+    });
+    map.addLayer({
+      id: 'countries-outline',
+      type: 'line',
+      source: 'countries',
+      paint: {
+        'line-color': '#999',
+        'line-width': 1
       }
     });
     map.addLayer({
@@ -166,6 +183,18 @@
       }
     });
     map.addLayer({
+      id: 'capital-highlight',
+      type: 'circle',
+      source: 'cities',
+      paint: {
+        'circle-radius': 6,
+        'circle-color': 'rgba(255,200,0,0.9)',
+        'circle-stroke-color': '#000',
+        'circle-stroke-width': 2
+      },
+      filter: ['==', ['get', 'ADM0_A3'], ''] // empty initially
+    });
+    map.addLayer({
       minzoom:3,
       id: 'capital-labels-sa',
       type: 'symbol',
@@ -202,6 +231,16 @@
       }
     });
     map.addLayer({
+      id: 'rivers-highlight',
+      type: 'line',
+      source: 'rivers',
+      paint: {
+        'line-color': 'rgba(56, 179, 208, 0.9)',
+        'line-width': 3
+      },
+      filter: ['==', ['get', 'ADM0_A3'], ''] // nothing selected
+    });
+    map.addLayer({
       id: 'rivers-labels',
       type: 'symbol',
       source: 'rivers',
@@ -220,12 +259,9 @@
       }
     });
 
-
-
   });
 
   // Clicking Logic
-
   const clickableLayers = ['countries-label', 'capital-labels-sa', 'rivers-labels'];
 
   // Hover cursor
@@ -233,16 +269,51 @@
     map.on('mouseenter', layer, () => map.getCanvas().style.cursor = 'pointer');
     map.on('mouseleave', layer, () => map.getCanvas().style.cursor = '');
   });
+  // Close Sidebar
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeSidebar();
+    }
+  });
+
 
   map.on('click', (e) => {
     const features = map.queryRenderedFeatures(e.point, { layers: clickableLayers });
     if (!features.length) return;
 
-    const props = features[0].properties;
+    const feature = features[0];
+    const props = feature.properties;
 
-    namesArray = JSON.parse(props.names_sanskrit);
-    
-    // --- Primary ---
+    // CLEAR ALL HIGHLIGHTS
+    map.setFilter('countries-fill', ['==', ['get', 'ADM0_A3'], '']);
+    map.setFilter('capital-highlight', ['==', ['get', 'ADM0_A3'], '']);
+    map.setFilter('rivers-highlight', ['==', ['get', 'name'], '']);
+
+    // APPLY CORRECT HIGHLIGHT
+    if (feature.layer.id === 'countries-label') {
+      map.setFilter('countries-fill', [
+        '==',
+        ['get', 'ADM0_A3'],
+        props.ADM0_A3
+      ]);
+    }
+    if (feature.layer.id === 'capital-labels-sa') {
+      map.setFilter('capital-highlight', [
+        '==',
+        ['get', 'NAME_SA'],
+        props.NAME_SA
+      ]);
+    }
+    if (feature.layer.id === 'rivers-labels') {
+      map.setFilter('rivers-highlight', [
+        '==',
+        ['get', 'NAME_SA'],
+        props.NAME_SA
+      ]);
+    }
+
+    // SIDEBAR (unchanged logic)
+    const namesArray = JSON.parse(props.names_sanskrit || '[]');
     const primary = namesArray.find(n => n.primary) || {};
     const notesText = (primary.notes || "").replace(/\n/g, "<br>");
 
@@ -267,20 +338,6 @@
       alts: alternates
     });
   });
-
-
-
-  // map.on('click', 'rivers-labels', (e) => {
-  //   const props = e.features[0].properties;
-  //   const sanskritObj = props.names_sanskrit?.[0] || {};
-  //   openSidebar({
-  //     sa: props.NAME_SA || "",
-  //     native: props.name || "",
-  //     en: props.name_en || "",
-  //     notes: sanskritObj.notes || ""
-  //   });
-  // });
-
 </script>
 </body>
 </html>
