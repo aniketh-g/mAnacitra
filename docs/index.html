@@ -114,6 +114,7 @@
       }
     });
     map.addLayer({
+      minzoom: 2,
       id: 'countries-label',
       type: 'symbol',
       source: 'countries',
@@ -143,7 +144,9 @@
       source: 'cities',
       filter: ['==', ['get', 'FEATURECLA'], 'Admin-0 capital'], // only capitals
       paint: {
-        'circle-radius': 3,
+        'circle-radius': ['interpolate', ['linear'], ['zoom'],
+                      3, 2,
+                      5, 3],
         'circle-color': '#fff',
         'circle-stroke-color': '#000',
         'circle-stroke-width': 2
@@ -156,7 +159,9 @@
       source: 'cities',
       filter: ['==', ['get', 'FEATURECLA'], 'Admin-0 capital'],
       paint: {
-        'circle-radius': 2,
+        'circle-radius': ['interpolate', ['linear'], ['zoom'],
+                      3, 1,
+                      5, 2],
         'circle-color': '#000'
       }
     });
@@ -173,10 +178,9 @@
                       3, 8,
                       5, 12,
                       8, 16],
-        'text-anchor': 'center',
-        'text-allow-overlap': false,
-        'symbol-placement': 'point',
-        'text-max-angle': 0
+        'text-anchor': 'bottom',     // anchor text relative to point
+        'text-offset': [0, -0.8],    // move label upward
+        'text-allow-overlap': false
       },
       paint: {
         'text-color': '#000',
@@ -187,12 +191,13 @@
 
     // Saritaḥ
     map.addLayer({
-      minzoom: 2,
+      minzoom: 4,
+      maxzoom: 9,
       id: 'rivers-line',
       type: 'line',
       source: 'rivers',
       paint: {
-        'line-color': '#1ca3ec',   // river blue
+        'line-color': 'rgba(56, 179, 208, 0.5)',   // river blue
         'line-width': 1.2
       }
     });
@@ -221,7 +226,7 @@
 
   // Clicking Logic
 
-  const clickableLayers = ['countries-label', 'capital-labels-sa'];
+  const clickableLayers = ['countries-label', 'capital-labels-sa', 'rivers-labels'];
 
   // Hover cursor
   clickableLayers.forEach(layer => {
@@ -256,8 +261,8 @@
 
     openSidebar({
       sa: primary.name || "",
-      native: props.NAME || "",
-      en: props.NAME_EN || "",
+      native: props.NAME || props.name || "",
+      en: props.NAME_EN || props.name_en || "",
       notes: notesText,
       alts: alternates
     });
