@@ -128,9 +128,9 @@ main {
 .value {
   flex-grow: 1;
   text-align: left;
-  overflow: hidden;    /* hide overflow if too long */
-  text-overflow: ellipsis; /* add ... for long text */
-  white-space: nowrap; /* keep text on a single line */
+  white-space: normal;        /* allow wrapping */
+  overflow-wrap: break-word;  /* break long words */
+  word-break: break-word;     /* extra safety */
 }
 
 .big-label {
