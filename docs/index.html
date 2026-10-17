@@ -90,9 +90,10 @@
       sources: { 
         basemap: { 
           type: 'raster', 
-          tiles: ['https://a.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',
-                    'https://b.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',
-                    'https://c.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png'], 
+          tiles: ['https://a.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png?key=cb1_4lxi_1_09f8e55e794590ba1750f50f',
+                  'https://b.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png?key=cb1_4lxi_1_09f8e55e794590ba1750f50f',
+                  'https://c.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png?key=cb1_4lxi_1_09f8e55e794590ba1750f50f',
+                ], 
           tileSize: 256 
         } 
       },
@@ -102,19 +103,43 @@
     zoom: 2
   });
 
-  map.on('load', () => {
+  map.on('load', async () => {
+    const response = await fetch('data/countries.geojson');
+    if (!response.ok) {
+      throw new Error(`Could not load countries: ${response.status}`);
+    }
+    const countries = await response.json();
+
     map.addSource('countries', {
       type: 'geojson',
-      data: 'countries.geojson',
+      data: countries,
       generateId: true
+    });
+
+    map.addSource('country-label-points', {
+      type: 'geojson',
+      data: {
+        type: 'FeatureCollection',
+        features: countries.features.map(feature => ({
+          type: 'Feature',
+          properties: feature.properties,
+          geometry: {
+            type: 'Point',
+            coordinates: [
+              feature.properties.LABEL_X,
+              feature.properties.LABEL_Y
+            ]
+          }
+        }))
+      }
     });
     map.addSource('cities', {
       type: 'geojson',
-      data: 'cities.geojson'
+      data: 'data/cities.geojson'
     });
     map.addSource('rivers', {
       type: 'geojson',
-      data: 'rivers.geojson'
+      data: 'data/rivers.geojson'
     });
 
     // Deśāḥ
@@ -140,7 +165,7 @@
       minzoom: 2,
       id: 'countries-label',
       type: 'symbol',
-      source: 'countries',
+      source: 'country-label-points',
       layout: {
         'text-field': ['get', 'NAME_SA'],
         'text-font': ['Noto Sans Devanagari Regular v1'],
@@ -348,7 +373,7 @@
     openSidebar({
       sa: primaryNameHtml,
       confidence: confidence,
-      native: props.NAME || props.name || "",
+      native: props.NAME_NATIVE || "",
       en: props.NAME_EN || props.name_en || "",
       notes: notesText,
       alts: alternates

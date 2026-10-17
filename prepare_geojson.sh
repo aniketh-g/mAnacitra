@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Path to your local Natural Earth zip
-FILE_NAME="ne_10m_rivers_lake_centerlines"
+FILE_NAME="CityPoints"
 ZIP_FILE="./$FILE_NAME.zip"
 
 # Temporary folder to unzip

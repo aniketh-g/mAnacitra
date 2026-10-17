@@ -1,0 +1,8 @@
+{
+  "version": "5.1.2",
+  "datasets": {
+    "cities": "ne_50m_populated_places",
+    "countries": "ne_10m_admin_0_countries_ind",
+    "rivers": "ne_10m_rivers_lake_centerlines"
+  }
+}

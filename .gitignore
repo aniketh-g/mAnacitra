@@ -1,0 +1,6 @@
+*.pdf
+*.txt
+*.zip
+docs/start_server
+data/upstream
+build
