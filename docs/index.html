@@ -235,6 +235,16 @@ function openSidebar(props, placeKey) {
   });
 
   map.on('load', async () => {
+    map.addSource('cities', {
+      type: 'geojson',
+      data: 'data/cities.geojson'
+    });
+    
+    map.addSource('rivers', {
+      type: 'geojson',
+      data: 'data/rivers.geojson'
+    });
+
     const response = await fetch('data/countries.geojson');
     if (!response.ok) {
       throw new Error(`Could not load countries: ${response.status}`);
@@ -263,14 +273,6 @@ function openSidebar(props, placeKey) {
           }
         }))
       }
-    });
-    map.addSource('cities', {
-      type: 'geojson',
-      data: 'data/cities.geojson'
-    });
-    map.addSource('rivers', {
-      type: 'geojson',
-      data: 'data/rivers.geojson'
     });
 
     // Deśāḥ

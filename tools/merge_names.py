@@ -81,7 +81,7 @@ updated = sum(
 # Write only the generated website data.
 OUTPUT.parent.mkdir(parents=True, exist_ok=True)
 OUTPUT.write_text(
-    json.dumps(data, ensure_ascii=False, indent=2) + "\n",
+    json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n",
     encoding="utf-8",
 )
 
