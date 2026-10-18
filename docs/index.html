@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="inspectors.css" />
   <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet"/>
 </head>
 <body>
@@ -22,42 +23,26 @@
   <div id="map"></div>
 </main>
 
-<aside id="sidebar">
-  <header>
-    <h2 id="sb-title"></h2>
-    <button onclick="closeSidebar()">×</button>
-  </header>
-  <div class="content">
-    
-    <div class="row">
-      <div class="label">स्वभाषायाम्</div>
-      <div class="value" id="sb-native"></div>
+<aside id="sidebar" aria-labelledby="sb-title" inert>
+  <button class="sidebar-close" onclick="closeSidebar()"
+          aria-label="Close sidebar">×</button>
+
+  <div class="sidebar-content">
+    <div class="place-introduction">
+      <h2 id="sb-title" lang="sa"></h2>
+      <div id="sb-families" class="name-families"></div>
+      <div id="sb-description" class="prose"></div>
     </div>
 
-    <div class="row">
-      <div class="label">आङ्ग्लायाम्</div>
-      <div class="value" id="sb-english"></div>
-    </div>
-
-    <div class="row">
-      <div class="label">नामशुद्धिः</div>
-      <div class="value" id="sb-confidence"></div>
-    </div>
-
-    <br>
-    <div class="label big-label">विवरणम्</div>
-    <div class="value notes" id="sb-notes"></div>
-
-    <br>
-    <hr>
-    <br>
-
-    <div class="label big-label">नामान्तराणि</div>
-    <br> <!-- space after heading -->
-    <div class="value" id="sb-altnames"></div>
+    <section class="sanskrit-section" aria-labelledby="sb-names-heading">
+      <h3 id="sb-names-heading">संस्कृतनामानि</h3>
+      <ol id="sb-names"></ol>
+    </section>
   </div>
 </aside>
 
+<script src="https://cdn.jsdelivr.net/npm/marked@15/lib/marked.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
 <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
 <script>
 
@@ -65,18 +50,164 @@
   let highlightedCity = null;
   let highlightedRiver = null;
 
-  function openSidebar(data) {
-    document.getElementById("sb-title").innerHTML = data.sa || "";
-    document.getElementById("sb-confidence").textContent = data.confidence || "";
-    document.getElementById("sb-native").textContent = data.native || "";
-    document.getElementById("sb-english").textContent = data.en || "";
-    document.getElementById("sb-notes").innerHTML = data.notes || "";   // use innerHTML for <br>
-    document.getElementById("sb-altnames").innerHTML = data.alts || ""; // use innerHTML for <strong> & <br>
-    document.getElementById("sidebar").classList.add("open");
+  function readArray(value) {
+  if (Array.isArray(value)) return value;
+  if (!value) return [];
+  const parsed = JSON.parse(value);
+  return Array.isArray(parsed) ? parsed : [];
+}
+
+function markdown(text = "") {
+  // Also accommodate literal \n sequences in your existing notes.
+  const source = String(text).replace(/\\n/g, "\n");
+  return DOMPurify.sanitize(
+    marked.parse(source, { breaks: true }),
+    { USE_PROFILES: { html: true } }
+  );
+}
+
+function addProse(parent, text, className = "") {
+  if (!text) return;
+  const div = document.createElement("div");
+  div.className = `prose ${className}`;
+  div.innerHTML = markdown(text);
+  parent.append(div);
+}
+
+function addCitations(parent, citations = []) {
+  if (!citations.length) return;
+
+  const list = document.createElement("ul");
+  list.className = "name-citations prose";
+
+  for (const citation of citations) {
+    const item = document.createElement("li");
+    const label = citation.title || citation.source_id || "Source";
+    let url;
+
+    try {
+      const candidate = new URL(citation.url);
+      if (["http:", "https:"].includes(candidate.protocol)) {
+        url = candidate.href;
+      }
+    } catch {}
+
+    if (url) {
+      const link = document.createElement("a");
+      link.href = url;
+      link.textContent = label;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      item.append(link);
+    } else {
+      item.append(document.createTextNode(label));
+    }
+
+    if (citation.locator) {
+      item.append(document.createTextNode(` — ${citation.locator}`));
+    }
+
+    if (citation.quote) {
+      const quote = document.createElement("blockquote");
+      quote.innerHTML = markdown(citation.quote);
+      item.append(quote);
+    }
+
+    addProse(item, citation.note || citation.comment);
+    list.append(item);
   }
+
+  parent.append(list);
+}
+
+let currentOverviewKey = null;
+function openSidebar(props, placeKey) {
+  const sidebar = document.getElementById('sidebar');
+
+  if (
+    placeKey === currentOverviewKey &&
+    sidebar.classList.contains('open')
+  ) {
+    return;
+  }
+
+  if (placeKey !== currentOverviewKey) {
+    NameInspectors.closeAll();
+  }
+
+  currentOverviewKey = placeKey;
+
+  const names = readArray(props.names_sanskrit);
+  const primary = names.find(name => name.primary);
+  const families = readArray(props.name_families);
+
+  document.getElementById("sb-title").textContent =
+    primary?.name || "नाम न निर्धारितम्";
+
+  const pills = document.getElementById("sb-families");
+  pills.replaceChildren();
+
+  for (const family of families) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "family-pill";
+    button.textContent = family.label;
+    button.addEventListener("click", () => NameInspectors.open("foreign", family, button));
+    pills.append(button);
+  }
+
+  document.getElementById("sb-description").innerHTML =
+    markdown(props.description || "");
+
+  const list = document.getElementById("sb-names");
+  list.replaceChildren();
+
+  // Preserve the authored order, including the preferred name.
+  for (const name of names) {
+    if (!name.name) continue;
+
+    const item = document.createElement("li");
+    const heading = document.createElement("h4");
+    heading.className = "sanskrit-name";
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.lang = "sa";
+    button.textContent = name.name;
+    button.addEventListener("click", () => NameInspectors.open("sanskrit", name, button));
+    heading.append(button);
+    item.append(heading);
+
+    for (const etymology of name.etymologies || []) {
+      const entry = document.createElement("div");
+      entry.className = "etymology";
+
+      addProse(entry, etymology.derivation, "derivation");
+      addProse(entry, etymology.notes);
+      addCitations(entry, etymology.citations || []);
+
+      item.append(entry);
+    }
+
+    // Keep existing entries visible during migration.
+    if (!name.etymologies) {
+      addProse(item, name.derivation, "derivation");
+      addProse(item, name.context ?? name.notes);
+      addCitations(item, name.citations || []);
+    }
+
+    list.append(item);
+  }
+
+  sidebar.inert = false;
+  sidebar.classList.add("open");
+  sidebar.querySelector(".sidebar-close").focus({ preventScroll: true });
+}
 
   function closeSidebar() {
     document.getElementById("sidebar").classList.remove("open");
+    document.getElementById("sidebar").inert = true;
+    map.getCanvas().focus({ preventScroll: true });
     map.setFilter('countries-fill', ['==', ['get', 'ADM0_A3'], '']);
     map.setFilter('capital-highlight', ['==', ['get', 'ADM0_A3'], '']);
     map.setFilter('rivers-highlight', ['==', ['get', 'name'], '']);
@@ -301,8 +432,13 @@
     map.on('mouseleave', layer, () => map.getCanvas().style.cursor = '');
   });
   // Close Sidebar
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+
+    if (NameInspectors.closeAll()) {
+      document.querySelector('.sidebar-close')
+        ?.focus({ preventScroll: true });
+    } else {
       closeSidebar();
     }
   });
@@ -344,41 +480,10 @@
     }
 
     // SIDEBAR (unchanged logic)
-    const namesArray = JSON.parse(props.names_sanskrit || '[]');
-    const primary = namesArray.find(n => n.primary) || {};
-    const notesText = (primary.notes || "").replace(/\n/g, "<br>");
-
-    // --- Alternates ---
-    let alternates = namesArray
-      .filter(n => !n.primary)
-      .map(n => {
-        return `
-          <div class="alt-container">
-            <div class="name-row">
-              <div class="name-label"><strong>${n.name}</strong></div><div class="confidence-value">${n.confidence != null ? (n.confidence*100).toFixed(0) + '%' : ''}</div>
-            </div>
-            ${n.notes ? `<div class="alt-notes">${n.notes.replace(/\n/g, "<br>")}</div>` : ''}
-          </div>
-        `;
-      })
-      .join("") || "<em>नामान्तराण्यलभ्यानि</em>";
-
-    // Primary Name
-    const primaryNameHtml = `
-        <div class="name-label">${primary.name || ""}</div>
-    `;
-    const confidence = primary.confidence != null ? (primary.confidence*100).toFixed(0) + '%' : '';
-
-
-    openSidebar({
-      sa: primaryNameHtml,
-      confidence: confidence,
-      native: props.NAME_NATIVE || "",
-      en: props.NAME_EN || props.name_en || "",
-      notes: notesText,
-      alts: alternates
-    });
+    openSidebar(props, `${feature.layer.id}:${props.name_record_id || props.place_id}`);
   });
 </script>
+<script src="inspector-graph.js"></script>
+<script src="inspectors.js"></script>
 </body>
 </html>

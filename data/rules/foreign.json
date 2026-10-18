@@ -1,0 +1,6 @@
+{
+  "foreign:your-rule-id": {
+    "text": "Sound-change description",
+    "url": "https://example.org/source"
+  }
+}

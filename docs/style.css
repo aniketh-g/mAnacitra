@@ -50,6 +50,12 @@ body {
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Shobhika';
+  src: url('fonts/Shobhika-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
 
 /* ---------- MAIN PAGE ---------- */
 main {
@@ -69,100 +75,209 @@ main {
 #sidebar {
   position: fixed;
   top: 56px;
-  right: 0;
-  width: 400px;
   bottom: 0;
-  background: #fff;
-  border-left: 1px solid #ddd;
-  transform: translateX(100%);
-  transition: transform 0.25s ease;
+  left: 0;
+  width: min(440px, 100vw);
+  box-sizing: border-box;
+  background: #fffefa;
+  color: #292822;
+  border-right: 1px solid #e5e1d8;
+  box-shadow: 6px 0 24px rgb(0 0 0 / 5%);
+  transform: translateX(-100%);
+  visibility: hidden;
+  transition: transform 250ms ease, visibility 250ms;
   z-index: 20;
-  display: flex;
-  flex-direction: column;
 }
 
 #sidebar.open {
   transform: translateX(0);
+  visibility: visible;
 }
 
-#sidebar header {
-  padding: 16px;
-  border-bottom: 1px solid #eee;
-  position: relative;
+.sidebar-content {
+  height: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 32px 28px 48px;
 }
 
-#sidebar header h2 {
-  margin: 0;
-  font-size: 22px;
-}
-
-#sidebar header button {
+.sidebar-close {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  border: none;
-  background: none;
-  font-size: 20px;
+  top: 10px;
+  right: 12px;
+  z-index: 1;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: #fffefa;
+  color: #716d65;
+  font-size: 26px;
   cursor: pointer;
 }
 
-#sidebar .content {
-  padding: 16px;
-  overflow-y: auto;
+#sb-title {
+  margin: 0 28px 14px 0;
+  font-family: 'Shobhika', serif;
+  font-size: 36px;
+  font-weight: normal;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  align-items: center;
+}
+
+.name-families {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 20px;
+}
+
+.name-families:empty,
+#sb-description:empty {
+  display: none;
+}
+
+.family-pill {
+  padding: 5px 12px;
+  border: 1px solid #ded9cf;
+  border-radius: 999px;
+  background: transparent;
+  color: #59554b;
+  font: inherit;
+  font-size: 13px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.sanskrit-section {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid #e5e1d8;
+}
+
+#sb-names-heading {
+  margin: 0 0 20px;
+  font-family: 'Shobhika', serif;
+  font-size: 21px;
+  font-weight: normal;
+  color: #777164;
+}
+
+#sb-names {
+  margin: 0;
+  padding-left: 24px;
+}
+
+#sb-names > li {
+  padding-left: 6px;
+}
+
+#sb-names > li::marker {
+  color: #928b7d;
+  font-size: 13px;
+}
+
+#sb-names > li + li {
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid #eeeae2;
+}
+
+.sanskrit-name {
+  margin: 0 0 8px;
+  font-family: 'Shobhika', serif;
+  font-size: 27px;
+  font-weight: normal;
+  line-height: 1.5;
+}
+
+.sanskrit-name button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.prose {
+  font-family: 'Shobhika', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.prose p {
+  margin: 0 0 10px;
+}
+
+.prose > :last-child {
+  margin-bottom: 0;
+}
+
+.derivation {
+  margin-bottom: 12px;
+  color: #62583f;
+}
+
+.prose blockquote {
+  margin: 12px 0;
+  padding-left: 14px;
+  border-left: 2px solid #d8cbb2;
+  color: #696255;
+}
+
+.prose a {
+  color: #695028;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.name-citations {
+  margin: 12px 0 0;
+  padding-left: 18px;
+  color: #777164;
   font-size: 14px;
 }
 
-.row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 8px;
-  flex-wrap: nowrap;   /* prevent wrapping */
+.etymology + .etymology {
+  margin-top: 1.25rem;
 }
 
-.label {
-  font-weight: bold;
-  width: 120px; /* fixed width for labels */
-  flex-shrink: 0;
+#sidebar button:focus-visible {
+  outline: 2px solid #927746;
+  outline-offset: 3px;
 }
 
-.value {
-  flex-grow: 1;
-  text-align: left;
-  white-space: normal;        /* allow wrapping */
-  overflow-wrap: break-word;  /* break long words */
-  word-break: break-word;     /* extra safety */
+@media (prefers-reduced-motion: reduce) {
+  #sidebar {
+    transition: none;
+  }
 }
 
-.big-label {
-  font-size: 16px; /* slightly bigger than default labels */
-}
-
-
-.name-row {
-  display: flex;                  /* put name and confidence in a row */
-  justify-content: space-between; /* push confidence to right */
-  align-items: center;            /* vertically center text */
-  padding: 4px 0;
-}
-
-.name-label {
-  font-weight: bold;
-  text-align: left;
-}
-
-.confidence-value {
-  text-align: right;
-}
-
-.alt-notes {
-  margin-top: 4px; /* space below the row */
-  text-align: left;
-  white-space: pre-line; /* preserves newlines if notes are plain text */
-  overflow-wrap: break-word;
+.sanskrit-name button,
+.family-pill {
+  cursor: pointer;
 }
 
 /* ---------- STATIC PAGES ---------- */
 .page {
   padding: 24px;
   max-width: 800px;
+}
+
+/* Foreign family: hover preview and persistent open-inspector selection. */
+.family-pill { transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease; }
+.family-pill:hover { background: #f3efe6; border-color: #cfc5b2; }
+.family-pill.mi-selected {
+  background: #e9dfcb;
+  border-color: #927746;
+  color: #403620;
+}
+.family-pill.mi-selected:hover { background: #e2d5bd; }
+@media (prefers-reduced-motion: reduce) {
+  .family-pill { transition: none; }
 }

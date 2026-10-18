@@ -1,0 +1,237 @@
+/* Desktop inspectors; scoped to avoid the site's global header/nav styles. */
+:root { --inspector-width: min(440px, calc((100vw - 440px) / 2)); }
+.mi-panel {
+  position: fixed; top: 56px; bottom: 0; right: 0;
+  width: var(--inspector-width); box-sizing: border-box;
+  display: flex; flex-direction: column; z-index: 19;
+  background: #fffefa; color: #292822; border-left: 1px solid #e5e1d8;
+  transform: translateX(100%); visibility: hidden;
+  transition: transform 250ms ease, visibility 250ms;
+  font-family: 'Shobhika', Georgia, serif;
+}
+.mi-panel.mi-open { transform: translateX(0); visibility: visible; }
+body.mi-both #mi-foreign.mi-open { transform: translateX(-100%); }
+.mi-top { flex: none; padding: 22px 24px 12px; position: relative; }
+.mi-kind {
+  color: #777164;
+  font: 14px/1.5 'Shobhika', serif;
+}
+.mi-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+}
+.mi-pronunciation {
+  color: #777164;
+  font: 19px/1.5 'Shobhika', serif;
+  font-style: italic;
+}
+.mi-title { font-size: 28px; font-weight: normal; margin: 8px 32px 0 0; overflow-wrap: anywhere; }
+.mi-close { position: absolute; top: 16px; right: 14px; background: none; border: 0; font-size: 26px; color: #716d65; cursor: pointer; }
+.mi-tabs { display: flex; padding: 0 20px; border-bottom: 1px solid #e5e1d8; flex: none; gap: 18px; }
+.mi-tabs button { background: none; border: 0; padding: 10px 0; font: inherit; font-size: 19px; cursor: pointer; color: #777164; }
+.mi-tabs button[aria-selected="true"] { color: #403620; box-shadow: inset 0 -2px #927746; }
+.mi-content { overflow-y: auto; overscroll-behavior: contain; padding: 22px; min-height: 0; flex: 1; }
+.mi-panel button:focus-visible, .mi-panel summary:focus-visible, .mi-panel select:focus-visible { outline: 2px solid #927746; outline-offset: 3px; }
+.mi-select { display: block; margin-bottom: 22px; font: 13px sans-serif; color: #777164; }
+.mi-select select { display: block; width: 100%; margin-top: 8px; padding: 8px; background: transparent; border: 1px solid #ded9cf; border-radius: 4px; color: #292822; }
+.mi-empty, .mi-meta { font-size: 14px; color: #777164; line-height: 1.6; }
+.mi-graph-scroll { overflow-x: auto; margin: 18px 0; }
+.mi-graph { position: relative; }
+.mi-graph svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+.mi-row, .mi-edge-row { display: grid; gap: 16px; position: relative; z-index: 1; align-items: start; }
+.mi-edge-row { margin: 44px 0; }
+.mi-node { padding: 9px 4px; text-align: center; border-bottom: 1px solid #cfc5b2; background: #fffefa; min-width: 0; overflow-wrap: anywhere; }
+.mi-node summary { font-size: 21px; cursor: pointer; }
+.mi-node .mi-meta { display: block; font: 11px/1.5 sans-serif; margin-top: 6px; }
+.mi-rule { background: #fffefa; padding: 6px 4px; font-size: 14px; line-height: 1.65; min-width: 0; overflow-wrap: anywhere; }
+.mi-rule summary { cursor: pointer; }
+.mi-rule[data-kind="borrowing"] { border-left: 2px dashed #8b7552; padding-left: 8px; }
+.mi-rule[data-kind="morphology"] { border-left: 2px double #8b7552; padding-left: 8px; }
+.mi-rule .mi-meta { font: 10px sans-serif; display: block; margin-bottom: 5px; }
+.mi-route { min-height: 2px; align-self: center; }
+.mi-attestation { padding: 18px 0; border-bottom: 1px solid #e5e1d8; }
+.mi-attestation h3 { margin: 0 0 8px; font-weight: normal; }
+.mi-panel .prose { font-size: 16px; }
+.mi-panel details .prose { text-align: left; margin-top: 10px; }
+@media (max-width: 999px) {
+  /* Full mobile interaction is deferred; retain the existing overview on narrow screens. */
+  .mi-panel { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .mi-panel { transition: none; } }
+/* Equal-height cells reserve clear connector bands above and below every label. */
+.mi-row, .mi-edge-row { align-items: stretch; }
+.mi-route { align-self: stretch; }
+
+.mi-etym-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.mi-etym-choices button {
+  min-width: 36px;
+  min-height: 36px;
+  padding: 3px 10px;
+  border: 1px solid #ded9cf;
+  border-radius: 4px;
+  background: transparent;
+  color: #777164;
+  font: 20px 'Shobhika', serif;
+  cursor: pointer;
+}
+
+.mi-etym-choices button[aria-pressed="true"] {
+  background: #eee7d9;
+  border-color: #927746;
+  color: #403620;
+}
+
+.mi-attestation-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 12px;
+  margin-bottom: 10px;
+}
+
+.mi-attestation-heading .name-citations {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #292822;
+  font-size: 18px;
+}
+
+.mi-attestation blockquote strong {
+  color: #93452f;
+  font-weight: 700;
+}
+/* Component-based prakriya forms and shared rule references. */
+.mi-parts { display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 4px 8px; }
+.mi-part { display: inline-flex; flex-direction: column; align-items: center; max-width: 100%; }
+.mi-meaning { font-size: 14px; line-height: 1.5; color: #777164; margin-top: 4px; }
+.mi-changed { color: #a53f32; font-weight: 700; }
+.mi-plus { color: #928b7d; }
+.mi-rule-reference { display: block; }
+.mi-rule-reference + .mi-rule-reference { margin-top: 8px; }
+.mi-rule-reference a { color: #695028; text-underline-offset: 3px; }
+
+/* Meaning beside the component, at a similar size. */
+.mi-part {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0 8px;
+}
+
+.mi-meaning {
+  font-size: 0.95em;
+  color: #777164;
+  margin: 0;
+}
+
+/* Remove the disclosure triangles. */
+.mi-node > summary,
+.mi-rule > summary {
+  display: block;
+  list-style: none;
+}
+
+.mi-node > summary::-webkit-details-marker,
+.mi-rule > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Remove the horizontal line beneath forms. */
+.mi-node {
+  border: 0;
+}
+
+/* Centre the rule within the arrow's gap. */
+.mi-rule {
+  text-align: center;
+}
+
+.mi-rule[data-kind="morphology"],
+.mi-rule[data-kind="borrowing"] {
+  border-left: 0;
+  padding: 6px 4px;
+}
+
+/* Keep the vertical connections more compact. */
+.mi-edge-row {
+  margin: 24px 0;
+}
+
+/* Compact forms and connectors, with continuous arrows for unlabelled steps. */
+.mi-node { padding: 3px 4px; }
+.mi-node summary { line-height: 1.45; }
+.mi-node .mi-meta:empty { display: none; }
+.mi-edge-row { margin: 12px 0; }
+.mi-rule,
+.mi-rule[data-kind="morphology"],
+.mi-rule[data-kind="borrowing"] { padding: 2px 4px; line-height: 1.45; }
+.mi-edge-row.mi-unlabelled { height: 0; min-height: 0; margin: 14px 0; }
+.mi-unlabelled > .mi-route { min-height: 0; }
+.mi-rule,
+.mi-rule[data-kind="morphology"],
+.mi-rule[data-kind="borrowing"] {
+  justify-self: center;
+  align-self: center;
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 5px 12px;
+  border: 1px solid #cfc5b2;
+  border-radius: 16px;
+  background: #fffefa;
+}
+.mi-panel .mi-node > .prose {
+  text-align: center;
+  font-family: 'Shobhika', Georgia, serif;
+  font-size: 12px;
+  line-height: 1.4;
+  font-style: italic;
+  color: #928b7d;
+  margin-top: 2px;
+}
+
+/* Forms are plain text; rules link directly to their catalogue source. */
+.mi-form { font-size: 21px; line-height: 1.45; cursor: default; }
+.mi-rule-content { cursor: default; }
+a.mi-rule-reference { color: #695028; text-decoration: none; padding: 2px 0; }
+a.mi-rule-reference:hover { text-decoration: underline; text-underline-offset: 3px; }
+a.mi-rule-reference:focus-visible { outline: 2px solid #927746; outline-offset: 3px; }
+
+/* Selectable text and interactive links use distinct cursors. */
+.mi-content, .mi-form, .mi-rule-content { cursor: auto; }
+.mi-content a { cursor: pointer; }
+
+/* A single underline slides between measured tab positions. */
+.mi-tabs { position: relative; }
+.mi-tabs button {
+  padding: 10px 6px;
+  border-radius: 5px 5px 0 0;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+.mi-tabs button:hover { background: #f3efe6; color: #403620; }
+.mi-tabs button[aria-selected="true"] { box-shadow: none; }
+.mi-tab-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: #927746;
+  border-radius: 2px;
+  pointer-events: none;
+}
+.mi-indicator-ready .mi-tab-indicator {
+  transition: transform 220ms ease, width 220ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mi-tabs button, .mi-indicator-ready .mi-tab-indicator { transition: none; }
+}

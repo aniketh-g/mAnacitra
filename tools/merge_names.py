@@ -11,18 +11,32 @@ if len(sys.argv) != 2 or sys.argv[1] not in {"cities", "countries", "rivers"}:
 dataset = sys.argv[1]
 GEOGRAPHY = ROOT / "build/geography" / f"{dataset}.geojson"
 NAMES = ROOT / "data/names" / f"{dataset}.json"
+MAPPING = ROOT / "data/mappings" / f"{dataset}.json"
 OUTPUT = ROOT / "docs/data" / f"{dataset}.geojson"
 
 # Read inputs without modifying them.
 data = json.loads(GEOGRAPHY.read_text(encoding="utf-8"))
 records = json.loads(NAMES.read_text(encoding="utf-8"))
+mapping = json.loads(MAPPING.read_text(encoding="utf-8"))
+geographic_ids = {f["properties"]["place_id"] for f in data["features"]}
+for geographic_id, record_id in mapping.items():
+    if geographic_id not in geographic_ids:
+        raise ValueError(f"Mapping has no geography: {geographic_id}")
+    if not isinstance(record_id, str) or record_id not in records:
+        raise ValueError(f"Mapping target not found: {geographic_id} -> {record_id}")
+    if geographic_id in records and geographic_id != record_id:
+        raise ValueError(f"Remove duplicate names entry after consolidating: {geographic_id}")
 matched = set()
 
 # Attach names to each feature. Multiple features can share a place ID.
 for feature in data["features"]:
     props = feature["properties"]
     place_id = props["place_id"]
-    record = records.get(place_id, {})
+    record_id = mapping.get(place_id, place_id)
+    record = records.get(record_id, {})
+    props["name_record_id"] = record_id
+    props["description"] = record.get("description", "")
+    props["name_families"] = record.get("name_families", [])
     names = record.get("names", [])
     props["NAME_NATIVE"] = record.get("name_native", "")
     props["NAME_EN"] = record.get(
@@ -35,7 +49,7 @@ for feature in data["features"]:
 
     props["names_sanskrit"] = names
     props["NAME_SA"] = primary[0]["name"] if primary else ""
-    matched.add(place_id)
+    matched.add(record_id)
 
 # Catch handwritten entries with no matching geographic feature.
 unmatched = set(records) - matched

@@ -97,20 +97,105 @@
   },
   "natural-earth:1159320847": {
     "name_en": "India",
+    "description": "जम्बूद्वीपे हिमालयदक्षिणस्थं समुद्रोत्तरस्थं वर्षम्। आर्यावर्तः कर्मभूमिश्च।",
+    "name_families": [
+      {
+        "label": "ក្លិង្គ",
+        "pronunciation": "क्लिङ्ग",
+        "language": "काम्बोजी"
+      },
+      {
+        "label": "هندوش",
+        "pronunciation": "ह़िन्दव़्श्",
+        "language": "पारसिकी"
+      },
+      {
+        "label": "རྒྱ་གར",
+        "pronunciation": "र्ग्य गर्",
+        "language": "भोटकी"
+      }
+    ],
     "names": [
       {
         "name": "भारतम्",
-        "notes": "प्राचीना रूढिः।\nविष्णुपुराणे - \"उत्तरं यत्समुद्रस्य हिमाद्रेश्चैव दक्षिणम्।\nवर्षं तद्भारतं नाम भरती यत्र सन्ततिः॥\"",
+        "notes": "प्राचीना रूढिः। विष्णुपुराणे -\n>\"उत्तरं यत्समुद्रस्य हिमाद्रेश्चैव दक्षिणम्।\nवर्षं तद्भारतं नाम भरती यत्र सन्ततिः॥\"",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "derivation": "",
+            "notes": "प्राचीना रूढिः।",
+            "citations": [],
+            "steps": [
+              {
+                "parts": [
+                  { "text": "गाध्", "meaning": "प्रतिष्ठालिप्सयोर्ग्रन्थे च" }
+                ],
+                "notes": "text"
+              },
+              {
+                "parts": [
+                  { "text": "गाधृँ", "highlight": true}
+                ],
+                "rules": ["ashtadhyayi:3.1.68"]
+              },
+              {
+                "parts": [
+                  { "text": "गाध्"},
+                  { "text": "तृच्", "highlight": true}
+                ],
+                "rules": ["ashtadhyayi:3.1.68"]
+              },
+              {
+                "parts": [
+                  { "text": "गाध्" },
+                  { "text": "इट्", "highlight": true },
+                  { "text": "तृ" }
+                ],
+                "rules": ["ashtadhyayi:3.1.68"]
+              },
+              {
+                "parts": [
+                  { "text": "गाधितृ", "highlight": true }
+                ]
+              }
+            ]
+          }
+        ],
+        "attestations": [
+          {
+            "language": "संस्कृतम्",
+            "quote": "उत्तरं यत्समुद्रस्य हिमाद्रेश्चैव दक्षिणम्।\nवर्षं त**द्भारतं** नाम भारती यत्र सन्ततिः॥",
+            "date": "-३५०",
+            "sort_year": "-350",
+            "citations": [
+              {
+                "title": "विष्णुपुराणम् २.३.१",
+                "url": "https://sa.wikisource.org/wiki/%E0%A4%B5%E0%A4%BF%E0%A4%B7%E0%A5%8D%E0%A4%A3%E0%A5%81%E0%A4%AA%E0%A5%81%E0%A4%B0%E0%A4%BE%E0%A4%A3%E0%A4%AE%E0%A5%8D/%E0%A4%A6%E0%A5%8D%E0%A4%B5%E0%A4%BF%E0%A4%A4%E0%A5%80%E0%A4%AF%E0%A4%BE%E0%A4%82%E0%A4%B6%E0%A4%83/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%E0%A4%83_%E0%A5%A9#:~:text=%E0%A4%89%E0%A4%A4%E0%A5%8D%E0%A4%A4%E0%A4%B0%E0%A4%82,%E0%A5%A8%2C%E0%A5%A9%2E%E0%A5%A7%20%E0%A5%A5"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "आर्यावर्तः",
-        "notes": "प्राचीना रूढिः।\nमनुस्मृतौ - \"आसमुद्रात्तु यत्पूर्वादासमुद्रात्तु पश्चिमात्।\nतयोरेवान्तयोर्गिर्योरार्यावर्तो विदुर्बुधाः॥\"",
+        "notes": "प्राचीना रूढिः।",
         "confidence": 1.0,
         "primary": false,
-        "citations": []
+        "attestations": [
+          {
+            "language": "संस्कृतम्",
+            "quote": "आसमुद्रात्तु वै पूर्वादासमुद्राच्च पश्चिमात्।\nतयोरेवान्तरं गिर्यो**रार्यावर्तं** विदुर्बुधाः॥",
+            "date": "-२५०",
+            "sort_year": "-250",
+            "citations": [
+              {
+                "title": "मनुस्मृतिः २.२२",
+                "url": "https://www.wisdomlib.org/hinduism/book/manusmriti-with-the-commentary-of-medhatithi/d/doc145598.html"
+              }
+            ]
+          }
+        ]
       }
     ]
   },

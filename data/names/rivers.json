@@ -11979,41 +11979,82 @@
       }
     ]
   },
-  "natural-earth:1159115307": {
+  "danube": {
     "name_en": "Danube",
-    "names": [
+    "description": "केतुमालवर्षे नदीनां दीर्घतरा",
+    "name_families": [
       {
-        "name": "दानवी",
-        "notes": "१) दानोर्वर्षणस्येयम्। दानु +तस्येदमित्यण् ततो ङीप्।\nदानु वर्षण इति वाचस्पत्यम् “यवं न वृष्टिर्दिव्येन दानुना” ऋ॰ १०।४३।७ “दानुना दानेन वर्षणेन वा” भा॰।\n\nप्रायेण प्रा॰यु॰भा॰ \\*दानु\\ (सरिति) शब्देन सम्बद्धमिति <a href=\"https://archive.org/details/indogermanisches01pokouoft/page/174/mode/2up?q=donau\">[भा॰व्यु॰को॰] १७५</a>\nअपि पीवराणां आक्रमणग्रन्थे वर्णितया \\*दनु\\नाम्न्या देवतया सम्बद्धं भवितुमर्हतीति [के॰ऐ॰को॰] <a href=\"https://archive.org/details/dictionaryofcelt0000mack/page/114/mode/2up?q=ana\">१४</a>, <a href=\"https://archive.org/details/dictionaryofcelt0000mack/page/114/mode/2up?q=ana\">११४</a>\n\n२) दनोरियम्\nदनु +तस्येदमित्यण् ततो ङीप्। दनुर्दक्षकन्याभेदे सा च कश्यपर्षिपत्नी दानवमाता\n\nकैश्चित्सरितः स्वनाम दनुना सम्बद्ध्यते।",
-        "confidence": 0.85,
-        "primary": true,
-        "citations": []
+        "label": "DANVBIVS",
+        "pronunciation": "दानुब्युस्",
+        "language": "रोमका",
+        "etymologies": [
+          {
+            "notes": "",
+            "steps": [
+              {
+                "branch": "common",
+                "parts": [
+                  {"text": "*दानु", "meaning": "सरिति"}
+                ],
+                "language": "प्रा.यु.भा",
+                "notes": "काचन टिप्पणी"
+              },
+              {
+                "branch": "foreign",
+                "parts": [
+                  {"text": "DANVBIVS"}
+                ],
+                "rules": "C"
+              },
+              {
+                "branch": "sanskrit",
+                "parts": [
+                  {"text": "दानु"}
+                ],
+                "rules": "A"
+              }
+            ]
+          }
+        ]
       },
       {
-        "name": "धन्वित्री",
-        "notes": "धन्वति गच्छतीति। धविँ गतौ + तृच्, स्त्री\nएवं ण्वुल्-शतृ-तः <strong>\"धन्विका\"</strong>, <strong>\"धन्वन्ती\"</strong> पदेऽपि योज्ये।\n\nसरितः स्वनाम प्रा॰यु॰भा॰ <a href=\"https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/d%CA%B0enh%E2%82%82-\">\\*धॆन्ह्꣢\\</a> (धावने स्रवणे च, =धन्व् गतौ [<a href=\"https://archive.org/details/indogermanisches01pokouoft/page/248/mode/2up\">भा॰व्यु॰को॰</a>]) धातो<a href=\"https://en.wiktionary.org/wiki/Danube\">रेके व्युत्पादयन्ति।</a>",
-        "confidence": 0.75,
-        "primary": false,
-        "citations": []
+        "label": "ἼΣΤΡΟΣ",
+        "pronunciation": "ह़िस्त्रॊस्",
+        "language": "यावनी"
+      },
+      {
+        "label": "𐌌𐤠ΤΟ𐤠𐰩"
       }
-    ]
-  },
-  "natural-earth:1159118769": {
-    "name_en": "Danube",
+    ],
     "names": [
-      {
+       {
         "name": "दानवी",
-        "notes": "१) दानोर्वर्षणस्येयम्। दानु +तस्येदमित्यण् ततो ङीप्।\nदानु वर्षण इति वाचस्पत्यम् “यवं न वृष्टिर्दिव्येन दानुना” ऋ॰ १०।४३।७ “दानुना दानेन वर्षणेन वा” भा॰।\n\nप्रायेण प्रा॰यु॰भा॰ \\*दानु\\ (सरिति) शब्देन सम्बद्धमिति <a href=\"https://archive.org/details/indogermanisches01pokouoft/page/174/mode/2up?q=donau\">[भा॰व्यु॰को॰] १७५</a>\nअपि पीवराणां आक्रमणग्रन्थे वर्णितया \\*दनु\\नाम्न्या देवतया सम्बद्धं भवितुमर्हतीति [के॰ऐ॰को॰] <a href=\"https://archive.org/details/dictionaryofcelt0000mack/page/114/mode/2up?q=ana\">१४</a>, <a href=\"https://archive.org/details/dictionaryofcelt0000mack/page/114/mode/2up?q=ana\">११४</a>\n\n२) दनोरियम्\nदनु +तस्येदमित्यण् ततो ङीप्। दनुर्दक्षकन्याभेदे सा च कश्यपर्षिपत्नी दानवमाता\n\nकैश्चित्सरितः स्वनाम दनुना सम्बद्ध्यते।",
         "confidence": 0.85,
-        "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "derivation": "१) दानोर्वर्षणस्येयम्। दानु +तस्येदमित्यण् ततो ङीप्।",
+            "notes": "दानु वर्षण इति वाचस्पत्यम् “यवं न वृष्टिर्दिव्येन दानुना” ऋ॰ १०।४३।७ “दानुना दानेन वर्षणेन वा” भा॰।\n\nप्रायेण प्रा॰यु॰भा॰ \\*दानु\\ (सरिति) शब्देन सम्बद्धमिति <a href=\"https://archive.org/details/indogermanisches01pokouoft/page/174/mode/2up?q=donau\">[भा॰व्यु॰को॰] १७५</a>\nअपि पीवराणां आक्रमणग्रन्थे वर्णितया \\*दनु\\नाम्न्या देवतया सम्बद्धं भवितुमर्हतीति [के॰ऐ॰को॰] <a href=\"https://archive.org/details/dictionaryofcelt0000mack/page/114/mode/2up?q=ana\">१४</a>, <a href=\"https://archive.org/details/dictionaryofcelt0000mack/page/114/mode/2up?q=ana\">११४</a>",
+            "citations": []
+          },
+          {
+            "derivation": "२) दनोरियम्। दनु +तस्येदमित्यण् ततो ङीप्।",
+            "notes": "दनुर्दक्षकन्याभेदे सा च कश्यपर्षिपत्नी दानवमाता\n\nकैश्चित्सरितः स्वनाम दनुना सम्बद्ध्यते।",
+            "citations": []
+          }
+        ],
+        "primary": true
       },
       {
         "name": "धन्वित्री",
-        "notes": "धन्वति गच्छतीति। धविँ गतौ + तृच्, स्त्री\nएवं ण्वुल्-शतृ-तः <strong>\"धन्विका\"</strong>, <strong>\"धन्वन्ती\"</strong> पदेऽपि योज्ये।\n\nसरितः स्वनाम प्रा॰यु॰भा॰ <a href=\"https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/d%CA%B0enh%E2%82%82-\">\\*धॆन्ह्꣢\\</a> (धावने स्रवणे च, =धन्व् गतौ [<a href=\"https://archive.org/details/indogermanisches01pokouoft/page/248/mode/2up\">भा॰व्यु॰को॰</a>]) धातो<a href=\"https://en.wiktionary.org/wiki/Danube\">रेके व्युत्पादयन्ति।</a>",
         "confidence": 0.75,
-        "primary": false,
-        "citations": []
+        "etymologies": [
+          {
+            "derivation": "धन्वति गच्छतीति। धविँ गतौ + तृच्, स्त्री।",
+            "notes": "एवं ण्वुल्-शतृ-तः <strong>\"धन्विका\"</strong>, <strong>\"धन्वन्ती\"</strong> पदेऽपि योज्ये।\n\nसरितः स्वनाम प्रा॰यु॰भा॰ <a href=\"https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/d%CA%B0enh%E2%82%82-\">\\*धॆन्ह्꣢\\</a> (धावने स्रवणे च, =धन्व् गतौ [<a href=\"https://archive.org/details/indogermanisches01pokouoft/page/248/mode/2up\">भा॰व्यु॰को॰</a>]) धातो<a href=\"https://en.wiktionary.org/wiki/Danube\">रेके व्युत्पादयन्ति।</a>",
+            "citations": []
+          }
+        ],
+        "primary": false
       }
     ]
   },
