@@ -2,6 +2,8 @@
 (function () {
   const states = {}, tabs = ['व्युत्पत्तिः', 'अपभ्रंशाः', 'प्रयोगाः'];
   let serial = 0;
+  let openingOrder = 0;
+  const mobilePanels = matchMedia('(max-width: 999px)');
   let ruleCatalogue = {};
   let catalogueError = '';
 
@@ -322,8 +324,31 @@
     } else tree(body, etymology.descendants, state);
   }
   function positioning() {
-    Object.values(states).forEach(state => markTrigger(state.trigger, state.open));
-    document.body.classList.toggle('mi-both', Boolean(states.foreign?.open && states.sanskrit?.open));
+    const opened = Object.values(states).filter(state => state.open);
+    const modal = mobilePanels.matches && opened.length > 0;
+    document.body.classList.toggle('mi-both', !mobilePanels.matches && opened.length === 2);
+    document.body.classList.toggle('mi-mobile-inspector', modal);
+    for (const state of Object.values(states)) {
+      markTrigger(state.trigger, state.open);
+      if (mobilePanels.matches) state.panel.setAttribute('role', 'dialog');
+      else state.panel.removeAttribute('role');
+      if (modal && state.open) state.panel.setAttribute('aria-modal', 'true');
+      else state.panel.removeAttribute('aria-modal');
+    }
+    for (const element of document.querySelectorAll('body > header, body > main')) element.inert = modal;
+    const overview = document.getElementById('sidebar');
+    overview.inert = modal || !overview.classList.contains('open');
+  }
+  function hideOtherMobilePanels(keep) {
+    if (!mobilePanels.matches) return;
+    for (const state of Object.values(states)) {
+      if (state === keep || !state.open) continue;
+      state.open = false;
+      state.panel.classList.remove('mi-open');
+      state.panel.classList.add('mi-superseded');
+      state.panel.inert = true;
+      state.panel.setAttribute('aria-hidden', 'true');
+    }
   }
   function close(state) {
     state.open = false; state.panel.classList.remove('mi-open'); state.panel.inert = true;
@@ -383,11 +408,10 @@
     },
     open(type, record, trigger) {
       if (!['foreign','sanskrit'].includes(type)) throw Error('Unknown inspector type');
-      if (!matchMedia('(min-width: 1000px)').matches) {
-        // Desktop only: no invisible focus target or panel on smaller viewports.
-        return;
-      }
       const state = states[type] || (states[type] = create(type));
+      hideOtherMobilePanels(state);
+      state.panel.classList.remove('mi-superseded');
+      state.lastOpened = ++openingOrder;
       if (state.record !== record) { state.record=record; state.etymology=0; }
       if (state.trigger !== trigger) markTrigger(state.trigger, false);
       state.trigger = trigger;
@@ -413,7 +437,26 @@
       state.buttons[state.tab].focus({preventScroll:true});
     }
   };
-  matchMedia('(min-width: 1000px)').addEventListener('change', event => {
-    if (!event.matches) Object.values(states).filter(s => s.open).forEach(close);
+  mobilePanels.addEventListener('change', () => {
+    const opened = Object.values(states).filter(state => state.open);
+    const latest = opened.sort((a, b) => b.lastOpened - a.lastOpened)[0];
+    if (latest) hideOtherMobilePanels(latest);
+    if (!mobilePanels.matches) Object.values(states).forEach(state => state.panel.classList.remove('mi-superseded'));
+    positioning();
+    if (mobilePanels.matches && latest) latest.buttons[latest.tab].focus({preventScroll:true});
+  });
+  document.addEventListener('keydown', event => {
+    if (!mobilePanels.matches || event.key !== 'Tab') return;
+    const state = Object.values(states).find(state => state.open);
+    if (!state) return;
+    const focusable = [...state.panel.querySelectorAll('button, a[href], select, [tabindex]')]
+      .filter(element => !element.disabled && element.tabIndex >= 0 && element.getClientRects().length);
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    if (!first) return;
+    if (!state.panel.contains(document.activeElement) || (event.shiftKey && document.activeElement === first)) {
+      event.preventDefault(); (event.shiftKey ? last : first).focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault(); first.focus();
+    }
   });
 })();
