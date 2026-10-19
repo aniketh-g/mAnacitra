@@ -4,96 +4,192 @@
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321083": {
     "name_en": "Malaysia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320493": {
     "name_en": "Chile",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320439": {
     "name_en": "Bolivia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321163": {
     "name_en": "Peru",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320331": {
     "name_en": "Argentina",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320709": {
     "name_en": "Dhekelia Cantonment",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320533": {
     "name_en": "Cyprus",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320847": {
     "name_en": "India",
@@ -102,64 +198,152 @@
       {
         "label": "ក្លិង្គ",
         "pronunciation": "क्लिङ्ग",
-        "language": "काम्बोजी"
+        "language": "काम्बोजी",
+        "etymologies": [
+          {
+            "derivation": "",
+            "notes": "",
+            "citations": [],
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       },
       {
         "label": "هندوش",
         "pronunciation": "ह़िन्दव़्श्",
-        "language": "पारसिकी"
+        "language": "पारसिकी",
+        "etymologies": [
+          {
+            "derivation": "",
+            "notes": "",
+            "citations": [],
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       },
       {
         "label": "རྒྱ་གར",
         "pronunciation": "र्ग्य गर्",
-        "language": "भोटकी"
+        "language": "भोटकी",
+        "etymologies": [
+          {
+            "derivation": "",
+            "notes": "",
+            "citations": [],
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
     ],
     "names": [
       {
         "name": "भारतम्",
         "notes": "प्राचीना रूढिः। विष्णुपुराणे -\n>\"उत्तरं यत्समुद्रस्य हिमाद्रेश्चैव दक्षिणम्।\nवर्षं तद्भारतं नाम भरती यत्र सन्ततिः॥\"",
-        "confidence": 1.0,
         "primary": true,
         "etymologies": [
           {
-            "derivation": "",
+            "derivation": "भरतस्य गोत्रापत्यम्",
             "notes": "प्राचीना रूढिः।",
             "citations": [],
             "steps": [
               {
                 "parts": [
-                  { "text": "गाध्", "meaning": "प्रतिष्ठालिप्सयोर्ग्रन्थे च" }
+                  {
+                    "text": "गाध्",
+                    "meaning": "प्रतिष्ठालिप्सयोर्ग्रन्थे च",
+                    "highlight": false
+                  }
                 ],
-                "notes": "text"
+                "notes": "text",
+                "rules": [],
+                "language": "",
+                "status": "",
+                "branch": ""
               },
               {
                 "parts": [
-                  { "text": "गाधृँ", "highlight": true}
+                  {
+                    "text": "गाधृँ",
+                    "highlight": true,
+                    "meaning": ""
+                  }
                 ],
-                "rules": ["ashtadhyayi:3.1.68"]
+                "rules": [
+                  "ashtadhyayi:3.1.68"
+                ],
+                "language": "",
+                "status": "",
+                "branch": ""
               },
               {
                 "parts": [
-                  { "text": "गाध्"},
-                  { "text": "तृच्", "highlight": true}
+                  {
+                    "text": "गाध्",
+                    "meaning": "",
+                    "highlight": false
+                  },
+                  {
+                    "text": "तृच्",
+                    "highlight": true,
+                    "meaning": ""
+                  }
                 ],
-                "rules": ["ashtadhyayi:3.1.68"]
+                "rules": [
+                  "ashtadhyayi:3.1.68"
+                ],
+                "language": "",
+                "status": "",
+                "branch": ""
               },
               {
                 "parts": [
-                  { "text": "गाध्" },
-                  { "text": "इट्", "highlight": true },
-                  { "text": "तृ" }
+                  {
+                    "text": "गाध्",
+                    "meaning": "",
+                    "highlight": false
+                  },
+                  {
+                    "text": "इट्",
+                    "highlight": true,
+                    "meaning": ""
+                  },
+                  {
+                    "text": "तृ",
+                    "meaning": "",
+                    "highlight": false
+                  }
                 ],
-                "rules": ["ashtadhyayi:3.1.68"]
+                "rules": [
+                  "ashtadhyayi:3.1.68"
+                ],
+                "language": "",
+                "status": "",
+                "branch": ""
               },
               {
                 "parts": [
-                  { "text": "गाधितृ", "highlight": true }
-                ]
+                  {
+                    "text": "गाधितृ",
+                    "highlight": true,
+                    "meaning": ""
+                  }
+                ],
+                "rules": [],
+                "language": "",
+                "status": "",
+                "branch": ""
               }
-            ]
+            ],
+            "descendants": []
           }
         ],
         "attestations": [
@@ -171,15 +355,19 @@
             "citations": [
               {
                 "title": "विष्णुपुराणम् २.३.१",
-                "url": "https://sa.wikisource.org/wiki/%E0%A4%B5%E0%A4%BF%E0%A4%B7%E0%A5%8D%E0%A4%A3%E0%A5%81%E0%A4%AA%E0%A5%81%E0%A4%B0%E0%A4%BE%E0%A4%A3%E0%A4%AE%E0%A5%8D/%E0%A4%A6%E0%A5%8D%E0%A4%B5%E0%A4%BF%E0%A4%A4%E0%A5%80%E0%A4%AF%E0%A4%BE%E0%A4%82%E0%A4%B6%E0%A4%83/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%E0%A4%83_%E0%A5%A9#:~:text=%E0%A4%89%E0%A4%A4%E0%A5%8D%E0%A4%A4%E0%A4%B0%E0%A4%82,%E0%A5%A8%2C%E0%A5%A9%2E%E0%A5%A7%20%E0%A5%A5"
+                "url": "https://sa.wikisource.org/wiki/%E0%A4%B5%E0%A4%BF%E0%A4%B7%E0%A5%8D%E0%A4%A3%E0%A5%81%E0%A4%AA%E0%A5%81%E0%A4%B0%E0%A4%BE%E0%A4%A3%E0%A4%AE%E0%A5%8D/%E0%A4%A6%E0%A5%8D%E0%A4%B5%E0%A4%BF%E0%A4%A4%E0%A5%80%E0%A4%AF%E0%A4%BE%E0%A4%82%E0%A4%B6%E0%A4%83/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%E0%A4%83_%E0%A5%A9#:~:text=%E0%A4%89%E0%A4%A4%E0%A5%8D%E0%A4%A4%E0%A4%B0%E0%A4%82,%E0%A5%A8%2C%E0%A5%A9%2E%E0%A5%A7%20%E0%A5%A5",
+                "locator": "",
+                "quote": "",
+                "note": ""
               }
-            ]
+            ],
+            "notes": ""
           }
-        ]
+        ],
+        "attestation_status": ""
       },
       {
         "name": "आर्यावर्तः",
-        "notes": "प्राचीना रूढिः।",
         "confidence": 1.0,
         "primary": false,
         "attestations": [
@@ -191,2880 +379,5860 @@
             "citations": [
               {
                 "title": "मनुस्मृतिः २.२२",
-                "url": "https://www.wisdomlib.org/hinduism/book/manusmriti-with-the-commentary-of-medhatithi/d/doc145598.html"
+                "url": "https://www.wisdomlib.org/hinduism/book/manusmriti-with-the-commentary-of-medhatithi/d/doc145598.html",
+                "locator": "",
+                "quote": "",
+                "note": ""
               }
-            ]
+            ],
+            "notes": ""
           }
-        ]
+        ],
+        "etymologies": [
+          {
+            "notes": "प्राचीना रूढिः।",
+            "derivation": "",
+            "citations": [],
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": ""
   },
   "natural-earth:1159320895": {
     "name_en": "Israel",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320899": {
     "name_en": "Palestine",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321013": {
     "name_en": "Lebanon",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320617": {
     "name_en": "Ethiopia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321235": {
     "name_en": "South Sudan",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321261": {
     "name_en": "Somalia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320971": {
     "name_en": "Kenya",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321081": {
     "name_en": "Malawi",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321337": {
     "name_en": "Tanzania",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320471": {
     "name_en": "China",
     "names": [
       {
         "name": "चीनः",
-        "notes": "प्राचीना रूढिः।\n",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "प्राचीना रूढिः।\n",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321295": {
     "name_en": "Syria",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320637": {
     "name_en": "France",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321281": {
     "name_en": "Suriname",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320817": {
     "name_en": "Guyana",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320985": {
     "name_en": "South Korea",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321181": {
     "name_en": "North Korea",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321035": {
     "name_en": "Morocco",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320525": {
     "name_en": "Costa Rica",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321091": {
     "name_en": "Nicaragua",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320515": {
     "name_en": "Republic of the Congo",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320513": {
     "name_en": "Democratic Republic of the Congo",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320453": {
     "name_en": "Bhutan",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321345": {
     "name_en": "Ukraine",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320427": {
     "name_en": "Belarus",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321085": {
     "name_en": "Namibia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321431": {
     "name_en": "South Africa",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320639": {
     "name_en": "Saint Martin",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321103": {
     "name_en": "Sint Maarten",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321151": {
     "name_en": "Oman",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321405": {
     "name_en": "Uzbekistan",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320967": {
     "name_en": "Kazakhstan",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321307": {
     "name_en": "Tajikistan",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321029": {
     "name_en": "Lithuania",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320441": {
     "name_en": "Brazil",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321353": {
     "name_en": "Uruguay",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321071": {
     "name_en": "Mongolia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321201": {
     "name_en": "Russia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320535": {
     "name_en": "Czech Republic",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320539": {
     "name_en": "Germany",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320615": {
     "name_en": "Estonia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321033": {
     "name_en": "Latvia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321109": {
     "name_en": "Norway",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321287": {
     "name_en": "Sweden",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320623": {
     "name_en": "Finland",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321417": {
     "name_en": "Vietnam",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320979": {
     "name_en": "Cambodia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321031": {
     "name_en": "Luxembourg",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320329": {
     "name_en": "United Arab Emirates",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320389": {
     "name_en": "Belgium",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320779": {
     "name_en": "Georgia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321061": {
     "name_en": "North Macedonia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320325": {
     "name_en": "Albania",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320381": {
     "name_en": "Azerbaijan",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321267": {
     "name_en": "Serbia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321331": {
     "name_en": "Turkey",
     "names": [
       {
         "name": "तुरुष्कः",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320587": {
     "name_en": "Spain",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321011": {
     "name_en": "Laos",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320977": {
     "name_en": "Kyrgyzstan",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320333": {
     "name_en": "Armenia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320547": {
     "name_en": "Denmark",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321017": {
     "name_en": "Libya",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321327": {
     "name_en": "Tunisia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321199": {
     "name_en": "Romania",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320841": {
     "name_en": "Hungary",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321283": {
     "name_en": "Slovakia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321179": {
     "name_en": "Poland",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320877": {
     "name_en": "Ireland",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320713": {
     "name_en": "United Kingdom",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320811": {
     "name_en": "Greece",
+    "description": "मारुतदिशमाश्रितः प्राचीनो देशः। तज्जातीयाश्च प्राचीनयुग आर्यवद्देवतोपासकाः, वराहमिहिराद्यैर्ज्योतिश्शास्त्रनैपुण्याय च प्रशस्ताः। शकात् २२८तमादारभ्य शावैः पीड्यमाना आसन्ने दशमे शकशतके संविहताः। शावीकारिताश्च ते १३७५शकाच्चतुश्शतकेभ्यस्तुरुष्कैराक्राम्य विराजिताः।",
+    "name_families": [
+      {
+        "label": "ἙΛΛΆΔΑ",
+        "pronunciation": "हॆ᳝ल्लद",
+        "language": "यावनी",
+        "etymologies": [
+          {
+            "derivation": "",
+            "notes": "",
+            "citations": [],
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
+      },
+      {
+        "label": "یونان",
+        "pronunciation": "यूनान्",
+        "language": "पारसिकी",
+        "etymologies": [
+          {
+            "derivation": "",
+            "notes": "",
+            "citations": [],
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
+      },
+      {
+        "label": "GRAECIA",
+        "pronunciation": "ग्रैक्य",
+        "language": "रोमका",
+        "etymologies": [
+          {
+            "derivation": "",
+            "notes": "",
+            "citations": [],
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
+      }
+    ],
     "names": [
       {
         "name": "यवनः",
-        "notes": "प्राचीना रूढिः।\n",
-        "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "derivation": "यौतीति",
+            "notes": "प्राचीना रूढिः। यावन्या ἸΆΟΝΕΣ /यौनॆस्/ पदाद्व्युत्पन्नम्।",
+            "citations": [],
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [
+          {
+            "language": "वैश्यनागरं प्राकृतम्",
+            "quote": "...\nकारिते इ[अ] हेलिओदोरेण भाग-\nवतेन दियस पुत्रेण तख्खसिलाकेन\n**योन**-दूतेन [आ]गतेन महाराजस\n...",
+            "date": "-१८०",
+            "sort_year": "-180",
+            "citations": [
+              {
+                "title": "विदिशाया गरुडध्वजम्",
+                "url": "https://indike.org/pramana/inp.epigraphy.central.sunga.besnagar-garuda-pillar-inscription-of-the-time-of",
+                "locator": "",
+                "quote": "",
+                "note": ""
+              }
+            ],
+            "notes": ""
+          },
+          {
+            "language": "संस्कृतम्",
+            "quote": "**यवना**श्च सकाम्बोजा दारुणा म्लेच्छजातयः।\nसक्षद्द्रुहः कुन्तलाश्च हूणाः पारसिकैः सह॥",
+            "date": "-४५०",
+            "sort_year": "-450",
+            "citations": [
+              {
+                "title": "महाभारतम् ६.१०.६४",
+                "url": "https://indike.org/pramana/in.lit.mahabharata.vyasa*crit.6.10.64",
+                "locator": "",
+                "quote": "",
+                "note": ""
+              }
+            ],
+            "notes": ""
+          },
+          {
+            "language": "द्राविडी",
+            "quote": "वऩ्चॊल् **यवऩर्** वळनाटु वऩ्पॆरुङ्कल्\nतॆऩ्कुमरि याण्ट चॆरुविऱ्‌ कयऱ्‌पुलियाऩ्",
+            "date": "४००",
+            "sort_year": "400",
+            "citations": [
+              {
+                "title": "चिलप्पतिकारम् ३.२५",
+                "url": "https://indike.org/pramana/in.sangam.five_great_epics.cilappatikaram.3.25",
+                "locator": "",
+                "quote": "",
+                "note": ""
+              }
+            ],
+            "notes": ""
+          }
+        ],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": ""
   },
   "natural-earth:1159321439": {
     "name_en": "Zambia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321251": {
     "name_en": "Sierra Leone",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320795": {
     "name_en": "Guinea",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321015": {
     "name_en": "Liberia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320463": {
     "name_en": "Central African Republic",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321229": {
     "name_en": "Sudan",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320541": {
     "name_en": "Djibouti",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320581": {
     "name_en": "Eritrea",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320379": {
     "name_en": "Austria",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320887": {
     "name_en": "Iraq",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320919": {
     "name_en": "Italy",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320491": {
     "name_en": "Switzerland",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320881": {
     "name_en": "Iran, Persia",
     "names": [
       {
         "name": "पारसीकः",
-        "notes": "प्राचीना रूढिः।\n",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "प्राचीना रूढिः।\n",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321101": {
     "name_en": "Netherlands",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321021": {
     "name_en": "Liechtenstein",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320507": {
     "name_en": "Ivory Coast",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321063": {
     "name_en": "Mali",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321243": {
     "name_en": "Senegal",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321089": {
     "name_en": "Nigeria",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320399": {
     "name_en": "Benin",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320323": {
     "name_en": "Angola",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320833": {
     "name_en": "Croatia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321285": {
     "name_en": "Slovenia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321197": {
     "name_en": "Qatar",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321225": {
     "name_en": "Saudi Arabia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320461": {
     "name_en": "Botswana",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321441": {
     "name_en": "Zimbabwe",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320409": {
     "name_en": "Bulgaria",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321305": {
     "name_en": "Thailand",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321255": {
     "name_en": "San Marino",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320839": {
     "name_en": "Haiti",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320563": {
     "name_en": "Dominican Republic",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321301": {
     "name_en": "Chad",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321009": {
     "name_en": "Kuwait",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321253": {
     "name_en": "El Salvador",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320815": {
     "name_en": "Guatemala",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321313": {
     "name_en": "East Timor",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320451": {
     "name_en": "Brunei",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321043": {
     "name_en": "Monaco",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320565": {
     "name_en": "Algeria",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321073": {
     "name_en": "Mozambique",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321289": {
     "name_en": "Eswatini",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320387": {
     "name_en": "Burundi",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321219": {
     "name_en": "Rwanda",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321067": {
     "name_en": "Myanmar",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320407": {
     "name_en": "Bangladesh",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320327": {
     "name_en": "Andorra",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320319": {
     "name_en": "Afghanistan",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321069": {
     "name_en": "Montenegro",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320417": {
     "name_en": "Bosnia and Herzegovina",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321343": {
     "name_en": "Uganda",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320529": {
     "name_en": "Guantanamo Bay Naval Base",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320527": {
     "name_en": "Cuba",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320827": {
     "name_en": "Honduras",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320567": {
     "name_en": "Ecuador",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320517": {
     "name_en": "Colombia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321195": {
     "name_en": "Paraguay",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1729632181": {
     "name_en": "Brazilian Island",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321187": {
     "name_en": "Portugal",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321045": {
     "name_en": "Moldova",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321309": {
     "name_en": "Turkmenistan",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320935": {
     "name_en": "Jordan",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321121": {
     "name_en": "Nepal",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321027": {
     "name_en": "Lesotho",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320509": {
     "name_en": "Cameroon",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320693": {
     "name_en": "Gabon",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321087": {
     "name_en": "Niger",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320405": {
     "name_en": "Burkina Faso",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321303": {
     "name_en": "Togo",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320793": {
     "name_en": "Ghana",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320799": {
     "name_en": "Guinea-Bissau",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320719": {
     "name_en": "Gibraltar",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321369": {
     "name_en": "United States of America",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320467": {
     "name_en": "Canada",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321055": {
     "name_en": "Mexico",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320431": {
     "name_en": "Belize",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321161": {
     "name_en": "Panama",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321411": {
     "name_en": "Venezuela",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321173": {
     "name_en": "Papua New Guinea",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321153": {
     "name_en": "Pakistan",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320575": {
     "name_en": "Egypt",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321425": {
     "name_en": "Yemen",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321075": {
     "name_en": "Mauritania",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320801": {
     "name_en": "Equatorial Guinea",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320797": {
     "name_en": "The Gambia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320473": {
     "name_en": "Hong Kong",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321407": {
     "name_en": "Vatican City",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320741": {
     "name_en": "Akrotiri Sovereign Base Area",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1729635091": {
     "name_en": "Bir Tawil",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320335": {
     "name_en": "Antarctica",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320355": {
     "name_en": "Australia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320551": {
     "name_en": "Greenland",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320625": {
     "name_en": "Fiji",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321135": {
     "name_en": "New Zealand",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320641": {
     "name_en": "New Caledonia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321051": {
     "name_en": "Madagascar",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321169": {
     "name_en": "Philippines",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321025": {
     "name_en": "Sri Lanka",
     "names": [
       {
         "name": "श्रीलङ्का",
-        "notes": "प्राचीना रूढिः।\n",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "प्राचीना रूढिः।\n",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321099": {
     "name_en": "Curaçao",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321097": {
     "name_en": "Aruba",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320415": {
     "name_en": "The Bahamas",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320737": {
     "name_en": "Turks and Caicos Islands",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321335": {
     "name_en": "Taiwan",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320937": {
     "name_en": "Japan",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320647": {
     "name_en": "Saint Pierre and Miquelon",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320917": {
     "name_en": "Iceland",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320729": {
     "name_en": "Pitcairn Islands",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320643": {
     "name_en": "French Polynesia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320631": {
     "name_en": "French Southern and Antarctic Lands",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321291": {
     "name_en": "Seychelles",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320981": {
     "name_en": "Kiribati",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321057": {
     "name_en": "Marshall Islands",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321321": {
     "name_en": "Trinidad and Tobago",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320813": {
     "name_en": "Grenada",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321409": {
     "name_en": "Saint Vincent and the Grenadines",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320449": {
     "name_en": "Barbados",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321019": {
     "name_en": "Saint Lucia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320543": {
     "name_en": "Dominica",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321367": {
     "name_en": "United States Minor Outlying Islands",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320727": {
     "name_en": "Montserrat",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320345": {
     "name_en": "Antigua and Barbuda",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320983": {
     "name_en": "Saint Kitts and Nevis",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321371": {
     "name_en": "United States Virgin Islands",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320633": {
     "name_en": "Saint Barthélemy",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321363": {
     "name_en": "Puerto Rico",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320703": {
     "name_en": "Anguilla",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320739": {
     "name_en": "British Virgin Islands",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320931": {
     "name_en": "Jamaica",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320707": {
     "name_en": "Cayman Islands",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320705": {
     "name_en": "Bermuda",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320361": {
     "name_en": "Heard Island and McDonald Islands",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320733": {
     "name_en": "Saint Helena",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321079": {
     "name_en": "Mauritius",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320521": {
     "name_en": "Comoros",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321273": {
     "name_en": "São Tomé and Príncipe",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320523": {
     "name_en": "Cape Verde",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321065": {
     "name_en": "Malta",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320725": {
     "name_en": "Jersey",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320715": {
     "name_en": "Guernsey",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320721": {
     "name_en": "Isle of Man",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320621": {
     "name_en": "Åland",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320549": {
     "name_en": "Faroe Islands",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320363": {
     "name_en": "Australian Indian Ocean Territories",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320723": {
     "name_en": "British Indian Ocean Territory",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321247": {
     "name_en": "Singapore",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320365": {
     "name_en": "Norfolk Island",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321129": {
     "name_en": "Cook Islands",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321319": {
     "name_en": "Tonga",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320649": {
     "name_en": "Wallis and Futuna",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321423": {
     "name_en": "Samoa",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321249": {
     "name_en": "Solomon Islands",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321333": {
     "name_en": "Tuvalu",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321053": {
     "name_en": "Maldives",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321123": {
     "name_en": "Nauru",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320691": {
     "name_en": "Federated States of Micronesia",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320731": {
     "name_en": "South Georgia and the South Sandwich Islands",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320711": {
     "name_en": "Falkland Islands",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321421": {
     "name_en": "Vanuatu",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321133": {
     "name_en": "Niue",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321357": {
     "name_en": "American Samoa",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321171": {
     "name_en": "Palau",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321359": {
     "name_en": "Guam",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321361": {
     "name_en": "Northern Mariana Islands",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320413": {
     "name_en": "Bahrain",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320359": {
     "name_en": "Coral Sea Islands",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321165": {
     "name_en": "Wake Island",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320635": {
     "name_en": "Clipperton Island",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320475": {
     "name_en": "Macau",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159320353": {
     "name_en": "Ashmore and Cartier Islands",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   },
   "natural-earth:1159321227": {
     "name_en": "Scarborough Shoal",
     "names": [
       {
         "name": "",
-        "notes": "",
         "confidence": 1.0,
         "primary": true,
-        "citations": []
+        "etymologies": [
+          {
+            "notes": "",
+            "citations": [],
+            "derivation": "",
+            "descendants": [],
+            "steps": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": ""
       }
-    ]
+    ],
+    "name_native": "",
+    "description": "",
+    "name_families": []
   }
 }

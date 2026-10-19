@@ -1,3 +1,12 @@
+/* Foreign inspector slides underneath Sanskrit. */
+#mi-foreign {
+  z-index: 18;
+}
+
+#mi-sanskrit {
+  z-index: 19;
+}
+
 /* Desktop inspectors; scoped to avoid the site's global header/nav styles. */
 :root { --inspector-width: min(440px, calc((100vw - 440px) / 2)); }
 .mi-panel {
@@ -113,7 +122,7 @@ body.mi-both #mi-foreign.mi-open { transform: translateX(-100%); }
 .mi-parts { display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 4px 8px; }
 .mi-part { display: inline-flex; flex-direction: column; align-items: center; max-width: 100%; }
 .mi-meaning { font-size: 14px; line-height: 1.5; color: #777164; margin-top: 4px; }
-.mi-changed { color: #a53f32; font-weight: 700; }
+.mi-changed { color: #93452f; font-weight: 700; }
 .mi-plus { color: #928b7d; }
 .mi-rule-reference { display: block; }
 .mi-rule-reference + .mi-rule-reference { margin-top: 8px; }
@@ -217,7 +226,7 @@ a.mi-rule-reference:focus-visible { outline: 2px solid #927746; outline-offset: 
   border-radius: 5px 5px 0 0;
   transition: background-color 150ms ease, color 150ms ease;
 }
-.mi-tabs button:hover { background: #f3efe6; color: #403620; }
+.mi-tabs button:hover { background: transparent; color: #93452f; }
 .mi-tabs button[aria-selected="true"] { box-shadow: none; }
 .mi-tab-indicator {
   position: absolute;
@@ -235,3 +244,7 @@ a.mi-rule-reference:focus-visible { outline: 2px solid #927746; outline-offset: 
 @media (prefers-reduced-motion: reduce) {
   .mi-tabs button, .mi-indicator-ready .mi-tab-indicator { transition: none; }
 }
+
+/* Fixed stacking order, regardless of which inspector opens first. */
+#mi-foreign { z-index: 18; }
+#mi-sanskrit { z-index: 19; }

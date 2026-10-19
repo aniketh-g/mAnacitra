@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="inspectors.css" />
   <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="theme.css" />
 </head>
 <body>
 <header>
@@ -178,15 +179,20 @@ function openSidebar(props, placeKey) {
     heading.append(button);
     item.append(heading);
 
-    for (const etymology of name.etymologies || []) {
-      const entry = document.createElement("div");
-      entry.className = "etymology";
-
-      addProse(entry, etymology.derivation, "derivation");
+    const etymologies = name.etymologies || [];
+    const multipleEtymologies = etymologies.length > 1;
+    const etymologyList = multipleEtymologies ? document.createElement('ol') : item;
+    if (multipleEtymologies) {
+      etymologyList.className = 'overview-etymologies';
+      item.append(etymologyList);
+    }
+    for (const etymology of etymologies) {
+      const entry = document.createElement(multipleEtymologies ? 'li' : 'div');
+      entry.className = 'etymology';
+      addProse(entry, etymology.derivation, 'derivation');
       addProse(entry, etymology.notes);
       addCitations(entry, etymology.citations || []);
-
-      item.append(entry);
+      etymologyList.append(entry);
     }
 
     // Keep existing entries visible during migration.
@@ -205,6 +211,10 @@ function openSidebar(props, placeKey) {
 }
 
   function closeSidebar() {
+    selectedMapLabel = null;
+    hoveredMapLabel = null;
+    updateMapLabelColours();
+    window.NameInspectors?.closeAll();
     document.getElementById("sidebar").classList.remove("open");
     document.getElementById("sidebar").inert = true;
     map.getCanvas().focus({ preventScroll: true });
@@ -213,7 +223,28 @@ function openSidebar(props, placeKey) {
     map.setFilter('rivers-highlight', ['==', ['get', 'name'], '']);
   }
 
+  // HarfBuzz/PGF shaping trial. API signature matches MapLibre 3.6.2.
+  maplibregl.setRTLTextPlugin(
+    'https://wipfli.github.io/maplibre-gl-complex-text/dist/maplibre-gl-complex-text.js',
+    error => { if (error) console.error('Devanagari shaping failed:', error); },
+    false
+  );
+  const shapedGlyphRanges = new Set([
+    63488, 63232, 62976, 62720, 62464, 62208, 61952, 61696,
+    61440, 61184, 60928, 60672, 60416, 60160, 59904, 59648,
+    59392, 59136, 58880, 58624, 58368, 58112, 57856, 57600,
+    3072, 2816, 2560, 2304, 10240, 10752
+  ]);
   const map = new maplibregl.Map({
+    transformRequest(url, resourceType) {
+      if (resourceType === 'Glyphs') {
+        const match = url.match(/(\d+)-(\d+)\.pbf$/);
+        if (match && shapedGlyphRanges.has(Number(match[1]))) {
+          return {url: `https://wipfli.github.io/pgf-glyph-ranges/font/NotoSansMultiscript-Regular-v1/${match[1]}-${match[2]}.pbf`};
+        }
+      }
+      return {url};
+    },
     container: 'map',
     style: {
       version: 8,
@@ -281,7 +312,7 @@ function openSidebar(props, placeKey) {
       type: 'fill',
       source: 'countries',
       paint: {
-        'fill-color': 'rgba(255,200,0,0.4)',
+        'fill-color': 'rgba(146,119,70,0.22)',
       },
       filter: ['==', ['get', 'ADM0_A3'], ''] // nothing selected initially
     });
@@ -311,8 +342,8 @@ function openSidebar(props, placeKey) {
         'symbol-placement': 'point'
       },
       paint: {
-        'text-color': '#000',
-        'text-halo-color': '#fff',
+        'text-color': '#292822',
+        'text-halo-color': '#fffefa',
         'text-halo-width': 1
       }
     });
@@ -352,7 +383,7 @@ function openSidebar(props, placeKey) {
       source: 'cities',
       paint: {
         'circle-radius': 6,
-        'circle-color': 'rgba(255,200,0,0.9)',
+        'circle-color': '#c9ad70',
         'circle-stroke-color': '#000',
         'circle-stroke-width': 2
       },
@@ -376,8 +407,8 @@ function openSidebar(props, placeKey) {
         'text-allow-overlap': false
       },
       paint: {
-        'text-color': '#000',
-        'text-halo-color': '#fff',
+        'text-color': '#292822',
+        'text-halo-color': '#fffefa',
         'text-halo-width': 1
       }
     });
@@ -417,8 +448,8 @@ function openSidebar(props, placeKey) {
         'text-keep-upright': true
       },
       paint: {
-        'text-color': '#1ca3ec',
-        'text-halo-color': '#fff',
+        'text-color': '#38b3d0',
+        'text-halo-color': '#fffefa',
         'text-halo-width': 1
       }
     });
@@ -428,10 +459,43 @@ function openSidebar(props, placeKey) {
   // Clicking Logic
   const clickableLayers = ['countries-label', 'capital-labels-sa', 'rivers-labels'];
 
-  // Hover cursor
+  let hoveredMapLabel = null;
+  let selectedMapLabel = null;
+  const mapPlaceKey = props => String(props.name_record_id || props.place_id || '');
+
+  function updateMapLabelColours() {
+    const featureKey = ['to-string', ['coalesce', ['get', 'name_record_id'], ['get', 'place_id'], '']];
+    for (const layer of clickableLayers) {
+      if (!map.getLayer(layer)) continue;
+      const selected = selectedMapLabel?.layer === layer ? selectedMapLabel.key : null;
+      const hovered = hoveredMapLabel?.layer === layer ? hoveredMapLabel.key : null;
+      const colours = layer === 'rivers-labels'
+        ? {normal: '#38b3d0', hover: '#79d2e5', selected: '#247f98'}
+        : {normal: '#292822', hover: '#927746', selected: '#695028'};
+      map.setPaintProperty(layer, 'text-color', [
+        'case',
+        selected === null ? false : ['==', featureKey, selected], colours.selected,
+        hovered === null ? false : ['==', featureKey, hovered], colours.hover,
+        colours.normal
+      ]);
+    }
+  }
   clickableLayers.forEach(layer => {
-    map.on('mouseenter', layer, () => map.getCanvas().style.cursor = 'pointer');
-    map.on('mouseleave', layer, () => map.getCanvas().style.cursor = '');
+    map.on('mousemove', layer, event => {
+      const feature = event.features?.[0];
+      if (!feature) return;
+      map.getCanvas().style.cursor = 'pointer';
+      const key = mapPlaceKey(feature.properties);
+      if (hoveredMapLabel?.layer === layer && hoveredMapLabel.key === key) return;
+      hoveredMapLabel = {layer, key};
+      updateMapLabelColours();
+    });
+    map.on('mouseleave', layer, () => {
+      if (hoveredMapLabel?.layer !== layer) return;
+      hoveredMapLabel = null;
+      map.getCanvas().style.cursor = '';
+      updateMapLabelColours();
+    });
   });
   // Close Sidebar
   document.addEventListener('keydown', event => {
@@ -452,6 +516,8 @@ function openSidebar(props, placeKey) {
 
     const feature = features[0];
     const props = feature.properties;
+    selectedMapLabel = {layer: feature.layer.id, key: mapPlaceKey(props)};
+    updateMapLabelColours();
 
     // CLEAR ALL HIGHLIGHTS
     map.setFilter('countries-fill', ['==', ['get', 'ADM0_A3'], '']);
@@ -487,5 +553,6 @@ function openSidebar(props, placeKey) {
 </script>
 <script src="inspector-graph.js"></script>
 <script src="inspectors.js"></script>
+<script src="header-nav.js"></script>
 </body>
 </html>

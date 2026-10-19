@@ -1,7 +1,7 @@
 *.pdf
 *.txt
 *.zip
-docs/start_server
-docs/data/
-data/upstream
-build
+/docs/start_server
+/docs/data/
+/data/upstream/
+/build/

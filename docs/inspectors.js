@@ -1,6 +1,6 @@
 /* Uses the existing markdown(), addProse(), and addCitations() helpers. */
 (function () {
-  const states = {}, tabs = ['प्रक्रिया', 'अपभ्रंशाः', 'प्रयोगाः'];
+  const states = {}, tabs = ['व्युत्पत्तिः', 'अपभ्रंशाः', 'प्रयोगाः'];
   let serial = 0;
   let ruleCatalogue = {};
   let catalogueError = '';
@@ -240,10 +240,13 @@
     }
   }
   function markTrigger(trigger, selected) {
-    if (!trigger?.classList.contains('family-pill')) return;
+    if (!trigger) return;
+    const foreign = trigger.matches('.family-pill');
+    const sanskrit = trigger.matches('.sanskrit-name button');
+    if (!foreign && !sanskrit) return;
     trigger.classList.toggle('mi-selected', selected);
     trigger.setAttribute('aria-expanded', String(selected));
-    trigger.setAttribute('aria-controls', 'mi-foreign');
+    trigger.setAttribute('aria-controls', foreign ? 'mi-foreign' : 'mi-sanskrit');
   }
   function render(state) {
     state.cleanups.forEach(fn => fn()); state.cleanups = [];
@@ -261,7 +264,7 @@
         body.append(el('p', 'mi-empty', 'Newly proposed name; no known historical attestation.'));
       }
       const attestations = [...(record.attestations || [])].sort((a,b) => (a.sort_year ?? Infinity) - (b.sort_year ?? Infinity));
-      if (!attestations.length && record.attestation_status !== 'newly_proposed') body.append(el('p', 'mi-empty', 'No attestations have been supplied.'));
+      if (!attestations.length && record.attestation_status !== 'newly_proposed') body.append(el('p', 'mi-empty', 'सद्यः प्रयोगा न लभ्याः'));
       attestations.forEach(a => {
         const item = el('section', 'mi-attestation');
         const heading = el('div', 'mi-attestation-heading');
@@ -282,7 +285,10 @@
       return;
     }
     const etymologies = record.etymologies || [];
-    if (!etymologies.length) { body.append(el('p', 'mi-empty', 'प्रक्रिया न लभ्या।')); return; }
+    if (!etymologies.length) { body.append(el('p', 'mi-empty', 'सद्यः प्रक्रिया न लभ्या।')); return; }
+    const etymology = etymologies[state.etymology];
+    const etymHeading = el('div', 'mi-etym-heading');
+    if (state.tab === 0) addProse(etymHeading, etymology.derivation, 'derivation');
     if (etymologies.length > 1) {
       const choices = el('div', 'mi-etym-choices');
       choices.setAttribute('role', 'group');
@@ -307,11 +313,10 @@
         choices.append(button);
       });
 
-      body.append(choices);
+      etymHeading.append(choices);
     }
-    const etymology = etymologies[state.etymology];
+    if (etymHeading.childNodes.length) body.append(etymHeading);
     if (state.tab === 0) {
-      addProse(body, etymology.derivation, 'derivation');
       tree(body, etymology.steps ?? etymology.tree, state);
       addProse(body, etymology.notes); citations(body, etymology.citations);
     } else tree(body, etymology.descendants, state);

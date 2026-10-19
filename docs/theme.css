@@ -1,0 +1,93 @@
+:root {
+  --ui-text: #59554b;
+  --ui-hover: #927746;
+  --ui-selected: #695028;
+  --ui-surface: #fffefa;
+  --ui-hover-bg: #f3efe6;
+  --ui-selected-bg: #e9dfcb;
+  --ui-border: #ded9cf;
+}
+body > header { background: var(--ui-surface); color: #292822; border-color: #e5e1d8; }
+body > header nav { position: relative; align-items: center; }
+body > header nav a {
+  position: relative; padding: 7px 0;
+  color: var(--ui-text); font-weight: 500; border-bottom: 0;
+  transition: color 150ms ease;
+}
+body > header nav a:hover { color: var(--ui-hover); }
+body > header nav a.active { color: var(--ui-selected); border-bottom: 0; text-decoration: none; }
+body > header nav a:active { color: var(--ui-selected); }
+body > header nav a:focus-visible { outline: 2px solid var(--ui-hover); outline-offset: 4px; }
+.header-indicator {
+  position: absolute; bottom: 0; left: 0; height: 2px;
+  background: var(--ui-selected); border-radius: 2px; pointer-events: none;
+}
+.header-indicator-ready .header-indicator { transition: transform 220ms ease, width 220ms ease; }
+body .family-pill, body .sanskrit-name button, body .mi-tabs button,
+body .mi-etym-choices button, body .sidebar-close, body .mi-close, body .page button {
+  color: var(--ui-text);
+  transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease;
+}
+body .family-pill:hover, body .sanskrit-name button:hover, body .mi-tabs button:hover,
+body .mi-etym-choices button:hover, body .sidebar-close:hover, body .mi-close:hover, body .page button:hover {
+  color: var(--ui-hover);
+}
+body .mi-tabs button:hover, body .sanskrit-name button:hover { background: transparent; }
+body .family-pill:hover, body .sidebar-close:hover, body .mi-close:hover, body .page button:hover { background: var(--ui-hover-bg); }
+body .family-pill.mi-selected, body .family-pill.mi-selected:hover {
+  color: var(--ui-selected); background: var(--ui-selected-bg); border-color: var(--ui-selected);
+}
+body .sanskrit-name button.mi-selected, body .mi-tabs button[aria-selected="true"],
+body .mi-etym-choices button[aria-pressed="true"] { color: var(--ui-selected); }
+body .family-pill:active, body .sanskrit-name button:active, body .mi-tabs button:active,
+body .mi-etym-choices button:active, body .sidebar-close:active, body .mi-close:active, body .page button:active { color: var(--ui-selected); }
+body .mi-tab-indicator { background: var(--ui-selected); }
+body .mi-etym-heading { display: flex; align-items: baseline; gap: 8px 16px; margin-bottom: 14px; }
+body .mi-etym-heading > .derivation { flex: 1; min-width: 0; margin: 0; }
+body .mi-etym-choices {
+  display: inline-flex; flex: none; align-items: stretch; gap: 0;
+  margin: 0 0 0 auto; font: 17px/1.5 'Shobhika', serif;
+  border: 1px solid #cfc5b2; border-radius: 999px;
+  overflow: hidden; background: var(--ui-surface);
+}
+body .mi-etym-choices button {
+  min-width: 30px; min-height: 28px; padding: 1px 9px;
+  border: 0; border-radius: 0; background: transparent;
+  font: inherit; cursor: pointer;
+}
+body .mi-etym-choices button + button { border-left: 1px solid #cfc5b2; }
+body .mi-etym-choices button:hover { background: var(--ui-hover-bg); }
+body .mi-etym-choices button[aria-pressed="true"] {
+  background: var(--ui-selected-bg); color: var(--ui-selected);
+  text-decoration: none;
+}
+body .mi-etym-choices button:active { background: #e2d5bd; }
+body .mi-etym-choices button:focus-visible { outline: 2px solid var(--ui-hover); outline-offset: -3px; }
+/* Keep emphasized derivation text within the same gold palette. */
+body .mi-changed, body .mi-attestation blockquote strong { color: var(--ui-selected); }
+@media (max-width: 1100px) {
+  body .mi-etym-heading { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body > header nav a, .header-indicator-ready .header-indicator,
+  body .family-pill, body .sanskrit-name button, body .mi-tabs button,
+  body .mi-etym-choices button, body .sidebar-close, body .mi-close, body .page button { transition: none; }
+}
+
+/* Clear hierarchy in both overview and inspectors. */
+#sidebar .prose, .mi-panel .prose { color: #514b41; }
+#sb-title, .mi-panel .mi-title { color: #292822; }
+#sidebar .sanskrit-name button:not(.mi-selected):not(:hover) { color: #292822; }
+#sidebar .prose.derivation, .mi-panel .prose.derivation {
+  color: #80602f;
+  font-weight: 700;
+}
+#sidebar .prose a, .mi-panel .prose a {
+  color: #695028;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+#sidebar .prose a:hover, .mi-panel .prose a:hover { color: #927746; }
+#sidebar .name-citations, .mi-panel .name-citations { color: #777164; }
+body .mi-changed { color: #a53f32; }

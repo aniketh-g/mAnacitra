@@ -40,7 +40,7 @@ nav a.active {
 body {
   margin: 0;
   padding-top: 56px; /* space for fixed header */
-  font-family: Noto Sans, sans-serif;
+  font-family: 'Shobhika', Georgia, serif;
 }
 
 @font-face {
@@ -280,4 +280,53 @@ main {
 .family-pill.mi-selected:hover { background: #e2d5bd; }
 @media (prefers-reduced-motion: reduce) {
   .family-pill { transition: none; }
+}
+
+/* Sanskrit names: hover preview and persistent inspector selection. */
+.sanskrit-name button { transition: color 150ms ease; }
+.sanskrit-name button:hover { color: #927746; }
+.sanskrit-name button.mi-selected {
+  color: #93452f;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sanskrit-name button { transition: none; }
+}
+
+/* Shared close-button feedback for the overview and inspectors. */
+.sidebar-close, .mi-close {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: color 150ms ease, background-color 150ms ease;
+}
+.sidebar-close:hover, .mi-close:hover {
+  color: #93452f;
+  background-color: #f3efe6;
+}
+.sidebar-close:active, .mi-close:active {
+  background-color: #e9dfcb;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sidebar-close, .mi-close { transition: none; }
+}
+
+/* Form controls do not inherit the page font by default. */
+.page input, .page textarea, .page select, .page button {
+  font-family: inherit;
+}
+
+/* Automatic Devanagari numbering in the place overview. */
+#sb-names, .overview-etymologies { list-style-type: devanagari; }
+.overview-etymologies { margin: 8px 0 0; padding-left: 24px; }
+.overview-etymologies > li { padding-left: 6px; }
+.overview-etymologies > li::marker {
+  color: #928b7d;
+  font-family: 'Shobhika', serif;
+  font-size: 15px;
 }
