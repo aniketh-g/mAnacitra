@@ -150,7 +150,7 @@
   function tree(parent, graph, state) {
     if (Array.isArray(graph)) graph = stepsToGraph(graph);
     if (!graph?.nodes?.length) {
-      parent.append(el('p', 'mi-empty', 'प्रक्रिया न लभ्या।'));
+      parent.append(el('p', 'mi-empty', state.tab === 1 ? 'सद्यो विकाराणि न लभ्यानि।' : 'सद्यः प्रक्रिया न लभ्या।'));
       return;
     }
     let model;
@@ -260,13 +260,16 @@
     updateTabIndicator(state);
     body.setAttribute('aria-labelledby', state.buttons[state.tab].id);
     const record = state.record;
-    if (state.tab === 1 && state.type === 'sanskrit') return;
+    if (state.tab === 1 && state.type === 'sanskrit') {
+      body.append(el('p', 'mi-empty', 'सद्यो विकाराणि न लभ्यानि।'));
+      return;
+    }
     if (state.tab === 2) {
       if (record.attestation_status === 'newly_proposed') {
         body.append(el('p', 'mi-empty', 'Newly proposed name; no known historical attestation.'));
       }
       const attestations = [...(record.attestations || [])].sort((a,b) => (a.sort_year ?? Infinity) - (b.sort_year ?? Infinity));
-      if (!attestations.length && record.attestation_status !== 'newly_proposed') body.append(el('p', 'mi-empty', 'सद्यः प्रयोगा न लभ्याः'));
+      if (!attestations.length && record.attestation_status !== 'newly_proposed') body.append(el('p', 'mi-empty', 'सद्यः प्रयोगा न लभ्याः।'));
       attestations.forEach(a => {
         const item = el('section', 'mi-attestation');
         const heading = el('div', 'mi-attestation-heading');
@@ -287,7 +290,7 @@
       return;
     }
     const etymologies = record.etymologies || [];
-    if (!etymologies.length) { body.append(el('p', 'mi-empty', 'सद्यः प्रक्रिया न लभ्या।')); return; }
+    if (!etymologies.length) { body.append(el('p', 'mi-empty', state.tab === 1 ? 'सद्यो विकाराणि न लभ्यानि।' : 'सद्यः प्रक्रिया न लभ्या।')); return; }
     const etymology = etymologies[state.etymology];
     const etymHeading = el('div', 'mi-etym-heading');
     if (state.tab === 0) addProse(etymHeading, etymology.derivation, 'derivation');
