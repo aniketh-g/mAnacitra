@@ -10,10 +10,20 @@
   <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet"/>
   <link rel="stylesheet" href="theme.css" />
   <link rel="stylesheet" href="mobile-panels.css" />
+  <link rel="stylesheet" href="place-search.css" />
 </head>
 <body>
 <header>
   <h1>मानचित्रम्</h1>
+  <div id="place-search" role="search">
+    <span class="place-search-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></span>
+    <input id="place-search-input" type="search" placeholder="नाम अन्विष्यताम् - 'दानवी', 'DANVBIVS', उत 'दानुब्युस्' "
+      aria-label="Search place names" role="combobox" aria-autocomplete="list"
+      aria-expanded="false" aria-controls="place-search-results" autocomplete="off" spellcheck="false" />
+    <button id="place-search-clear" type="button" aria-label="Clear search" hidden>×</button>
+    <ul id="place-search-results" role="listbox" aria-label="Matching places" hidden></ul>
+    <div id="place-search-status" role="status" aria-live="polite"></div>
+  </div>
   <nav>
     <a href="index.html" class="active">मानचित्रम्</a>
     <a href="about.html">अस्मद्विषये</a>
@@ -50,6 +60,7 @@
 <script src="https://cdn.jsdelivr.net/npm/marked@15/lib/marked.umd.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
 <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+<script src="place-search.js"></script>
 <script>
 
   let highlightedCountry = null;
@@ -80,7 +91,13 @@ function addProse(parent, text, className = "") {
   parent.append(div);
 }
 
-function addCitations(parent, citations = []) {
+function attestationStatusText(record) {
+  const status = record.attestation_status;
+  if (status === 'newly_proposed') return 'निर्मापितं पदम्। न रूढिर्विद्यते। प्रयोगा अर्वाचीनाः।';
+  return typeof status === 'string' ? status.trim() : '';
+}
+
+function addCitations(parent, citations = [], {locatorSeparator = ' — '} = {}) {
   if (!citations.length) return;
 
   const list = document.createElement("ul");
@@ -110,7 +127,7 @@ function addCitations(parent, citations = []) {
     }
 
     if (citation.locator) {
-      item.append(document.createTextNode(` — ${citation.locator}`));
+      item.append(document.createTextNode(`${locatorSeparator}${citation.locator}`));
     }
 
     if (citation.quote) {
@@ -184,6 +201,12 @@ function openSidebar(props, placeKey) {
     button.addEventListener("click", () => NameInspectors.open("sanskrit", name, button));
     heading.append(button);
     item.append(heading);
+    const status = attestationStatusText(name);
+    if (status) {
+      const note = document.createElement('p');
+      note.className = 'attestation-status'; note.textContent = status;
+      item.append(note);
+    }
 
     const etymologies = name.etymologies || [];
     const multipleEtymologies = etymologies.length > 1;
@@ -195,7 +218,7 @@ function openSidebar(props, placeKey) {
     for (const etymology of etymologies) {
       const entry = document.createElement(multipleEtymologies ? 'li' : 'div');
       entry.className = 'etymology';
-      addProse(entry, etymology.derivation, 'derivation');
+      addProse(entry, etymology.vyutpatti, 'vyutpatti');
       addProse(entry, etymology.notes);
       addCitations(entry, etymology.citations || []);
       etymologyList.append(entry);
@@ -203,7 +226,7 @@ function openSidebar(props, placeKey) {
 
     // Keep existing entries visible during migration.
     if (!name.etymologies) {
-      addProse(item, name.derivation, "derivation");
+      addProse(item, name.vyutpatti, "vyutpatti");
       addProse(item, name.context ?? name.notes);
       addCitations(item, name.citations || []);
     }
@@ -271,6 +294,8 @@ function openSidebar(props, placeKey) {
     zoom: 2
   });
 
+  let searchMapReady = false;
+  const searchDatasets = new Map();
   map.on('load', async () => {
     map.addSource('cities', {
       type: 'geojson',
@@ -287,6 +312,7 @@ function openSidebar(props, placeKey) {
       throw new Error(`Could not load countries: ${response.status}`);
     }
     const countries = await response.json();
+    searchDatasets.set("countries", Promise.resolve(countries));
 
     map.addSource('countries', {
       type: 'geojson',
@@ -474,6 +500,7 @@ function openSidebar(props, placeKey) {
       }
     });
 
+    searchMapReady = true;
   });
 
   // Clicking Logic
@@ -535,8 +562,11 @@ function openSidebar(props, placeKey) {
     if (!features.length) return;
 
     const feature = features[0];
-    const props = feature.properties;
-    selectedMapLabel = {layer: feature.layer.id, key: mapPlaceKey(props)};
+    selectPlace(feature.properties, feature.layer.id);
+  });
+
+  function selectPlace(props, layer) {
+    selectedMapLabel = {layer: layer, key: mapPlaceKey(props)};
     updateMapLabelColours();
 
     // CLEAR ALL HIGHLIGHTS
@@ -545,21 +575,21 @@ function openSidebar(props, placeKey) {
     map.setFilter('rivers-highlight', ['==', ['get', 'name'], '']);
 
     // APPLY CORRECT HIGHLIGHT
-    if (feature.layer.id === 'countries-label') {
+    if (layer === 'countries-label') {
       map.setFilter('countries-fill', [
         '==',
         ['get', 'ADM0_A3'],
         props.ADM0_A3
       ]);
     }
-    if (feature.layer.id === 'capital-labels-sa') {
+    if (layer === 'capital-labels-sa') {
       map.setFilter('capital-highlight', [
         '==',
         ['get', 'NAME_SA'],
         props.NAME_SA
       ]);
     }
-    if (feature.layer.id === 'rivers-labels') {
+    if (layer === 'rivers-labels') {
       map.setFilter('rivers-highlight', [
         '==',
         ['get', 'NAME_SA'],
@@ -568,7 +598,28 @@ function openSidebar(props, placeKey) {
     }
 
     // SIDEBAR (unchanged logic)
-    openSidebar(props, `${feature.layer.id}:${props.name_record_id || props.place_id}`);
+    openSidebar(props, `${layer}:${props.name_record_id || props.place_id}`);
+  }
+  PlaceSearch.init(async (entry, isCurrent) => {
+    if (!searchMapReady) throw Error('Map is still loading');
+    if (!searchDatasets.has(entry.dataset)) {
+      const request = fetch(`data/${entry.dataset}.geojson`).then(response => {
+        if (!response.ok) throw Error('Dataset unavailable'); return response.json();
+      }).catch(error => { searchDatasets.delete(entry.dataset); throw error; });
+      searchDatasets.set(entry.dataset, request);
+    }
+    const data = await searchDatasets.get(entry.dataset);
+    if (!isCurrent()) return;
+    const feature = data.features.find(feature => String(feature.properties.name_record_id || feature.properties.place_id) === entry.id);
+    if (!feature) throw Error('Place missing');
+    const layer = {countries:'countries-label', cities:'capital-labels-sa', rivers:'rivers-labels'}[entry.dataset];
+    selectPlace(feature.properties, layer);
+    const mobile = matchMedia('(max-width: 999px)').matches;
+    const zoom = {countries:4, cities:8, rivers:6}[entry.dataset];
+    map.easeTo({center:entry.center, zoom,
+      offset: mobile ? [0, -map.getContainer().clientHeight / 4] : [220, 0],
+      duration: matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 700});
+    document.querySelector('.sidebar-close')?.focus({preventScroll:true});
   });
 </script>
 <script src="inspector-graph.js"></script>

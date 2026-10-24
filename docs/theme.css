@@ -43,7 +43,7 @@ body .family-pill:active, body .sanskrit-name button:active, body .mi-tabs butto
 body .mi-etym-choices button:active, body .sidebar-close:active, body .mi-close:active, body .page button:active { color: var(--ui-selected); }
 body .mi-tab-indicator { background: var(--ui-selected); }
 body .mi-etym-heading { display: flex; align-items: baseline; gap: 8px 16px; margin-bottom: 14px; }
-body .mi-etym-heading > .derivation { flex: 1; min-width: 0; margin: 0; }
+body .mi-etym-heading > .vyutpatti { flex: 1; min-width: 0; margin: 0; }
 body .mi-etym-choices {
   display: inline-flex; flex: none; align-items: stretch; gap: 0;
   margin: 0 0 0 auto; font: 17px/1.5 'Shobhika', serif;
@@ -78,7 +78,7 @@ body .mi-changed, body .mi-attestation blockquote strong { color: var(--ui-selec
 #sidebar .prose, .mi-panel .prose { color: #514b41; }
 #sb-title, .mi-panel .mi-title { color: #292822; }
 #sidebar .sanskrit-name button:not(.mi-selected):not(:hover) { color: #292822; }
-#sidebar .prose.derivation, .mi-panel .prose.derivation {
+#sidebar .prose.vyutpatti, .mi-panel .prose.vyutpatti {
   color: #80602f;
   font-weight: 700;
 }
@@ -91,3 +91,42 @@ body .mi-changed, body .mi-attestation blockquote strong { color: var(--ui-selec
 #sidebar .prose a:hover, .mi-panel .prose a:hover { color: #927746; }
 #sidebar .name-citations, .mi-panel .name-citations { color: #777164; }
 body .mi-changed { color: #a53f32; }
+
+/* Compact rule visibility switch, below the etymology heading. */
+.mi-tree-controls { display: flex; justify-content: flex-end; margin: 0 0 10px; }
+.mi-rule-toggle { display: inline-flex; align-items: center; gap: 7px; padding: 4px 0;
+  border: 0; border-radius: 0; background: transparent; color: #59554b;
+  font: inherit; font-size: 14px; cursor: pointer; }
+.mi-rule-toggle:hover { color: #927746; }
+.mi-rule-toggle:focus-visible { outline: 2px solid #927746; outline-offset: 3px; }
+.mi-switch-track { width: 26px; height: 14px; border-radius: 8px; background: #fff;
+  box-shadow: inset 0 0 0 1px #d4cdbf; position: relative; transition: background-color 160ms ease; }
+.mi-switch-track::after { content: ''; position: absolute; width: 10px; height: 10px; top: 2px; left: 2px;
+  border-radius: 50%; background: #a59b88; transition: transform 160ms ease; }
+.mi-rule-toggle[aria-checked="true"] .mi-switch-track { background: #d0b780; }
+.mi-rule-toggle[aria-checked="true"] .mi-switch-track::after { transform: translateX(12px); background: #80602f; }
+.mi-graph-scroll { overflow-anchor: none; }
+.mi-secondary-step { opacity: 0.45; }
+body .mi-rule.mi-unadi { color: #286a72; background: #edf5f4; border-color: #81aaaa; }
+body .mi-rule.mi-unadi .mi-rule-reference { color: #286a72; }
+body .mi-rule.mi-unadi a.mi-rule-reference:hover { color: #194f55; }
+#sidebar .attestation-status, .mi-panel .attestation-status { color: #777164; font-size: 0.88em; margin: 4px 0 12px; }
+body .mi-attestation .prose strong, body .mi-attestation .prose b { color: #a53f32; }
+@media (prefers-reduced-motion: reduce) { .mi-switch-track::after { transition: none; } }
+
+@media (max-width: 999px) { .mi-rule-toggle { min-height: 44px; } }
+
+@media (prefers-reduced-motion: reduce) { .mi-rule-toggle { transition: none; } }
+
+/* Designation rules are annotations, not extra form/arrow steps. */
+.mi-sanjna-pills { display: flex; flex-wrap: wrap; justify-content: center;
+  align-content: center; align-items: flex-start; gap: 6px 8px; min-width: 0; }
+.mi-sanjna-pills > .mi-rule { flex: 0 1 auto; min-width: 0; max-width: 100%; margin: 0; }
+.mi-sanjna-pills .mi-rule-reference { overflow-wrap: anywhere; }
+.mi-edge-row.mi-sanjna-gap { height: 0; min-height: 0; margin: 5px 0; }
+
+/* Rule types control presentation independently of visibility. */
+body .mi-rule:not(.mi-unadi):not(.mi-sanjna-rule) { background: #e9d8ae; border-color: #c6a769; }
+body .mi-rule.mi-sanjna-rule { background: transparent; border-color: #c6a769; color: #695028; }
+body .mi-rule.mi-sanjna-rule .mi-rule-reference { color: #695028; }
+body .mi-rule.mi-sanjna-rule a.mi-rule-reference:hover { color: #48330f; }

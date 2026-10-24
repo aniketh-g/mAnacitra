@@ -5,16 +5,17 @@
   let openingOrder = 0;
   const mobilePanels = matchMedia('(max-width: 999px)');
   let ruleCatalogue = {};
+  let ruleVisibility = {};
   let catalogueError = '';
 
-  Promise.allSettled(['ashtadhyayi', 'foreign'].map(async name => {
+  Promise.allSettled(['visibility', 'foreign'].map(async name => {
     const response = await fetch(`data/rules/${name}.json`);
     if (!response.ok) throw new Error(`${name}: HTTP ${response.status}`);
     return response.json();
   }))
     .then(results => {
-      for (const result of results) {
-        if (result.status === 'fulfilled') Object.assign(ruleCatalogue, result.value);
+      for (const [index, result] of results.entries()) {
+        if (result.status === 'fulfilled') Object.assign(index === 0 ? ruleVisibility : ruleCatalogue, result.value);
         else catalogueError += `${result.reason.message}; `;
       }
     })
@@ -29,73 +30,17 @@
       }
     });
 
-  function stepsToGraph(steps) {
-    const nodes = steps.map((step, i) => ({
-      ...step,
-      id: `step-${i}`
-    }));
-    const edges = [];
-
-    function connect(from, to) {
-      edges.push({
-        from: from.id,
-        to: to.id,
-        kind: to.kind || 'morphology',
-        rules: to.rules || [],
-        rule: to.rule || '',
-        notes: to.rule_notes,
-        citations: to.rule_citations || []
-      });
-    }
-
-    function chain(items, start = null) {
-      let previous = start;
-
-      for (const item of items) {
-        if (previous) connect(previous, item);
-        previous = item;
-      }
-
-      return previous;
-    }
-
-    const branched = nodes.some(
-      node => ['foreign', 'sanskrit'].includes(node.branch)
-    );
-
-    if (!branched) {
-      chain(nodes);
-      return { nodes, edges };
-    }
-
-    const common = nodes.filter(
-      node => !node.branch || node.branch === 'common'
-    );
-    const foreign = nodes.filter(node => node.branch === 'foreign');
-    const sanskrit = nodes.filter(node => node.branch === 'sanskrit');
-
-    const sharedEnd = chain(common);
-
-    chain(foreign, sharedEnd);
-    chain(sanskrit, sharedEnd);
-
-    // Keep the foreign branch left of the Sanskrit branch.
-    return {
-      nodes: [...common, ...foreign, ...sanskrit],
-      edges
-    };
-  }
   const el = (tag, cls, text) => {
     const element = document.createElement(tag);
     if (cls) element.className = cls;
     if (text !== undefined) element.textContent = text;
     return element;
   };
-  function citations(parent, items) {
+  function citations(parent, items, options) {
     // Existing inline citations work unchanged. A future bibliography may resolve source_id here.
-    addCitations(parent, items || []);
+    addCitations(parent, items || [], options);
   }
-  function detail(data, type) {
+  function detail(data, type, generatedRules = {}) {
     const box = el('div', type === 'node' ? 'mi-node' : 'mi-rule');
     const summary = el('div', type === 'node' ? 'mi-form' : 'mi-rule-content');
     if (type === 'node') {
@@ -117,9 +62,12 @@
       box.dataset.kind = data.kind;
       // Accept a single reference too, without splitting it into characters.
       const references = Array.isArray(data.rules) ? data.rules : data.rules ? [data.rules] : [];
+      box.classList.toggle('mi-unadi', references.some(r => r.startsWith('unadi:')));
+      box.classList.toggle('mi-sanjna-rule', references.length > 0 && references.every(ref => ruleVisibility[ref]?.type === 'sanjna'));
       if (references.length) {
         for (const reference of references) {
-          const rule = ruleCatalogue[reference];
+          const known = ruleCatalogue[reference] || generatedRules[reference];
+          const rule = known && {...generatedRules[reference], ...ruleCatalogue[reference]};
           if (!rule) {
             const missing = el('span', 'mi-rule-reference', `${reference} — rule text unavailable`);
             missing.title = catalogueError || 'This rule is not in the local catalogue.';
@@ -131,7 +79,8 @@
             const parsed = new URL(rule.url);
             if (['https:', 'http:'].includes(parsed.protocol)) url = parsed.href;
           } catch {}
-          const label = [rule.text, rule.number].filter(Boolean).join(' · ') || reference;
+          const number = String(rule.number || '').replace(/\d/g, d => '०१२३४५६७८९'[Number(d)]);
+          const label = [rule.text, number].filter(Boolean).join(' ') || reference;
           const link = el(url ? 'a' : 'span', 'mi-rule-reference', label);
           if (url) {
             link.href = url;
@@ -147,45 +96,113 @@
     box.append(summary);
     return box;
   }
-  function tree(parent, graph, state) {
-    if (Array.isArray(graph)) graph = stepsToGraph(graph);
+  function tree(parent, graph, state, generatedRules = {}) {
+    try {
+      if (Array.isArray(graph)) graph = InspectorGraph.prakriyaToGraph(graph);
+    } catch (error) {
+      parent.append(el('p', 'mi-empty', `Unable to display this tree: ${error.message}`));
+      return;
+    }
     if (!graph?.nodes?.length) {
       parent.append(el('p', 'mi-empty', state.tab === 1 ? 'सद्यो विकाराणि न लभ्यानि।' : 'सद्यः प्रक्रिया न लभ्या।'));
       return;
     }
+    if (state.tab === 0) {
+      const controls = el('div', 'mi-tree-controls');
+      const toggle = el('button', 'mi-rule-toggle');
+      toggle.type = 'button';
+      toggle.setAttribute('role', 'switch');
+      toggle.setAttribute('aria-label', 'सर्वे विधयः');
+      toggle.setAttribute('aria-checked', String(Boolean(state.showAllRules)));
+      toggle.append(el('span', 'mi-switch-track'), el('span', '', state.showAllRules ? 'सर्वे विधयः' : 'मुख्यविधयः'));
+      toggle.addEventListener('click', () => {
+        const previous = state.treeView?.snapshot();
+        const scrollTop = state.body.scrollTop;
+        state.showAllRules = !state.showAllRules;
+        render(state);
+        if (previous && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          state.treeView?.transition(previous);
+        }
+        state.body.scrollTop = scrollTop;
+        state.body.querySelector('.mi-rule-toggle')?.focus({preventScroll: true});
+      });
+      controls.append(toggle); parent.append(controls);
+    }
+    const hiddenRule = ref => ref.startsWith('ashtadhyayi:') && ruleVisibility[ref]?.hidden_by_default === true;
+    const secondaryEdge = edge => {
+      const refs = Array.isArray(edge.rules) ? edge.rules : edge.rules ? [edge.rules] : [];
+      return state.tab === 0 && state.showAllRules && refs.length > 0 && !edge.rule && !edge.sutra && refs.every(hiddenRule);
+    };
+    const secondaryNodes = new Set(graph.nodes.filter(node => {
+      const incoming = (graph.edges || []).filter(edge => edge.to === node.id);
+      return incoming.length && incoming.every(secondaryEdge);
+    }).map(node => node.id));
     let model;
-    try { model = InspectorGraph.layout(graph); }
+    try {
+      if (state.tab === 0 && !state.showAllRules) {
+        graph = InspectorGraph.mainRules(graph, hiddenRule);
+        graph = InspectorGraph.sanjnaRules(graph, ref => ruleVisibility[ref]?.type === 'sanjna');
+      }
+      model = InspectorGraph.layout(graph);
+    }
     catch (error) { parent.append(el('p', 'mi-empty', `Unable to display this tree: ${error.message}`)); return; }
+    const sanjnaNodes = new Set(graph.nodes.filter(node => node.sanjnaRules).map(node => node.id));
     const scroll = el('div', 'mi-graph-scroll');
     const diagram = el('div', 'mi-graph');
     diagram.setAttribute('aria-label', graph.label || 'Derivation tree, read from top to bottom');
-    const slots = new Map(), links = [];
+    const slots = new Map(), links = [], motionItems = new Map();
     const maxColumns = Math.max(...model.rows.map(r => r.length), ...model.bands.map(r => r.length), 1);
     diagram.style.minWidth = `${maxColumns * 110 + (maxColumns - 1) * 16}px`;
     model.rows.forEach((row, index) => {
       const line = el('div', 'mi-row');
       line.style.gridTemplateColumns = `repeat(${row.length}, minmax(0, 1fr))`;
       row.forEach(item => {
-        const cell = item.node ? detail(item.node, 'node') : el('div', 'mi-route');
+        const cell = item.node?.sanjnaRules ? el('div', 'mi-sanjna-pills') :
+          item.node ? detail(item.node, 'node') : el('div', 'mi-route');
+        if (item.node?.sanjnaRules) {
+          for (const reference of item.node.sanjnaRules) {
+            cell.append(detail({rules: [reference]}, 'edge', generatedRules));
+          }
+        }
         if (!item.node) cell.setAttribute('aria-hidden', 'true');
+        if (item.node) {
+          motionItems.set(`node:${item.node.id}`, cell);
+          cell.classList.toggle('mi-secondary-step', secondaryNodes.has(item.node.id));
+        }
         slots.set(item.key, cell); line.append(cell);
       });
       diagram.append(line);
       const band = model.bands[index];
       if (!band?.length) return;
       const edgeRow = el('div', 'mi-edge-row');
-      edgeRow.style.gridTemplateColumns = `repeat(${band.length}, minmax(0, 1fr))`;
+      const groups = [];
+      const joins = new Map();
+      for (const segment of band) {
+        let group = segment.join && joins.get(segment.join);
+        if (!group) {
+          group = []; groups.push(group);
+          if (segment.join) joins.set(segment.join, group);
+        }
+        group.push(segment);
+      }
+      edgeRow.style.gridTemplateColumns = `repeat(${groups.length}, minmax(0, 1fr))`;
       let hasLabels = false;
-      band.forEach(segment => {
-        const showLabel = Boolean(segment.label && (
+      groups.forEach(segments => {
+        const segment = segments[0];
+        const showLabel = Boolean(!sanjnaNodes.has(segment.edge.to) && segment.label && (
           segment.edge.rules?.length || segment.edge.rule?.trim() || segment.edge.sutra
         ));
         hasLabels ||= showLabel;
-        const label = showLabel ? detail(segment.edge, 'edge') : el('div', 'mi-route');
+        const label = showLabel ? detail(segment.edge, 'edge', generatedRules) : el('div', 'mi-route');
         if (!showLabel) label.setAttribute('aria-hidden', 'true');
-        edgeRow.append(label); links.push({...segment, label, showLabel});
+        if (showLabel) {
+          motionItems.set(`rule:${segment.edge.to}:${JSON.stringify(segment.edge.rules || [])}`, label);
+          label.classList.toggle('mi-secondary-step', secondaryEdge(segment.edge));
+        }
+        edgeRow.append(label); links.push({...segment, segments, label, showLabel});
       });
       if (!hasLabels) edgeRow.classList.add('mi-unlabelled');
+      if (band.every(segment => sanjnaNodes.has(segment.edge.to))) edgeRow.classList.add('mi-sanjna-gap');
       diagram.append(edgeRow);
     });
     scroll.append(diagram); parent.append(scroll);
@@ -198,7 +215,11 @@
     Object.entries({id:markerId, viewBox:'0 0 10 10', refX:'9', refY:'5', markerWidth:'6', markerHeight:'6', orient:'auto-start-reverse'}).forEach(([k,v]) => marker.setAttribute(k,v));
     const triangle = document.createElementNS(ns, 'path');
     triangle.setAttribute('d','M 0 0 L 10 5 L 0 10 z'); triangle.setAttribute('fill','#9b8c71');
-    marker.append(triangle); defs.append(marker); svg.append(defs); diagram.prepend(svg);
+    marker.append(triangle); defs.append(marker);
+    const unadiMarker = marker.cloneNode(true);
+    unadiMarker.id = `${markerId}-unadi`;
+    unadiMarker.querySelector('path').setAttribute('fill', '#327b80');
+    defs.append(unadiMarker); svg.append(defs); diagram.prepend(svg);
     function draw() {
       svg.querySelectorAll(':scope > path').forEach(p => p.remove());
       const base = diagram.getBoundingClientRect();
@@ -206,24 +227,32 @@
         const r = element.getBoundingClientRect();
         return [r.left + r.width / 2 - base.left, (bottom ? r.bottom : r.top) - base.top];
       };
-      const connect = (a, b, arrow, kind) => {
+      const connect = (a, b, arrow, edge) => {
+        const refs = Array.isArray(edge.rules) ? edge.rules : edge.rules ? [edge.rules] : [];
+        const unadi = refs.some(ref => ref.startsWith('unadi:'));
         const path = document.createElementNS(ns, 'path');
         const mid = (a[1] + b[1]) / 2;
         path.setAttribute('d', `M ${a} C ${a[0]},${mid} ${b[0]},${mid} ${b}`);
-        path.setAttribute('fill','none'); path.setAttribute('stroke','#9b8c71');
+        path.setAttribute('fill','none'); path.setAttribute('stroke',unadi ? '#327b80' : '#9b8c71');
         path.setAttribute('stroke-width','1.3');
-        if (kind === 'borrowing') path.setAttribute('stroke-dasharray','4 3');
-        if (arrow) path.setAttribute('marker-end',`url(#${markerId})`);
+        if (secondaryEdge(edge)) path.setAttribute('opacity', '0.45');
+        if (edge.kind === 'borrowing') path.setAttribute('stroke-dasharray','4 3');
+        if (arrow) path.setAttribute('marker-end',`url(#${markerId}${unadi ? '-unadi' : ''})`);
         svg.append(path);
       };
       links.forEach(link => {
-        const start = port(slots.get(link.from), true);
+        if (sanjnaNodes.has(link.edge.to)) return;
+        const starts = link.segments.map(segment => port(slots.get(segment.from), true));
         const end = port(slots.get(link.to), false);
         if (link.showLabel) {
-          connect(start, port(link.label, false), false, link.edge.kind);
-          connect(port(link.label, true), end, true, link.edge.kind);
+          starts.forEach(start => connect(start, port(link.label, false), false, link.edge));
+          connect(port(link.label, true), end, true, link.edge);
         } else {
-          connect(start, end, true, link.edge.kind);
+          if (starts.length > 1) {
+            const junction = [end[0], (Math.max(...starts.map(p => p[1])) + end[1]) / 2];
+            starts.forEach(start => connect(start, junction, false, link.edge));
+            connect(junction, end, true, link.edge);
+          } else connect(starts[0], end, true, link.edge);
         }
       });
     }
@@ -231,6 +260,66 @@
     observer.observe(diagram);
     state.cleanups.push(() => observer.disconnect());
     requestAnimationFrame(draw);
+    // Match forms across layouts: shared forms move, added steps unfold from
+    // the preceding retained form, and removed steps fold back into it.
+    const relativeRect = element => {
+      const rect = element.getBoundingClientRect(), base = diagram.getBoundingClientRect();
+      return {x: rect.left - base.left, y: rect.top - base.top, width: rect.width, height: rect.height};
+    };
+    state.treeView = {
+      snapshot() {
+        return {height: diagram.getBoundingClientRect().height,
+          items: new Map([...motionItems].map(([key, element]) => [key,
+            {...relativeRect(element), clone: element.cloneNode(true)}]))};
+      },
+      transition(previous) {
+        if (!diagram.animate) return;
+        const current = new Map([...motionItems].map(([key, element]) => [key, relativeRect(element)]));
+        const timing = {duration: 340, easing: 'cubic-bezier(.22,.7,.25,1)'};
+        const animations = [], ghosts = [];
+        // Prefer a retained node above the step; its horizontal distance breaks
+        // ties between parallel branches. This also handles split/join layouts.
+        const anchor = (rect, from, to) => {
+          const candidates = [...from].filter(([key]) => key.startsWith('node:') && to.has(key));
+          candidates.sort((a, b) => {
+            const score = ([, p]) => (p.y > rect.y ? 100000 : 0) + Math.abs(p.y - rect.y) + Math.abs(p.x - rect.x);
+            return score(a) - score(b);
+          });
+          return candidates.length ? to.get(candidates[0][0]) : {x: rect.x, y: 0};
+        };
+        for (const [key, element] of motionItems) {
+          const end = current.get(key), start = previous.items.get(key) || anchor(end, current, previous.items);
+          const frames = [{transform: `translate(${start.x-end.x}px, ${start.y-end.y}px)`}, {transform: 'translate(0, 0)'}];
+          if (!previous.items.has(key)) {
+            frames[0].opacity = 0;
+            frames[1].opacity = element.classList.contains('mi-secondary-step') ? 0.45 : 1;
+          }
+          animations.push(element.animate(frames, timing));
+        }
+        for (const [key, old] of previous.items) {
+          if (current.has(key)) continue;
+          const target = anchor(old, previous.items, current), ghost = old.clone;
+          Object.assign(ghost.style, {position: 'absolute', left: `${old.x}px`, top: `${old.y}px`,
+            width: `${old.width}px`, height: `${old.height}px`, pointerEvents: 'none', margin: '0'});
+          ghost.setAttribute('aria-hidden', 'true'); ghost.inert = true;
+          diagram.append(ghost); ghosts.push(ghost);
+          animations.push(ghost.animate([{transform: 'translate(0, 0)', opacity: 0.45},
+            {transform: `translate(${target.x-old.x}px, ${target.y-old.y}px)`, opacity: 0}], timing));
+        }
+        const height = diagram.getBoundingClientRect().height;
+        animations.push(diagram.animate([{height: `${previous.height}px`}, {height: `${height}px`}], timing));
+        let frame, stopped = false;
+        const finish = () => {
+          if (stopped) return;
+          stopped = true; cancelAnimationFrame(frame);
+          animations.forEach(animation => animation.cancel()); ghosts.forEach(ghost => ghost.remove()); draw();
+        };
+        const tick = () => { if (!stopped) { draw(); frame = requestAnimationFrame(tick); } };
+        frame = requestAnimationFrame(tick);
+        Promise.all(animations.map(animation => animation.finished)).then(finish, finish);
+        state.cleanups.push(finish);
+      }
+    };
   }
   function updateTabIndicator(state) {
     const button = state.buttons[state.tab];
@@ -252,6 +341,7 @@
   }
   function render(state) {
     state.cleanups.forEach(fn => fn()); state.cleanups = [];
+    state.treeView = null;
     const body = state.body; body.replaceChildren(); body.scrollTop = 0;
     state.buttons.forEach((button, i) => {
       button.setAttribute('aria-selected', String(i === state.tab));
@@ -260,21 +350,16 @@
     updateTabIndicator(state);
     body.setAttribute('aria-labelledby', state.buttons[state.tab].id);
     const record = state.record;
-    if (state.tab === 1 && state.type === 'sanskrit') {
-      body.append(el('p', 'mi-empty', 'सद्यो विकाराणि न लभ्यानि।'));
-      return;
-    }
     if (state.tab === 2) {
-      if (record.attestation_status === 'newly_proposed') {
-        body.append(el('p', 'mi-empty', 'Newly proposed name; no known historical attestation.'));
-      }
+      const status = attestationStatusText(record);
+      if (status) body.append(el('p', 'attestation-status', status));
       const attestations = [...(record.attestations || [])].sort((a,b) => (a.sort_year ?? Infinity) - (b.sort_year ?? Infinity));
-      if (!attestations.length && record.attestation_status !== 'newly_proposed') body.append(el('p', 'mi-empty', 'सद्यः प्रयोगा न लभ्याः।'));
+      if (!attestations.length && !status) body.append(el('p', 'mi-empty', 'सद्यः प्रयोगा न लभ्याः।'));
       attestations.forEach(a => {
         const item = el('section', 'mi-attestation');
         const heading = el('div', 'mi-attestation-heading');
 
-        citations(heading, a.citations);
+        citations(heading, a.citations, {locatorSeparator: ' '});
         heading.append(
           el('span', 'mi-meta',
             [a.language, a.date].filter(Boolean).join(' · ')
@@ -293,7 +378,7 @@
     if (!etymologies.length) { body.append(el('p', 'mi-empty', state.tab === 1 ? 'सद्यो विकाराणि न लभ्यानि।' : 'सद्यः प्रक्रिया न लभ्या।')); return; }
     const etymology = etymologies[state.etymology];
     const etymHeading = el('div', 'mi-etym-heading');
-    if (state.tab === 0) addProse(etymHeading, etymology.derivation, 'derivation');
+    if (state.tab === 0) addProse(etymHeading, etymology.vyutpatti, 'vyutpatti');
     if (etymologies.length > 1) {
       const choices = el('div', 'mi-etym-choices');
       choices.setAttribute('role', 'group');
@@ -322,8 +407,8 @@
     }
     if (etymHeading.childNodes.length) body.append(etymHeading);
     if (state.tab === 0) {
-      tree(body, etymology.steps ?? etymology.tree, state);
-      addProse(body, etymology.notes); citations(body, etymology.citations);
+      tree(body, etymology.prakriyA ?? etymology.tree, state, etymology.prakriyA_rules);
+
     } else tree(body, etymology.descendants, state);
   }
   function positioning() {
@@ -415,7 +500,7 @@
       hideOtherMobilePanels(state);
       state.panel.classList.remove('mi-superseded');
       state.lastOpened = ++openingOrder;
-      if (state.record !== record) { state.record=record; state.etymology=0; }
+      if (state.record !== record) { state.record=record; state.etymology=0; state.showAllRules=false; }
       if (state.trigger !== trigger) markTrigger(state.trigger, false);
       state.trigger = trigger;
 

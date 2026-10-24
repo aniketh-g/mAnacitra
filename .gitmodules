@@ -1,0 +1,6 @@
+[submodule "etymology/vidyut/engine"]
+	path = etymology/vidyut/engine
+	url = https://github.com/ambuda-org/vidyut.git
+[submodule "etymology/fortis/engine"]
+	path = etymology/fortis/engine
+	url = https://github.com/krbogusz/Fortis.git

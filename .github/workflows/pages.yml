@@ -28,6 +28,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y python3 jq gdal-bin make curl
 
+      - name: Install Rust for Sanskrit generation
+        uses: dtolnay/rust-toolchain@stable
+
       - name: Download geography
         run: make download-cities download-countries download-rivers
 

@@ -1,6 +1,7 @@
 import json
 import sys
 from pathlib import Path
+from generate_prakriya import prepare_records
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -17,6 +18,7 @@ OUTPUT = ROOT / "docs/data" / f"{dataset}.geojson"
 # Read inputs without modifying them.
 data = json.loads(GEOGRAPHY.read_text(encoding="utf-8"))
 records = json.loads(NAMES.read_text(encoding="utf-8"))
+records = prepare_records(records, dataset, ROOT)
 mapping = json.loads(MAPPING.read_text(encoding="utf-8"))
 geographic_ids = {f["properties"]["place_id"] for f in data["features"]}
 for geographic_id, record_id in mapping.items():
