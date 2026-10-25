@@ -28,6 +28,43 @@ create table public.manacitra_suggestions (
  check(octet_length(base::text)+octet_length(proposed::text)<=1000000),
  check(base <> proposed)
 );
+create function public.manacitra_suggestion_author_name(suggestion_id uuid)
+returns text
+language plpgsql
+stable
+security definer
+set search_path=''
+as $$
+declare
+ author_name text;
+begin
+ if not public.manacitra_is_reviewer() then
+  raise exception 'Reviewer access required';
+ end if;
+
+ select coalesce(
+   nullif(u.raw_user_meta_data->>'full_name', ''),
+   nullif(u.raw_user_meta_data->>'name', ''),
+   'Unknown contributor'
+ )
+ into author_name
+ from public.manacitra_suggestions s
+ join auth.users u on u.id=s.author_id
+ where s.id=suggestion_id;
+
+ if author_name is null then
+  raise exception 'Suggestion not found';
+ end if;
+
+ return author_name;
+end;
+$$;
+
+revoke all on function public.manacitra_suggestion_author_name(uuid)
+from public, anon;
+
+grant execute on function public.manacitra_suggestion_author_name(uuid)
+to authenticated;
 create index on public.manacitra_suggestions(created_at desc, id);
 alter table public.manacitra_suggestions enable row level security;
 revoke all on public.manacitra_suggestions from anon, authenticated;

@@ -32,7 +32,19 @@
   if(!$('auth-form').reportValidity())return;
   $('auth-status').textContent='Connecting…';
   try{const credentials={email:$('email').value.trim(),password:$('password').value};
-   const data=check(await (signup?client.auth.signUp({...credentials,options:{emailRedirectTo:location.origin+location.pathname}}):client.auth.signInWithPassword(credentials)));
+   const data=check(await (
+    signup
+      ? client.auth.signUp({
+          ...credentials,
+          options:{
+            emailRedirectTo:location.origin+location.pathname,
+            data:{
+              full_name:$('name').value.trim()
+            }
+          }
+        })
+      : client.auth.signInWithPassword(credentials)
+  ));
    $('password').value='';$('auth-status').textContent=data.session?'':'Check your email to confirm your account, then sign in.';
    if(data.session)await enter(data.session.user);
   }catch(e){$('auth-status').textContent=e.message;}
@@ -73,7 +85,24 @@
  function download(row){const a=node('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(row,null,2)],{type:'application/json'}));a.download=`suggestion-${row.id}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);}
  function proposal(row){
   const box=node('article');box.className='proposal';box.append(node('h2',row.title));const badge=node('span',row.status);badge.className='badge '+row.status;box.append(badge);
-  const meta=node('p',`${row.dataset} · ${new Date(row.created_at).toLocaleDateString()}${row.author_id===user.id?' · Your suggestion':''}`);meta.className='meta';box.append(meta,node('p',row.reason));
+  const meta=node(
+    'p',
+    `${row.dataset} · ${new Date(row.created_at).toLocaleDateString()}${row.author_id===user.id?' · Your suggestion':''}`
+  );
+  meta.className='meta';
+  box.append(meta,node('p',row.reason));
+
+  if(reviewer){
+  client
+    .rpc('manacitra_suggestion_author_name',{
+      suggestion_id:row.id
+    })
+    .then(({data,error})=>{
+      if(!error&&data){
+        meta.textContent += ` · ${data}`;
+      }
+    });
+  }
   const details=node('details');details.append(node('summary','View proposed changes'));box.append(details);
   details.addEventListener('toggle',async()=>{
    if(!details.open||details.dataset.loaded)return;details.dataset.loaded='loading';const message=node('p','Loading comparison…');details.append(message);
