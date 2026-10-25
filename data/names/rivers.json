@@ -24083,7 +24083,7 @@
     "description": "केतुमालवर्षे नदीनां दीर्घतरा",
     "name_families": [
       {
-        "label": "DANVBIVS",
+        "label": "DĀNVBIVS",
         "pronunciation": "दानुब्युस्",
         "language": "रोमका",
         "etymologies": [
@@ -24095,7 +24095,7 @@
                 "parts": [
                   {
                     "text": "*दॆह्२नु",
-                    "meaning": "सरिति",
+                    "meaning": "सरिति नदीदेवतायां वा",
                     "highlight": false
                   }
                 ],
@@ -24152,53 +24152,122 @@
                   "step-1"
                 ],
                 "form": "*दानॊव्य़ॊस्",
-                "language": "प्रा.के.",
+                "language": "प्रा.कै.",
                 "rules": [
                   "pie-celtic"
-                ]
+                ],
+                "meaning": "नदीभेदे"
               },
               {
                 "id": "node-2",
                 "from": [
                   "node-1"
                 ],
-                "form": "DANVBIVS",
+                "form": "DĀNVBIVS",
                 "language": "रोमका",
                 "rules": [
                   "loan"
                 ],
-                "pronunciation": "दानुब्युस्"
+                "pronunciation": "दानुब्युस्",
+                "meaning": "नदीभेदे"
               }
             ],
-            "vyutpatti": "",
-            "citations": [],
-            "descendants": [
+            "vyutpatti": "\\दॆह्२नु\\नामाख्यातनदीविशेषो देवताविशेषो वा",
+            "citations": []
+          },
+          {
+            "vyutpatti": "धन्वति गच्छति स्रवतीति",
+            "notes": "",
+            "prakriyA": [
               {
-                "id": "original",
-                "form": "प्राचीनरूपम्",
-                "language": "संस्कृतम्"
+                "id": "node-1",
+                "from": [],
+                "form": "*धॆन्ह्२",
+                "pronunciation": "",
+                "language": "प्रा.यु.भा",
+                "rules": [],
+                "meaning": "धावने स्रवणे च"
               },
               {
-                "id": "middle",
-                "from": "original",
-                "form": "मज्झरूपम्",
-                "language": "प्राकृतम्"
+                "id": "node-2",
+                "from": [
+                  "node-1"
+                ],
+                "form": "*दानॊव्य़ॊस्",
+                "pronunciation": "",
+                "language": "प्रा.कै",
+                "rules": [],
+                "meaning": "नदीभेदे"
               },
               {
-                "from": "middle",
-                "form": "हिन्दीरूप",
-                "language": "हिन्दी"
+                "id": "node-3",
+                "from": [
+                  "node-1"
+                ],
+                "form": "धन्वति",
+                "pronunciation": "",
+                "language": "संस्कृतम्",
+                "rules": [],
+                "meaning": "गतौ"
               },
               {
-                "from": "middle",
-                "form": "मराठीरूप",
-                "language": "मराठी"
+                "id": "node-4",
+                "from": [
+                  "node-2"
+                ],
+                "form": "DĀNVBIVS",
+                "pronunciation": "दानुब्युस्",
+                "language": "रोमका",
+                "rules": [],
+                "meaning": "नदीभेदे"
               }
-            ]
+            ],
+            "citations": []
           }
         ],
         "attestations": [],
-        "attestation_status": ""
+        "attestation_status": "",
+        "descendants": [
+          {
+            "id": "node-1",
+            "from": [],
+            "form": "DĀNVBIVS",
+            "pronunciation": "दानुब्युस्",
+            "language": "रोमका",
+            "rules": [],
+            "meaning": "नदीभेदे"
+          },
+          {
+            "id": "node-2",
+            "from": [
+              "node-1"
+            ],
+            "form": "Donau",
+            "pronunciation": "दोनौ",
+            "language": "तौतकी",
+            "rules": []
+          },
+          {
+            "id": "node-3",
+            "from": [
+              "node-1"
+            ],
+            "form": "Дунай",
+            "pronunciation": "दु॒नय्",
+            "language": "रौषी",
+            "rules": []
+          },
+          {
+            "id": "node-4",
+            "from": [
+              "node-1"
+            ],
+            "form": "Danube",
+            "pronunciation": "ड़ॅन्यूब्",
+            "language": "आङ्ग्ला",
+            "rules": []
+          }
+        ]
       },
       {
         "label": "ἼΣΤΡΟΣ",
@@ -24218,8 +24287,8 @@
       },
       {
         "label": "𐌌𐤠ΤΟ𐤠𐰩",
-        "pronunciation": "",
-        "language": "",
+        "pronunciation": "मतोअस्",
+        "language": "भार्गवी",
         "etymologies": [
           {
             "vyutpatti": "",
@@ -24236,7 +24305,6 @@
     "names": [
       {
         "name": "दानवी",
-        "confidence": 0.85,
         "etymologies": [
           {
             "notes": "दानु वर्षण इति वाचस्पत्यम् “यवं न वृष्टिर्दिव्येन दानुना” ऋ॰ १०।४३।७ “दानुना दानेन वर्षणेन वा” भा॰।\n\nप्रायेण प्रा॰यु॰भा॰ \\*दानु\\ (सरिति) शब्देन सम्बद्धमिति <a href=\"https://archive.org/details/indogermanisches01pokouoft/page/174/mode/2up?q=donau\">[भा॰व्यु॰को॰] १७५</a>\nअपि पीवराणां आक्रमणग्रन्थे वर्णितया \\*दनु\\नाम्न्या देवतया सम्बद्धं भवितुमर्हतीति [के॰ऐ॰को॰] <a href=\"https://archive.org/details/dictionaryofcelt0000mack/page/114/mode/2up?q=ana\">१४</a>, <a href=\"https://archive.org/details/dictionaryofcelt0000mack/page/114/mode/2up?q=ana\">११४</a>",
@@ -24269,11 +24337,29 @@
             }
           },
           {
-            "vyutpatti": "दनोरियम्। दनु +तस्येदमित्यण् ततो ङीप्।",
+            "vyutpatti": "दनुर्दक्षकन्यास्य देवता।",
             "notes": "दनुर्दक्षकन्याभेदे सा च कश्यपर्षिपत्नी दानवमाता\n\nकैश्चित्सरितः स्वनाम दनुना सम्बद्ध्यते।",
             "citations": [],
             "descendants": [],
-            "prakriyA": null
+            "prakriyA": {
+              "input": {
+                "type": "subanta",
+                "stem": {
+                  "type": "taddhitanta",
+                  "stem": {
+                    "type": "basic",
+                    "text": "दनु",
+                    "meaning": "दक्षकन्याभेदे"
+                  },
+                  "pratyaya": "aR",
+                  "artha": "SaAsyaDevata"
+                },
+                "gender": "feminine",
+                "case": "nominative",
+                "number": "singular"
+              },
+              "variant": 0
+            }
           }
         ],
         "primary": true,
@@ -24282,19 +24368,37 @@
       },
       {
         "name": "धन्वित्री",
-        "confidence": 0.75,
         "etymologies": [
           {
-            "vyutpatti": "धन्वति गच्छतीति। धविँ गतौ + तृच्, स्त्री।",
-            "notes": "एवं ण्वुल्-शतृ-तः <strong>\"धन्विका\"</strong>, <strong>\"धन्वन्ती\"</strong> पदेऽपि योज्ये।\n\nसरितः स्वनाम प्रा॰यु॰भा॰ <a href=\"https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/d%CA%B0enh%E2%82%82-\">\\*धॆन्ह्꣢\\</a> (धावने स्रवणे च, =धन्व् गतौ [<a href=\"https://archive.org/details/indogermanisches01pokouoft/page/248/mode/2up\">भा॰व्यु॰को॰</a>]) धातो<a href=\"https://en.wiktionary.org/wiki/Danube\">रेके व्युत्पादयन्ति।</a>",
+            "vyutpatti": "धन्वति गच्छतीति।",
+            "notes": "एवं ण्वुल्-शतृ-तः **धन्विका**, **धन्वन्ती** पदेऽपि योज्ये।\n\nसरितः स्वनाम प्रा॰यु॰भा॰ [\\*धॆन्ह्२\\](https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/d%CA%B0enh%E2%82%82-) (धावने स्रवणे च, =धविँ गतौ [भा॰व्यु॰को॰](https://archive.org/details/indogermanisches01pokouoft/page/248/mode/2up)) धातो[रेके व्युत्पादयन्ति](https://en.wiktionary.org/wiki/Danube)।",
             "citations": [],
             "descendants": [],
-            "prakriyA": null
+            "prakriyA": {
+              "input": {
+                "type": "subanta",
+                "stem": {
+                  "type": "krdanta",
+                  "dhatu": {
+                    "aupadeshika": "धविँ",
+                    "gana": "Bhvadi"
+                  },
+                  "pratyaya": {
+                    "type": "krt",
+                    "id": "tfc"
+                  }
+                },
+                "gender": "feminine",
+                "case": "nominative",
+                "number": "singular"
+              },
+              "variant": 0
+            }
           }
         ],
         "primary": false,
         "attestations": [],
-        "attestation_status": ""
+        "attestation_status": "newly_proposed"
       }
     ],
     "name_native": ""

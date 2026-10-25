@@ -428,7 +428,7 @@
       });
       return;
     }
-    if (state.tab === 1 && Object.hasOwn(record, 'descendants')) {
+    if (state.tab === 1) {
       tree(body, record.descendants, state);
       return;
     }
@@ -479,7 +479,7 @@
         note.append(link, document.createTextNode(' निष्पन्ना'));
         body.append(note);
       }
-    } else tree(body, etymology.descendants, state);
+    }
   }
   function positioning() {
     const opened = Object.values(states).filter(state => state.open);
