@@ -17,8 +17,9 @@ def aliases(record):
     for name in record.get('names', []) + record.get('name_families', []):
         add(name.get('name'))
         add(name.get('label'))
-        for etymology in name.get('etymologies', []):
-            descendants = etymology.get('descendants') or []
+        containers = [name] if 'descendants' in name else name.get('etymologies', [])
+        for container in containers:
+            descendants = container.get('descendants') or []
             nodes = descendants.get('nodes', []) if isinstance(descendants, dict) else descendants
             for node in nodes:
                 add(node.get('form'))

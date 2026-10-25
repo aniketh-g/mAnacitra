@@ -154,12 +154,14 @@ fn rule_text(source: &str, code: &str, lipi: &mut Lipika) -> String {
     let table = match source {
         "ashtadhyayi" => include_str!("../data/sutrapatha.tsv"),
         "unadi" => include_str!("../data/unadipatha.tsv"),
-        _ => return source.to_owned(),
+        "linganushasana" => include_str!("../data/linganushasanam.tsv"),
+        "varttika" => include_str!("../data/varttikas.tsv"),
+        _ => return String::new(),
     };
     table.lines().filter_map(|line| line.split_once('\t'))
         .find(|(key, _)| *key == code)
         .map(|(_, text)| lipi.transliterate(text.trim(), Scheme::Slp1, Scheme::Devanagari))
-        .unwrap_or_else(|| source.to_owned())
+        .unwrap_or_default()
 }
 fn run(req:Request, list:bool)->Result<Value> {
     let mut lipi=Lipika::new();
@@ -195,10 +197,15 @@ fn run(req:Request, list:bool)->Result<Value> {
     for (index, step) in chosen.history().iter().enumerate() {
         let rule=step.rule();
         if rule.code().trim().is_empty() { continue; } // Engine debug messages are not grammatical steps.
-        let source=match rule.source_name(){"azwADyAyI"=>"ashtadhyayi","uRAdipAWaH"=>"unadi",other=>other};
+        let source=match rule.source_name(){"azwADyAyI"=>"ashtadhyayi","uRAdipAWaH"=>"unadi","liNgAnuSAsanam"=>"linganushasana","vArttikAH"=>"varttika",other=>other};
         let id=format!("{source}:{}",rule.code());
         let url=if source=="ashtadhyayi" {format!("https://ashtadhyayi.com/sutraani/{}",rule.code().replace('.',"/"))} else if source=="unadi" {
             format!("https://ashtadhyayi.com/unaadi/{}", rule.code())
+        } else if source=="linganushasana" {
+            "https://ashtadhyayi.com/linganushasanam".to_owned()
+        } else if source=="varttika" {
+            let parent = rule.code().split('.').take(3).collect::<Vec<_>>().join("/");
+            format!("https://ashtadhyayi.com/sutraani/{parent}")
         } else {String::new()};
         references.insert(id.clone(),json!({"number":rule.code(),"text":rule_text(source,rule.code(),&mut lipi),"url":url}));
         let current: Vec<String> = step.result().iter().map(|t| t.text().to_owned()).collect();
@@ -212,8 +219,11 @@ fn run(req:Request, list:bool)->Result<Value> {
             step.result().iter().enumerate().filter(|(_,t)| !t.text().is_empty())
                 .map(|(i,t)|json!({"text":lipi.transliterate(t.text(),Scheme::Slp1,Scheme::Devanagari),"highlight":changed[i]})).collect()
         };
+        // Compare engine terms before display joining: inserted suffixes/augments
+        // must retain their form even when the rule is tagged as a designation.
+        let introduces_particle = !previous.is_empty() && current.len() > previous.len();
         previous = current;
-        rows.push(json!({"parts":parts,"rules":[id]}));
+        rows.push(json!({"parts":parts,"rules":[id],"introduces_particle":introduces_particle}));
     }
     Ok(json!({"prakriyA":rows,"rules":references,"result":lipi.transliterate(chosen.text(),Scheme::Slp1,Scheme::Devanagari),"matching_histories":matching.len(),"engine":"vidyut@8da2f90bee3ce1c07505fa432fc3729e3f7e02ea"}))
 }

@@ -251,7 +251,7 @@
         "primary": true,
         "etymologies": [
           {
-            "notes": "प्राचीना रूढिः।",
+            "notes": "",
             "citations": [],
             "vyutpatti": "भरतस्य गोत्रापत्यम्",
             "prakriyA": {
@@ -259,7 +259,10 @@
                 "type": "subanta",
                 "stem": {
                   "type": "taddhitanta",
-                  "stem": {"type": "basic", "text": "भरत"},
+                  "stem": {
+                    "type": "basic",
+                    "text": "भरत"
+                  },
                   "pratyaya": "aY",
                   "artha": "Janapada"
                 },
@@ -279,16 +282,30 @@
             "citations": [
               {
                 "title": "विष्णुपुराणम्",
-                "url": "https://sa.wikisource.org/wiki/%E0%A4%B5%E0%A4%BF%E0%A4%B7%E0%A5%8D%E0%A4%A3%E0%A5%81%E0%A4%AA%E0%A5%81%E0%A4%B0%E0%A4%BE%E0%A4%A3%E0%A4%AE%E0%A5%8D/%E0%A4%A6%E0%A5%8D%E0%A4%B5%E0%A4%BF%E0%A4%A4%E0%A5%80%E0%A4%AF%E0%A4%BE%E0%A4%82%E0%A4%B6%E0%A4%83/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%E0%A4%83_%E0%A5%A9#:~:text=%E0%A4%89%E0%A4%A4%E0%A5%8D%E0%A4%A4%E0%A4%B0%E0%A4%82,%E0%A5%A8%2C%E0%A5%A9%2E%E0%A5%A7%20%E0%A5%A5",
+                "url": "https://indike.org/pramana/in.purana.visnu*crit.2.3.1",
                 "locator": "२.३.१",
-                "quote": "",
                 "note": ""
+              }
+            ],
+            "notes": ""
+          },
+          {
+            "language": "संस्कृतम्",
+            "quote": "त्वं नो॑ असि **भार॒ता**ग्ने॑ व॒शाभि॑रु॒क्षभिः॑ ।\nअ॒ष्टाप॑दीभि॒राहु॑तः ॥",
+            "date": "-१७००",
+            "sort_year": "-1700",
+            "citations": [
+              {
+                "title": "ऋग्वेदः",
+                "locator": "२.७.५",
+                "url": "https://indike.org/pramana/in.veda.samhita.rg*sakala.2.7.5",
+                "note": "अग्नेर्नाम, न देशनिर्देशकम्।"
               }
             ],
             "notes": ""
           }
         ],
-        "attestation_status": ""
+        "attestation_status": "प्राचीना रूढिः।"
       },
       {
         "name": "आर्यावर्तः",
@@ -297,31 +314,30 @@
         "attestations": [
           {
             "language": "संस्कृतम्",
-            "quote": "आसमुद्रात्तु वै पूर्वादासमुद्राच्च पश्चिमात्।\nतयोरेवान्तरं गिर्यो**रार्यावर्तं** विदुर्बुधाः॥",
             "date": "-२५०",
             "sort_year": "-250",
             "citations": [
               {
-                "title": "मनुस्मृतिः २.२२",
-                "url": "https://www.wisdomlib.org/hinduism/book/manusmriti-with-the-commentary-of-medhatithi/d/doc145598.html",
-                "locator": "",
-                "quote": "",
+                "title": "मनुस्मृतिः",
+                "locator": "२.२२",
+                "url": "https://indike.org/pramana/in.niti.dharma.manu.2.22",
                 "note": ""
               }
             ],
-            "notes": ""
+            "notes": "",
+            "quote": "आसमुद्रात्तु वै पूर्वादासमुद्राच्च पश्चिमात्।\nतयोरेवान्तरं गिर्यो**रार्यावर्तं** विदुर्बुधाः॥"
           }
         ],
         "etymologies": [
           {
-            "notes": "प्राचीना रूढिः।",
+            "notes": "",
             "vyutpatti": "",
             "citations": [],
             "descendants": [],
             "prakriyA": null
           }
         ],
-        "attestation_status": ""
+        "attestation_status": "प्राचीना रूढिः"
       }
     ],
     "name_native": ""
@@ -2021,7 +2037,27 @@
             "notes": "प्राचीना रूढिः। यावन्या ἸΆΟΝΕΣ /यौनॆस्/ पदाद्व्युत्पन्नम्।",
             "citations": [],
             "descendants": [],
-            "prakriyA": null
+            "prakriyA": {
+              "input": {
+                "type": "subanta",
+                "stem": {
+                  "type": "krdanta",
+                  "dhatu": {
+                    "aupadeshika": "यु",
+                    "gana": "Adadi",
+                    "artha": "मिश्रीभावे"
+                  },
+                  "pratyaya": {
+                    "type": "unadi",
+                    "id": "yuc"
+                  }
+                },
+                "gender": "masculine",
+                "case": "nominative",
+                "number": "singular"
+              },
+              "variant": 0
+            }
           }
         ],
         "attestations": [
@@ -2035,7 +2071,6 @@
                 "title": "विदिशाया गरुडध्वजम्",
                 "url": "https://indike.org/pramana/inp.epigraphy.central.sunga.besnagar-garuda-pillar-inscription-of-the-time-of",
                 "locator": "",
-                "quote": "",
                 "note": ""
               }
             ],
@@ -2051,7 +2086,6 @@
                 "title": "महाभारतम् ६.१०.६४",
                 "url": "https://indike.org/pramana/in.lit.mahabharata.vyasa*crit.6.10.64",
                 "locator": "",
-                "quote": "",
                 "note": ""
               }
             ],
@@ -2067,7 +2101,6 @@
                 "title": "चिलप्पतिकारम् ३.२५",
                 "url": "https://indike.org/pramana/in.sangam.five_great_epics.cilappatikaram.3.25",
                 "locator": "",
-                "quote": "",
                 "note": ""
               }
             ],
@@ -2323,25 +2356,111 @@
     "name_en": "Italy",
     "names": [
       {
-        "name": "",
-        "confidence": 1.0,
+        "name": "वत्सलम्",
         "primary": true,
         "etymologies": [
           {
             "notes": "",
             "citations": [],
-            "vyutpatti": "",
+            "vyutpatti": "वत्से गोपुत्रादिस्नेहपात्रे कामो ऽस्यास्तीति",
             "descendants": [],
-            "prakriyA": null
+            "prakriyA": {
+              "input": {
+                "type": "subanta",
+                "stem": {
+                  "type": "taddhitanta",
+                  "stem": {
+                    "type": "basic",
+                    "text": "वत्स",
+                    "meaning": "गवादिशिशौ"
+                  },
+                  "pratyaya": "lac"
+                },
+                "gender": "neuter",
+                "case": "nominative",
+                "number": "singular"
+              },
+              "variant": 0
+            }
           }
         ],
         "attestations": [],
         "attestation_status": ""
       }
     ],
-    "name_native": "",
+    "name_native": "ITALIA",
     "description": "",
-    "name_families": []
+    "name_families": [
+      {
+        "label": "ITALIA",
+        "language": "रोमका",
+        "pronunciation": "इतल्या",
+        "descendants": [],
+        "etymologies": [
+          {
+            "vyutpatti": "वत्समयो गोपुत्रमयो देशः",
+            "notes": "",
+            "prakriyA": [
+              {
+                "id": "node-1",
+                "from": [],
+                "form": "वॆ᳝त्",
+                "language": "प्रा.यु.भा.",
+                "rules": [],
+                "parts": [
+                  {
+                    "text": "*वॆ᳝त्",
+                    "meaning": "वर्षे वर्षवयस्के च",
+                    "highlight": false
+                  }
+                ]
+              },
+              {
+                "id": "node-2",
+                "from": [
+                  "node-1"
+                ],
+                "form": "𐌅𐌝𐌕𐌄𐌋𐌉𐌞",
+                "language": "ओस्कनी",
+                "rules": [
+                  "pie-italy-vitelliu"
+                ],
+                "pronunciation": "वितॆल्ल्यु",
+                "meaning": "वत्समये देशे"
+              },
+              {
+                "id": "node-3",
+                "from": [
+                  "node-1"
+                ],
+                "form": "वत्सः",
+                "language": "संस्कृतम्",
+                "rules": [
+                  "pie-italy-wet"
+                ],
+                "meaning": "गवादिशिशौ"
+              },
+              {
+                "id": "node-4",
+                "from": [
+                  "node-2"
+                ],
+                "form": "Ῑ̓τᾰλῐ́ᾱ",
+                "language": "यावनी",
+                "rules": [
+                  "loan"
+                ],
+                "pronunciation": "इतल्या",
+                "meaning": "देशभेदे"
+              }
+            ],
+            "citations": []
+          }
+        ],
+        "attestations": [],
+        "attestation_status": "newly_proposed"
+      }
+    ]
   },
   "natural-earth:1159320491": {
     "name_en": "Switzerland",

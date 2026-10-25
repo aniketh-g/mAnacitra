@@ -126,7 +126,16 @@ body .mi-attestation .prose strong, body .mi-attestation .prose b { color: #a53f
 .mi-edge-row.mi-sanjna-gap { height: 0; min-height: 0; margin: 5px 0; }
 
 /* Rule types control presentation independently of visibility. */
-body .mi-rule:not(.mi-unadi):not(.mi-sanjna-rule) { background: #e9d8ae; border-color: #c6a769; }
+body .mi-rule:not(.mi-unadi):not(.mi-sanjna-rule):not(.mi-linganushasana) { background: #e9d8ae; border-color: #c6a769; }
 body .mi-rule.mi-sanjna-rule { background: transparent; border-color: #c6a769; color: #695028; }
 body .mi-rule.mi-sanjna-rule .mi-rule-reference { color: #695028; }
 body .mi-rule.mi-sanjna-rule a.mi-rule-reference:hover { color: #48330f; }
+
+/* Distinguish rule sources without changing the normal golden rule pills. */
+body .mi-rule.mi-linganushasana { background: #edf5ee; border-color: #93b29a; color: #39704b; }
+body .mi-rule.mi-linganushasana .mi-rule-reference { color: #39704b; }
+body .mi-rule.mi-linganushasana a.mi-rule-reference:hover { color: #245233; }
+body .mi-rule.mi-varttika .mi-rule-reference { color: #b33d32; }
+body .mi-rule.mi-varttika a.mi-rule-reference:hover { color: #862a23; }
+
+.mi-edge-row.mi-after-sanjna { margin-top: 26px; }

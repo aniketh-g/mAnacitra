@@ -77,7 +77,7 @@ docs/data/rules/foreign.json: data/rules/foreign.json
 .PHONY: vidyut
 vidyut: build/vidyut/release/manacitra-vidyut
 
-build/vidyut/release/manacitra-vidyut: tools/vidyut_adapter/Cargo.toml tools/vidyut_adapter/Cargo.lock tools/vidyut_adapter/src/main.rs tools/vidyut_adapter/data/sutrapatha.tsv tools/vidyut_adapter/data/unadipatha.tsv tools/vidyut_adapter/data/dhatupatha.tsv
+build/vidyut/release/manacitra-vidyut: tools/vidyut_adapter/Cargo.toml tools/vidyut_adapter/Cargo.lock tools/vidyut_adapter/src/main.rs tools/vidyut_adapter/data/sutrapatha.tsv tools/vidyut_adapter/data/unadipatha.tsv tools/vidyut_adapter/data/dhatupatha.tsv tools/vidyut_adapter/data/linganushasanam.tsv tools/vidyut_adapter/data/varttikas.tsv
 	@cargo build --locked --release --manifest-path tools/vidyut_adapter/Cargo.toml --target-dir build/vidyut
 
 # Search only authored names; rebuild automatically with each dataset target.

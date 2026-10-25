@@ -1,6 +1,7 @@
 *.pdf
 *.txt
 *.zip
+**/__pycache__/
 /docs/start_server
 /docs/data/
 /data/upstream/

@@ -48,6 +48,16 @@
         chain(nodes.filter(n => n.branch === 'sanskrit'), end);
       } else chain(nodes);
     }
+    // Infer visible insertions for handwritten trees; engine metadata takes precedence.
+    for (const node of nodes) {
+      if (node.introduces_particle !== undefined || !node.parts) continue;
+      const parents = edges.filter(edge => edge.to === node.id)
+        .map(edge => nodes.find(parent => parent.id === edge.from));
+      if (parents.length && parents.every(parent => Array.isArray(parent.parts))) {
+        const count = parts => parts.filter(part => part.text).length;
+        node.introduces_particle = count(node.parts) > parents.reduce((n, parent) => n + count(parent.parts), 0);
+      }
+    }
     // Preserve component order within each language; foreign stays on the left.
     const side = n => /^foreign(?:\d|$)/.test(n.branch || '') ? 1 :
       /^sanskrit(?:\d|$)/.test(n.branch || '') ? 2 : 0;
@@ -62,7 +72,7 @@
     for (const node of nodes) {
       const incoming = edges.filter(edge => edge.to === node.id);
       const refs = incoming.flatMap(edge => Array.isArray(edge.rules) ? edge.rules : edge.rules ? [edge.rules] : []);
-      if (incoming.length && incoming.every(edge => !edge.rule && !edge.sutra &&
+      if (!node.introduces_particle && incoming.length && incoming.every(edge => !edge.rule && !edge.sutra &&
           (Array.isArray(edge.rules) ? edge.rules.length : Boolean(edge.rules))) && refs.every(isSanjna)) {
         node.sanjnaRules = [...new Set(refs)];
       }
@@ -144,21 +154,42 @@
       }
     }
     if (count !== nodes.length) throw Error('Derivation trees must not contain cycles.');
+    // Allocate lanes once for the whole graph, never separately for each row.
+    const columns = new Map(), named = new Map(), occupied = new Map();
+    let width = 0;
+    for (const id of queue) {
+      const node = byId.get(id), parents = edges.filter(e => e.to === id);
+      const branch = node.branch && node.branch !== 'common' ? node.branch : null;
+      let column = branch && named.has(branch) ? named.get(branch) :
+        parents.length ? columns.get(parents[0].from) : width++;
+      const used = occupied.get(rank.get(id)) || new Set();
+      if (used.has(column) || (branch && !named.has(branch) &&
+          [...named.values()].includes(column))) column = width++;
+      width = Math.max(width, column + 1);
+      columns.set(id, column); used.add(column); occupied.set(rank.get(id), used);
+      if (branch && !named.has(branch)) named.set(branch, column);
+    }
     const rows = Array.from({length: nodes.length ? Math.max(...rank.values()) + 1 : 0}, () => []);
-    nodes.forEach(n => rows[rank.get(n.id)].push({key: n.id, node: n}));
+    nodes.forEach(n => rows[rank.get(n.id)].push({key: n.id, node: n, column: columns.get(n.id)}));
     const bands = rows.slice(1).map(() => []);
     edges.forEach((edge, i) => {
       let from = edge.from;
       for (let r = rank.get(edge.from); r < rank.get(edge.to); r++) {
         const last = r + 1 === rank.get(edge.to);
         const to = last ? edge.to : Symbol(`route-${i}-${r}`);
-        if (!last) rows[r + 1].push({key: to});
-        bands[r].push({from, to, edge, label: edge.join ? last : r === rank.get(edge.from), join: last ? edge.join : null});
+        if (!last) {
+          const used = occupied.get(r + 1) || new Set();
+          let column = columns.get(edge.to);
+          if (used.has(column)) column = width++;
+          used.add(column); occupied.set(r + 1, used); columns.set(to, column);
+          rows[r + 1].push({key: to, column});
+        }
+        bands[r].push({from, to, column: columns.get(to), edge, label: edge.join ? last : r === rank.get(edge.from), join: last ? edge.join : null});
         from = to;
       }
     });
     // Input order specifies parallel branches: put foreign nodes before Sanskrit nodes.
-    return {rows, bands};
+    return {rows, bands, columns: Math.max(width, 1)};
   }
   root.InspectorGraph = {layout, prakriyaToGraph, mainRules, sanjnaRules};
   if (typeof module !== 'undefined') module.exports = {layout, prakriyaToGraph, mainRules, sanjnaRules};

@@ -16516,7 +16516,6 @@
     "names": [
       {
         "name": "गङ्गा",
-        "confidence": 1.0,
         "primary": true,
         "etymologies": [
           {
@@ -16527,23 +16526,24 @@
             "prakriyA": null
           }
         ],
-        "attestations": {
-          "language": "संस्कृतम्",
-          "quote": "इ॒मं मे॑ गङ्गे यमुने सरस्वति॒ शुतु॑द्रि॒ स्तोमं॑ सचता॒ परु॒ष्ण्या।\nअ॒सि॒क्न्या म॑रुद्वृधे वि॒तस्त॒यार्जी॑कीये शृणु॒ह्या सु॒षोम॑या॥",
-          "date": "-१७००",
-          "sort_year": "-1700",
-          "citations": [
-            {
-              "title": "ऋग्वेदः",
-              "url": "https://indike.org/pramana/in.veda.samhita.rg*sakala.10.75.5",
-              "locator": "१०.७५.५",
-              "quote": "इ॒मं मे॑ गङ्गे यमुने सरस्वति॒ शुतु॑द्रि॒ स्तोमं॑ सचता॒ परु॒ष्ण्या।\nअ॒सि॒क्न्या म॑रुद्वृधे वि॒तस्त॒यार्जी॑कीये शृणु॒ह्या सु॒षोम॑या॥",
-              "note": ""
-            }
-          ],
-          "notes": "",
-          "attestation_status": "प्राचीना रूढिः"
-        }
+        "attestations": [
+          {
+            "language": "संस्कृतम्",
+            "quote": "इ॒मं मे॑ **गङ्गे** यमुने सरस्वति॒ शुतु॑द्रि॒ स्तोमं॑ सचता॒ परु॒ष्ण्या।\nअ॒सि॒क्न्या म॑रुद्वृधे वि॒तस्त॒यार्जी॑कीये शृणु॒ह्या सु॒षोम॑या॥",
+            "date": "-१७०० : -१२००",
+            "sort_year": "-1400",
+            "citations": [
+              {
+                "title": "ऋग्वेदः",
+                "locator": "१०.७५.५",
+                "url": "https://indike.org/pramana/in.veda.samhita.rg*sakala.10.75.5",
+                "note": ""
+              }
+            ],
+            "notes": ""
+          }
+        ],
+        "attestation_status": "प्राचीना रूढिः"
       },
       {
         "name": "ज॒ह्नावी॑",
@@ -16551,14 +16551,45 @@
         "primary": false,
         "etymologies": [
           {
-            "notes": "पु॒रा॒णमोक॑: स॒ख्यं शि॒वं वां॑ यु॒वोर्न॑रा॒ द्रवि॑णं ज॒ह्नाव्या॑म्।\nपुन॑: कृण्वा॒नाः स॒ख्या शि॒वानि॒ मध्वा॑ मदेम स॒ह नू स॑मा॒नाः॥\"\n- \"र॒यिं सु॑क्ष॒त्रं स्व॑प॒त्यमायु॑: सु॒वीर्यं॑ नासत्या॒ वह॑न्ता।\nआ ज॒ह्नावीं॒ सम॑न॒सोप॒ वाजै॒स्त्रिरह्नो॑ भा॒गं दध॑तीमयातम् ॥\"",
+            "notes": "",
             "citations": [],
             "vyutpatti": "",
             "descendants": [],
             "prakriyA": null
           }
         ],
-        "attestations": [],
+        "attestations": [
+          {
+            "language": "संस्कृतम्",
+            "date": "-१७०० : -१२००",
+            "sort_year": "-1700",
+            "citations": [
+              {
+                "title": "ऋग्वेदः",
+                "locator": "३.५८.६",
+                "url": "https://indike.org/pramana/in.veda.samhita.rg*sakala.3.58.6",
+                "note": ""
+              }
+            ],
+            "notes": "",
+            "quote": "पु॒रा॒णमोक॑: स॒ख्यं शि॒वं वां॑ यु॒वोर्न॑रा॒ द्रवि॑णं **ज॒ह्नाव्या॑म्**।\nपुन॑: कृण्वा॒नाः स॒ख्या शि॒वानि॒ मध्वा॑ मदेम स॒ह नू स॑मा॒नाः॥"
+          },
+          {
+            "language": "संस्कृतम्",
+            "date": "-१७०० : -१२००",
+            "sort_year": "-1500",
+            "citations": [
+              {
+                "title": "ऋग्वेदः",
+                "locator": "१.११६.१९",
+                "url": "https://indike.org/pramana/in.veda.samhita.rg*sakala.1.116.19",
+                "note": ""
+              }
+            ],
+            "notes": "",
+            "quote": "र॒यिं सु॑क्ष॒त्रं स्व॑प॒त्यमायु॑: सु॒वीर्यं॑ नासत्या॒ वह॑न्ता।\nआ **ज॒ह्नावीं॒** सम॑न॒सोप॒ वाजै॒स्त्रिरह्नो॑ भा॒गं दध॑तीमयातम्॥"
+          }
+        ],
         "attestation_status": "प्राचीना रूढिः"
       },
       {
@@ -23286,53 +23317,166 @@
     "description": "",
     "name_families": []
   },
-  "natural-earth:1159110393": {
+  "rhine": {
     "name_en": "Rhine",
     "names": [
       {
-        "name": "",
-        "confidence": 1.0,
+        "name": "रिणती",
         "primary": true,
         "etymologies": [
           {
             "notes": "",
             "citations": [],
-            "vyutpatti": "",
+            "vyutpatti": "रिणाति गच्छतीति",
             "descendants": [],
-            "prakriyA": null
+            "prakriyA": {
+              "input": {
+                "type": "subanta",
+                "stem": {
+                  "type": "krdanta",
+                  "dhatu": {
+                    "aupadeshika": "री॒",
+                    "gana": "Kryadi"
+                  },
+                  "pratyaya": {
+                    "type": "krt",
+                    "id": "Satf"
+                  }
+                },
+                "gender": "feminine",
+                "case": "nominative",
+                "number": "singular"
+              },
+              "variant": 1
+            }
           }
         ],
         "attestations": [],
-        "attestation_status": ""
+        "attestation_status": "newly_proposed"
       }
     ],
     "name_native": "",
     "description": "",
-    "name_families": []
-  },
-  "natural-earth:1159110403": {
-    "name_en": "Rhine",
-    "names": [
+    "name_families": [
       {
-        "name": "",
-        "confidence": 1.0,
-        "primary": true,
+        "label": "RHĒNVS",
+        "language": "रोमका",
+        "pronunciation": "र्हेनुस्",
+        "descendants": [
+          {
+            "form": "RHEIN",
+            "language": "तोतकी",
+            "rules": [],
+            "pronunciation": "ग़ैन्"
+          }
+        ],
         "etymologies": [
           {
-            "notes": "",
-            "citations": [],
             "vyutpatti": "",
-            "descendants": [],
-            "prakriyA": null
+            "notes": "",
+            "prakriyA": [
+              {
+                "id": "node-1",
+                "from": [],
+                "form": "*ह्रॆ॒३य्ह्-",
+                "language": "प्रा.यु.भा.",
+                "rules": [],
+                "parts": [
+                  {
+                    "text": "*ह्रॆ॒३य्ह्-",
+                    "meaning": "गतिरेषणयोः",
+                    "highlight": false
+                  }
+                ],
+                "meaning": ""
+              },
+              {
+                "id": "node-2",
+                "from": [
+                  "node-1"
+                ],
+                "form": "*ह्रि॒३ह्नॊस्",
+                "language": "प्रा.यु.भा.",
+                "rules": [
+                  "pie-rhein"
+                ]
+              },
+              {
+                "id": "node-3",
+                "from": [
+                  "node-1"
+                ],
+                "form": "*ह्रि॒३न्हॆन्ति॑",
+                "language": "प्रा.यु.भा.",
+                "rules": [
+                  "pie-rhein"
+                ]
+              },
+              {
+                "id": "node-4",
+                "from": [
+                  "node-2"
+                ],
+                "form": "*रॆय्नॊस्",
+                "language": "प्रा.कै.",
+                "rules": [
+                  "pie-celtic"
+                ],
+                "parts": [
+                  {
+                    "text": "*रॆय्नॊस्",
+                    "meaning": "सरिति",
+                    "highlight": false
+                  }
+                ],
+                "meaning": ""
+              },
+              {
+                "id": "node-5",
+                "from": [
+                  "node-3"
+                ],
+                "form": "रि॒णाति॑",
+                "language": "संस्कृतम्",
+                "rules": [
+                  "pie-sanskrit"
+                ],
+                "meaning": "गतिरेषणयोः"
+              },
+              {
+                "id": "node-6",
+                "from": [
+                  "node-4"
+                ],
+                "form": "RHĒNVS",
+                "language": "रोमका",
+                "rules": [
+                  "loan"
+                ],
+                "meaning": "नदीभेदे",
+                "pronunciation": "र्हेनुस्"
+              }
+            ],
+            "citations": []
           }
         ],
-        "attestations": [],
-        "attestation_status": ""
+        "attestations": [
+          {
+            "language": "रोमका",
+            "date": "-१३३",
+            "quote": "non Alpium vallum contra ascensum transgressionemque Gallorum, non **Rheni** fossam gurgitibus illis redundantem Germanorum immanissimis gentibus obicio et oppono",
+            "notes": "",
+            "citations": [
+              {
+                "title": "IN L. CALPVRNIVM PISONEM ORATIO",
+                "url": "https://www.intratext.com/ixt/LAT0922/_P3S.HTM",
+                "locator": "33.81"
+              }
+            ]
+          }
+        ]
       }
-    ],
-    "name_native": "",
-    "description": "",
-    "name_families": []
+    ]
   },
   "natural-earth:1159110557": {
     "name_en": "Sukhona",
@@ -23646,30 +23790,6 @@
     "description": "",
     "name_families": []
   },
-  "natural-earth:1159112359": {
-    "name_en": "Rhine",
-    "names": [
-      {
-        "name": "",
-        "confidence": 1.0,
-        "primary": true,
-        "etymologies": [
-          {
-            "notes": "",
-            "citations": [],
-            "vyutpatti": "",
-            "descendants": [],
-            "prakriyA": null
-          }
-        ],
-        "attestations": [],
-        "attestation_status": ""
-      }
-    ],
-    "name_native": "",
-    "description": "",
-    "name_families": []
-  },
   "natural-earth:1159112369": {
     "name_en": "Nederrijn",
     "names": [
@@ -23720,30 +23840,6 @@
   },
   "natural-earth:1159112397": {
     "name_en": "Shatt al-Hayy",
-    "names": [
-      {
-        "name": "",
-        "confidence": 1.0,
-        "primary": true,
-        "etymologies": [
-          {
-            "notes": "",
-            "citations": [],
-            "vyutpatti": "",
-            "descendants": [],
-            "prakriyA": null
-          }
-        ],
-        "attestations": [],
-        "attestation_status": ""
-      }
-    ],
-    "name_native": "",
-    "description": "",
-    "name_families": []
-  },
-  "natural-earth:1159112519": {
-    "name_en": "Rhine",
     "names": [
       {
         "name": "",
@@ -23998,41 +24094,80 @@
                 "branch": "common",
                 "parts": [
                   {
-                    "text": "*दानु",
+                    "text": "*दॆह्२नु",
                     "meaning": "सरिति",
                     "highlight": false
                   }
                 ],
-                "language": "प्रा.यु.भा",
+                "language": "प्रा.यु.भा.",
                 "notes": "काचन टिप्पणी",
                 "rules": [],
-                "status": ""
+                "status": "",
+                "pronunciation": "",
+                "id": "step-0",
+                "from": []
               },
               {
                 "branch": "foreign",
                 "parts": [
                   {
-                    "text": "DANVBIVS",
-                    "meaning": "",
+                    "text": "*दॆह्२नॆव्य़ॊस्",
+                    "meaning": "सरिति",
                     "highlight": false
                   }
                 ],
-                "rules": "C",
-                "language": "",
-                "status": ""
+                "rules": [
+                  "pie-danowyos"
+                ],
+                "language": "प्रा.यु.भा.",
+                "status": "",
+                "pronunciation": "",
+                "id": "step-1",
+                "from": [
+                  "step-0"
+                ]
               },
               {
                 "branch": "sanskrit",
                 "parts": [
                   {
                     "text": "दानु",
-                    "meaning": "",
+                    "meaning": "वर्षणे",
                     "highlight": false
                   }
                 ],
-                "rules": "A",
-                "language": "",
-                "status": ""
+                "rules": [
+                  "pie-sanskrit"
+                ],
+                "language": "संस्कृतम्",
+                "status": "",
+                "id": "step-2",
+                "from": [
+                  "step-0"
+                ]
+              },
+              {
+                "id": "node-1",
+                "from": [
+                  "step-1"
+                ],
+                "form": "*दानॊव्य़ॊस्",
+                "language": "प्रा.के.",
+                "rules": [
+                  "pie-celtic"
+                ]
+              },
+              {
+                "id": "node-2",
+                "from": [
+                  "node-1"
+                ],
+                "form": "DANVBIVS",
+                "language": "रोमका",
+                "rules": [
+                  "loan"
+                ],
+                "pronunciation": "दानुब्युस्"
               }
             ],
             "vyutpatti": "",
@@ -24115,8 +24250,14 @@
                   "type": "taddhitanta",
                   "stem": {
                     "type": "krdanta",
-                    "dhatu": {"aupadeshika": "डुदा॒ञ्", "gana": "Juhotyadi"},
-                    "pratyaya": {"type": "unadi", "id": "nu"}
+                    "dhatu": {
+                      "aupadeshika": "डुदा॒ञ्",
+                      "gana": "Juhotyadi"
+                    },
+                    "pratyaya": {
+                      "type": "unadi",
+                      "id": "nu"
+                    }
                   },
                   "pratyaya": "aR",
                   "artha": "TasyaIdam"

@@ -50,18 +50,23 @@
           if (i) parts.append(el('span', 'mi-plus', '+'));
           const component = el('span', 'mi-part');
           component.append(el('span', part.highlight ? 'mi-changed' : '', part.text));
-          if (part.meaning) component.append(el('span', 'mi-meaning', part.meaning));
+          const meaning = part.meaning ?? (data.parts.length === 1 ? data.meaning : '');
+          if (meaning) component.append(el('span', 'mi-meaning', meaning));
           parts.append(component);
         });
         summary.append(parts);
       } else {
         summary.append(document.createTextNode(data.form || data.label || 'Unnamed form'));
+        if (data.meaning) summary.append(el('span', 'mi-meaning', data.meaning));
       }
+      if (data.pronunciation) summary.append(el('i', 'mi-pronunciation', '/' + data.pronunciation.replace(/^\/+|\/+$/g, '') + '/'));
       summary.append(el('span', 'mi-meta', [data.language, data.status].filter(Boolean).join(' · ')));
     } else {
       box.dataset.kind = data.kind;
       // Accept a single reference too, without splitting it into characters.
       const references = Array.isArray(data.rules) ? data.rules : data.rules ? [data.rules] : [];
+      box.classList.toggle('mi-linganushasana', references.some(r => /^(linganushasana|liNgAnuSAsanam):/.test(r)));
+      box.classList.toggle('mi-varttika', references.some(r => /^(varttika|vArttikAH):/.test(r)));
       box.classList.toggle('mi-unadi', references.some(r => r.startsWith('unadi:')));
       box.classList.toggle('mi-sanjna-rule', references.length > 0 && references.every(ref => ruleVisibility[ref]?.type === 'sanjna'));
       if (references.length) {
@@ -151,11 +156,40 @@
     const diagram = el('div', 'mi-graph');
     diagram.setAttribute('aria-label', graph.label || 'Derivation tree, read from top to bottom');
     const slots = new Map(), links = [], motionItems = new Map();
-    const maxColumns = Math.max(...model.rows.map(r => r.length), ...model.bands.map(r => r.length), 1);
+    const maxColumns = model.columns;
+    const commonNodes = new Set();
+    const outgoing = new Map(graph.nodes.map(n => [n.id, []]));
+
+    for (const edge of graph.edges || []) {
+      outgoing.get(edge.from)?.push(edge.to);
+    }
+
+    const incoming = new Map(graph.nodes.map(n => [n.id, []]));
+    for (const edge of graph.edges || []) {
+      incoming.get(edge.to)?.push(edge.from);
+    }
+
+    // Follow the common chain until it splits.
+    let current = graph.nodes.find(n =>
+      !incoming.get(n.id)?.length &&
+      (!n.branch || n.branch === 'common')
+    );
+
+    while (current) {
+      commonNodes.add(current.id);
+
+      const children = outgoing.get(current.id) || [];
+      if (children.length !== 1) break;
+
+      const next = graph.nodes.find(n => n.id === children[0]);
+      if (!next || (next.branch && next.branch !== 'common')) break;
+
+      current = next;
+    }
     diagram.style.minWidth = `${maxColumns * 110 + (maxColumns - 1) * 16}px`;
     model.rows.forEach((row, index) => {
       const line = el('div', 'mi-row');
-      line.style.gridTemplateColumns = `repeat(${row.length}, minmax(0, 1fr))`;
+      line.style.gridTemplateColumns = `repeat(${model.columns}, minmax(0, 1fr))`;
       row.forEach(item => {
         const cell = item.node?.sanjnaRules ? el('div', 'mi-sanjna-pills') :
           item.node ? detail(item.node, 'node') : el('div', 'mi-route');
@@ -168,6 +202,12 @@
         if (item.node) {
           motionItems.set(`node:${item.node.id}`, cell);
           cell.classList.toggle('mi-secondary-step', secondaryNodes.has(item.node.id));
+        }
+        cell.style.gridRow = 1; cell.style.gridColumn = String(item.column + 1);
+        if (item.node && commonNodes.has(item.node.id) && model.columns > 1) {
+          cell.style.gridColumn = `1 / ${model.columns + 1}`;
+          cell.style.justifySelf = 'center';
+          cell.style.width = `${100 / model.columns}%`;
         }
         slots.set(item.key, cell); line.append(cell);
       });
@@ -185,7 +225,8 @@
         }
         group.push(segment);
       }
-      edgeRow.style.gridTemplateColumns = `repeat(${groups.length}, minmax(0, 1fr))`;
+      if (band.some(segment => sanjnaNodes.has(segment.edge.from))) edgeRow.classList.add('mi-after-sanjna');
+      edgeRow.style.gridTemplateColumns = `repeat(${model.columns}, minmax(0, 1fr))`;
       let hasLabels = false;
       groups.forEach(segments => {
         const segment = segments[0];
@@ -199,6 +240,7 @@
           motionItems.set(`rule:${segment.edge.to}:${JSON.stringify(segment.edge.rules || [])}`, label);
           label.classList.toggle('mi-secondary-step', secondaryEdge(segment.edge));
         }
+        label.style.gridRow = 1; label.style.gridColumn = String(segment.column + 1);
         edgeRow.append(label); links.push({...segment, segments, label, showLabel});
       });
       if (!hasLabels) edgeRow.classList.add('mi-unlabelled');
@@ -219,6 +261,10 @@
     const unadiMarker = marker.cloneNode(true);
     unadiMarker.id = `${markerId}-unadi`;
     unadiMarker.querySelector('path').setAttribute('fill', '#327b80');
+    const lingaMarker = marker.cloneNode(true);
+    lingaMarker.id = `${markerId}-linga`;
+    lingaMarker.querySelector('path').setAttribute('fill', '#39704b');
+    defs.append(lingaMarker);
     defs.append(unadiMarker); svg.append(defs); diagram.prepend(svg);
     function draw() {
       svg.querySelectorAll(':scope > path').forEach(p => p.remove());
@@ -230,24 +276,32 @@
       const connect = (a, b, arrow, edge) => {
         const refs = Array.isArray(edge.rules) ? edge.rules : edge.rules ? [edge.rules] : [];
         const unadi = refs.some(ref => ref.startsWith('unadi:'));
+        const linga = refs.some(ref => /^(linganushasana|liNgAnuSAsanam):/.test(ref));
         const path = document.createElementNS(ns, 'path');
         const mid = (a[1] + b[1]) / 2;
         path.setAttribute('d', `M ${a} C ${a[0]},${mid} ${b[0]},${mid} ${b}`);
-        path.setAttribute('fill','none'); path.setAttribute('stroke',unadi ? '#327b80' : '#9b8c71');
+        path.setAttribute('fill','none'); path.setAttribute('stroke',unadi ? '#327b80' : linga ? '#39704b' : '#9b8c71');
         path.setAttribute('stroke-width','1.3');
         if (secondaryEdge(edge)) path.setAttribute('opacity', '0.45');
         if (edge.kind === 'borrowing') path.setAttribute('stroke-dasharray','4 3');
-        if (arrow) path.setAttribute('marker-end',`url(#${markerId}${unadi ? '-unadi' : ''})`);
+        if (arrow) path.setAttribute('marker-end',`url(#${markerId}${unadi ? '-unadi' : linga ? '-linga' : ''})`);
         svg.append(path);
       };
       links.forEach(link => {
         if (sanjnaNodes.has(link.edge.to)) return;
-        const starts = link.segments.map(segment => port(slots.get(segment.from), true));
+        const starts = link.segments.map(segment => {
+          const start = port(slots.get(segment.from), true);
+          if (!sanjnaNodes.has(segment.edge.from)) return start;
+          // Leave air below the designation pills, then resume the incoming stem.
+          const target = port(link.showLabel ? link.label : slots.get(link.to), false);
+          return [target[0], Math.min(start[1] + 8, target[1] - 8)];
+        });
         const end = port(slots.get(link.to), false);
         if (link.showLabel) {
           starts.forEach(start => connect(start, port(link.label, false), false, link.edge));
           connect(port(link.label, true), end, true, link.edge);
         } else {
+          if (!starts.length) return;
           if (starts.length > 1) {
             const junction = [end[0], (Math.max(...starts.map(p => p[1])) + end[1]) / 2];
             starts.forEach(start => connect(start, junction, false, link.edge));
@@ -374,6 +428,10 @@
       });
       return;
     }
+    if (state.tab === 1 && Object.hasOwn(record, 'descendants')) {
+      tree(body, record.descendants, state);
+      return;
+    }
     const etymologies = record.etymologies || [];
     if (!etymologies.length) { body.append(el('p', 'mi-empty', state.tab === 1 ? 'सद्यो विकाराणि न लभ्यानि।' : 'सद्यः प्रक्रिया न लभ्या।')); return; }
     const etymology = etymologies[state.etymology];
@@ -409,6 +467,18 @@
     if (state.tab === 0) {
       tree(body, etymology.prakriyA ?? etymology.tree, state, etymology.prakriyA_rules);
 
+      if (state.type === 'sanskrit' && !body.querySelector('.mi-empty')) {
+        const note = el('p', 'mi-vidyut-note');
+        note.append(document.createTextNode('धेयम् – प्रक्रियेयं '));
+
+        const link = el('a', '', 'विद्युता');
+        link.href = 'https://github.com/ambuda-org/vidyut/tree/main';
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+
+        note.append(link, document.createTextNode(' निष्पन्ना'));
+        body.append(note);
+      }
     } else tree(body, etymology.descendants, state);
   }
   function positioning() {
@@ -513,10 +583,10 @@
         el('span', '', record.name || record.label || '')
       );
 
+      state.topPronunciation?.remove();
       if (type === 'foreign' && record.pronunciation) {
-        state.title.append(
-          el('span', 'mi-pronunciation', `· / ${record.pronunciation} /`)
-        );
+        state.topPronunciation = el('div', 'mi-pronunciation', `/${record.pronunciation.replace(/^\/+|\/+$/g, '')}/`);
+        state.title.after(state.topPronunciation);
       }
       render(state);
       // Commit closed geometry once; later replacements never remove mi-open.

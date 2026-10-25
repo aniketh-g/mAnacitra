@@ -51,7 +51,7 @@
     </div>
 
     <section class="sanskrit-section" aria-labelledby="sb-names-heading">
-      <h3 id="sb-names-heading">संस्कृतनामानि</h3>
+      <h3 id="sb-names-heading">नामान्तराणि विवरणानि च</h3>
       <ol id="sb-names"></ol>
     </section>
   </div>
@@ -130,11 +130,6 @@ function addCitations(parent, citations = [], {locatorSeparator = ' — '} = {})
       item.append(document.createTextNode(`${locatorSeparator}${citation.locator}`));
     }
 
-    if (citation.quote) {
-      const quote = document.createElement("blockquote");
-      quote.innerHTML = markdown(citation.quote);
-      item.append(quote);
-    }
 
     addProse(item, citation.note || citation.comment);
     list.append(item);

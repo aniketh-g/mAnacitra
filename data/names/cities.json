@@ -28755,55 +28755,109 @@
     "names": [
       {
         "name": "इन्द्रप्रस्थम्",
-        "confidence": 1.0,
         "primary": true,
         "etymologies": [
           {
-            "notes": "इन्द्रस्य इन्द्रस्थानमेरोः प्रस्थ इव\nप्राचीना रूढिरियम्। खाण्डवप्रस्थे युधिष्ठिरेण यदभिनवपुरं निर्म्मितं तदिन्द्रप्रस्थतया विख्यातमिति वाचस्पत्यम्।",
+            "notes": "तथा हरिप्रस्थं शक्रप्रस्थमित्यादयो ऽपि।",
             "citations": [],
-            "vyutpatti": "",
+            "vyutpatti": "इन्द्रस्य इन्द्रस्थानमेरोः प्रस्थ इव।",
             "descendants": [],
-            "prakriyA": null
+            "prakriyA": {
+              "input": {
+                "type": "subanta",
+                "stem": {
+                  "type": "samasa",
+                  "samasa_type": "tatpurusha",
+                  "members": [
+                    {
+                      "stem": {
+                        "type": "basic",
+                        "text": "इन्द्र"
+                      },
+                      "gender": "masculine",
+                      "case": "genitive",
+                      "number": "singular"
+                    },
+                    {
+                      "stem": {
+                        "type": "krdanta",
+                        "dhatu": {
+                          "aupadeshika": "ष्ठा॒",
+                          "gana": "Bhvadi",
+                          "prefixes": [
+                            "प्र"
+                          ]
+                        },
+                        "pratyaya": {
+                          "type": "krt",
+                          "id": "ka"
+                        }
+                      },
+                      "gender": "masculine",
+                      "case": "nominative",
+                      "number": "singular"
+                    }
+                  ]
+                },
+                "gender": "neuter",
+                "case": "nominative",
+                "number": "singular"
+              },
+              "variant": 0
+            }
           }
         ],
         "attestations": [],
-        "attestation_status": ""
+        "attestation_status": "प्राचीना रूढिः"
       },
       {
         "name": "ढिल्लिका",
-        "confidence": 1.0,
+        "confidence": 1,
         "primary": false,
         "etymologies": [
           {
-            "notes": "प्राचीना रूढिः। १२४९शकाल्लभ्यमानायां <a href=\"https://archive.org/details/epigraphia-indica/epigraphia-indica-vol-01/page/n113/mode/2up\">शिलालेखायां</a> नामैतत्प्रचक्षते —\n\"देशोऽस्ति हरियानाख्यः पृथिव्यां स्वर्गसन्निभः।\n<b>ढिल्लिका</b>ख्या पुरी तत्र तोमरैरस्ति निर्मिता॥\"",
+            "notes": "ऐतिह्यमेतदलॆक्सॅण्डर्कन्निङ्घामा कथ्यते — \\n\nअनङ्गपालेन तोमरराजेन ढिल्लिकाया अयस्स्तम्भो निहितः। स च राजा केनचन विदुषा ब्राह्मणेनाभिमन्त्रितो यत्स स्तम्भो भूमेरधोगत्य वासुकिशिरसि प्रतिष्ठित इति। राजा ब्राह्मणवाक्यमाशङ्क्य स्तम्भमुत्खाटयामास। उद्घाटितस्य च स्तम्भस्य पादं रक्तेन शोणितं वासुकिशिरश्छेदनात्। शङ्कायै परितप्यमानेन राज्ञा पुनः स स्तम्भः प्रत्यस्थाप्यत। तथापि तच्छङ्कितत्वात्स अयस्स्तम्भः शिथिलिमेवातिष्ठत्। अपभ्रंशे शैथिल्ये **ढीला**शब्दः प्रयुज्यते; शिथिलत्वात्तन्नगरस्य **ढिल्ली**ति नामाजायतेत्यैतिह्यम्।",
             "citations": [],
-            "vyutpatti": "",
+            "vyutpatti": "\"ढिलः\" (<शिथिलः) स्तम्भो ऽस्त्यत्र",
             "descendants": [],
             "prakriyA": null
           }
         ],
-        "attestations": [],
-        "attestation_status": ""
-      },
-      {
-        "name": "हरिप्रस्थम्",
-        "confidence": 1.0,
-        "primary": false,
-        "etymologies": [
+        "attestations": [
           {
-            "notes": "प्राचीना रूढिः।",
-            "citations": [],
-            "vyutpatti": "",
-            "descendants": [],
-            "prakriyA": null
+            "language": "संस्कृतम्",
+            "date": "१२७९, फाल्गुन, शुक्ल, ५",
+            "quote": "देशोऽस्ति हरियानाख्यः पृथिव्यां स्वर्गसन्निभः।\\n\n**ढिल्लिका**ख्या पुरी तत्र तोमरैरस्ति निर्मिता॥",
+            "notes": "१२४९शकाल्लभ्यमानायां सारवलग्रामे कूपनिर्माणे लिखितायां शिलालेखायां नामैतत्प्रचक्षते",
+            "citations": [
+              {
+                "title": "१२४९ शिलालेखा",
+                "url": "https://indike.org/pramana/inp.epigraphy.north.tughluq.inscription-in-the-dehli-museum",
+                "locator": "३"
+              }
+            ],
+            "sort_year": "1279"
+          },
+          {
+            "language": "अपभ्रंशः",
+            "date": "१०५४",
+            "quote": "हरियाणए देसे असङ्खगामे।\\n\nगामीयणजणियाणवरयकामे॥\\n\nपरचक्कविहट्टणु सिरिसङ्घट्टणु जो सुरवैणा परिगणिउं।\\n\nरिउरुहिरावट्टणु पविउलि पट्टणु **ढिल्ली**नामेण जि भणिउं॥",
+            "notes": "अत्र रिचर्ड्-कोहनो [लेखो ऽयं](https://www.jstor.org/stable/604073) निरीक्ष्यः।",
+            "citations": [
+              {
+                "title": "पासणाहचरिउ",
+                "url": "https://dn760108.eu.archive.org/0/items/in.ernet.dli.2015.427795/2015.427795.Pasanahacariu1965AC4058.pdf",
+                "locator": "१.२.१४"
+              }
+            ],
+            "sort_year": "1054"
           }
         ],
-        "attestations": [],
-        "attestation_status": ""
+        "attestation_status": "प्राचीना रूढिः"
       }
     ],
     "name_native": "",
-    "description": "",
+    "description": "खाण्डवप्रस्थे युधिष्ठिरेण यदभिनवपुरं निर्म्मितं तदिन्द्रप्रस्थतया विख्यातमिति वाचस्पत्यम्।",
     "name_families": []
   },
   "natural-earth:1159151407": {
@@ -30283,114 +30337,79 @@
   },
   "natural-earth:1159151541": {
     "name_en": "New Delhi",
-    "description": "भारतवर्षस्य राजधानी। खाण्डवप्रस्थे युधिष्ठिरेण यदभिनवपुरं निर्म्मितं तदिन्द्रप्रस्थतया विख्यात[मिति वाचस्पत्यम्।](https://example.org)",
-    "name_families": [
-      {
-        "label": "",
-        "pronunciation": "",
-        "language": "",
-        "etymologies": [
-          {
-            "vyutpatti": "",
-            "notes": "",
-            "citations": [],
-            "descendants": [],
-            "prakriyA": []
-          }
-        ],
-        "attestations": [],
-        "attestation_status": ""
-      }
-    ],
+    "description": "भारतवर्षस्य राजधानी। खाण्डवप्रस्थे युधिष्ठिरेण यदभिनवपुरं निर्म्मितं तदिन्द्रप्रस्थतया विख्यातम्। तस्यैव नूतनो भागो ऽद्य भारतवर्षस्य राजधानी नवेन्द्रप्रस्थतया प्रसिद्धः।",
+    "name_families": [],
     "name_native": "नवेन्द्रप्रस्थम्",
-    "country": "India",
+    "country": "भारतम्",
     "names": [
       {
         "name": "नवेन्द्रप्रस्थम्",
-        "confidence": 1.0,
         "primary": true,
         "etymologies": [
           {
-            "notes": "प्राचीना रूढिः।",
+            "notes": "विवरणमिन्द्रप्रस्थशब्दे पश्यताम्।",
             "citations": [],
             "descendants": [],
-            "vyutpatti": "इन्द्रस्य इन्द्रस्थानमेरोः प्रस्थ इव",
+            "vyutpatti": "नवं नूतनमिदमिन्द्रप्रस्थमेव",
             "prakriyA": {
               "input": {
-                "type": "subanta", "gender": "neuter", "case": "nominative", "number": "singular",
+                "type": "subanta",
                 "stem": {
-                  "type": "samasa", "samasa_type": "karmadharaya",
-                  "members":[
+                  "type": "samasa",
+                  "samasa_type": "karmadharaya",
+                  "members": [
                     {
                       "stem": {
                         "type": "krdanta",
-                        "dhatu": {"aupadeshika": "णु", "gana": "Adadi"},
-                        "pratyaya": {"type": "krt", "id": "ap"}
+                        "dhatu": {
+                          "aupadeshika": "णु",
+                          "gana": "Adadi"
+                        },
+                        "pratyaya": {
+                          "type": "krt",
+                          "id": "ap"
+                        }
                       },
-                      "gender": "masculine", "case": "nominative", "number": "singular"
+                      "gender": "masculine",
+                      "case": "nominative",
+                      "number": "singular"
                     },
                     {
                       "stem": {
-                        "type": "samasa", "samasa_type": "tatpurusha",
-                        "members": [
-                          {
-                            "stem":{
-                              "type": "basic", "text": "इन्द्र", "meaning": ""
-                            },
-                            "gender": "masculine", "case": "genitive", "number": "singular"
-                          },
-                          {
-                            "stem":{
-                              "type": "krdanta",
-                              "dhatu": {"prefixes": ["प्र"], "aupadeshika": "ष्ठा", "gana": "Bhvadi"},
-                              "pratyaya": {"type": "krt", "id": "ka"}
-                            },
-                            "gender": "neuter", "case": "nominative", "number": "singular"
-                          }
-                        ]
+                        "type": "basic",
+                        "text": "इन्द्रप्रस्थ"
                       },
-                      "gender": "neuter", "case": "nominative", "number": "singular"
+                      "gender": "masculine",
+                      "case": "nominative",
+                      "number": "singular"
                     }
                   ]
-                }
-              }
+                },
+                "gender": "neuter",
+                "case": "nominative",
+                "number": "singular"
+              },
+              "variant": 0
             }
           }
         ],
         "attestations": [],
-        "attestation_status": ""
+        "attestation_status": "रूढिः। इन्द्रप्रस्थशब्दं पश्यत।"
       },
       {
         "name": "नवढिल्लिका",
-        "confidence": 1.0,
         "primary": false,
         "etymologies": [
           {
-            "notes": "प्राचीना रूढिः। १२४९शकाल्लभ्यमानायां <a href=\"https://archive.org/details/epigraphia-indica/epigraphia-indica-vol-01/page/n113/mode/2up\">शिलालेखायां</a> नामैतत्प्रचक्षते —\n\"देशोऽस्ति हरियानाख्यः पृथिव्यां स्वर्गसन्निभः।\n<b>ढिल्लिका</b>ख्या पुरी तत्र तोमरैरस्ति निर्मिता॥\"",
+            "notes": "विवरणं ढिल्लिकाशब्दे पश्यताम्।",
             "citations": [],
-            "vyutpatti": "",
-            "descendants": [],
-            "prakriyA": null
+            "vyutpatti": "नवा नूतनेयं ढिल्लिकैव"
           }
         ],
         "attestations": [],
-        "attestation_status": ""
-      },
-      {
-        "name": "नवहरिप्रस्थम्",
-        "confidence": 1.0,
-        "primary": false,
-        "etymologies": [
-          {
-            "notes": "प्राचीना रूढिः।",
-            "citations": [],
-            "vyutpatti": "",
-            "descendants": [],
-            "prakriyA": null
-          }
-        ],
-        "attestations": [],
-        "attestation_status": ""
+        "attestation_status": "रूढिः। ढिल्लिकाशब्दं पश्यत।",
+        "descendants": [],
+        "citations": []
       }
     ]
   },

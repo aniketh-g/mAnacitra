@@ -32,9 +32,11 @@ body.mi-both #mi-foreign.mi-open { transform: translateX(-100%); }
   gap: 4px 12px;
 }
 .mi-pronunciation {
-  color: #777164;
-  font: 19px/1.5 'Shobhika', serif;
-  font-style: italic;
+  display: block;
+  margin: 2px 0 0;
+  color: #8b7552;
+  font: italic 16px/1.5 'Shobhika', serif;
+  letter-spacing: .02em;
 }
 .mi-title { font-size: 28px; font-weight: normal; margin: 8px 32px 0 0; overflow-wrap: anywhere; }
 .mi-close { position: absolute; top: 16px; right: 14px; background: none; border: 0; font-size: 26px; color: #716d65; cursor: pointer; }
@@ -248,3 +250,23 @@ a.mi-rule-reference:focus-visible { outline: 2px solid #927746; outline-offset: 
 /* Fixed stacking order, regardless of which inspector opens first. */
 #mi-foreign { z-index: 18; }
 #mi-sanskrit { z-index: 19; }
+
+.mi-pronunciation { color:#827d72; margin-inline:0.35em; font-style:italic; }
+
+/* Keep meanings in the word’s text flow, with natural line wrapping. */
+.mi-form .mi-part { display:inline; }
+.mi-form .mi-meaning { display:inline; margin-inline-start:0.35em; overflow-wrap:anywhere; white-space:normal; }
+
+.mi-form .mi-pronunciation { display:block; font-style:italic; font-size:0.85em; line-height:1.4; margin:3px 0 0; }
+.mi-vidyut-note {
+  margin: 28px 0 4px;
+  color: #928b7d;
+  font: italic 12px/1.6 'Shobhika', serif;
+  text-align: center;
+}
+
+.mi-vidyut-note a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
