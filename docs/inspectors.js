@@ -8,7 +8,7 @@
   let ruleVisibility = {};
   let catalogueError = '';
 
-  Promise.allSettled(['visibility', 'foreign'].map(async name => {
+  Promise.allSettled(['ashtadhyayi', 'foreign'].map(async name => {
     const response = await fetch(`data/rules/${name}.json`);
     if (!response.ok) throw new Error(`${name}: HTTP ${response.status}`);
     return response.json();
