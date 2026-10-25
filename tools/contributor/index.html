@@ -1,0 +1,71 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mānacitra · Contributions</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="contributor.css"></head><body>
+<header><a href="../index.html">मानचित्रम्</a><span>अभिमन्त्रणम्</span><button id="signout" hidden>बहिर्विश्यासम्</button></header>
+<section id="auth" class="auth-page">
+  <div class="auth-card">
+
+    <div class="auth-brand">
+      <a class="auth-logo" href="../index.html">मानचित्रम्</a>
+      <p class="auth-kicker">अभिमन्त्रणम्</p>
+    </div>
+
+    <div class="auth-copy">
+      <h1>मानचित्रस्य विकासे सहेतात्</h1>
+      <p class="auth-subtitle">नाम, व्युत्पत्तिं, परिष्कारं वा सूचयताम्</p>
+    </div>
+
+    <button id="google-login" class="google-login" type="button">
+      <img
+        class="google-logo"
+        src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+        alt=""
+        aria-hidden="true"
+      >
+      <span>Google द्वारा प्रविश्यासम्</span>
+    </button>
+
+    <div class="auth-divider">
+      <span>अथवा</span>
+    </div>
+
+    <form id="auth-form" class="auth-form">
+      <label>
+        <span>वैद्युत-पत्रसङ्केतः</span>
+        <input
+          id="email"
+          type="email"
+          autocomplete="email"
+          placeholder="name@example.com"
+          required
+        >
+      </label>
+
+      <label>
+        <span>गुप्तपदम्</span>
+        <input
+          id="password"
+          type="password"
+          autocomplete="current-password"
+          minlength="8"
+          placeholder="••••••••"
+          required
+        >
+      </label>
+
+      <button class="primary-login" type="submit">
+        सम्प्रविश्यासम्
+      </button>
+
+      <button id="signup" class="secondary-login" type="button">
+        नूतनलेखां निर्मेयासम्
+      </button>
+    </form>
+
+    <p id="auth-status" class="auth-status" role="status"></p>
+
+    <!-- <p class="auth-note">
+      Contributions are submitted as proposals and reviewed before publication.
+    </p> -->
+  </div>
+</section>
+<section id="signed-in" hidden><nav class="contribution-tabs"><button id="edit-tab" aria-pressed="true">परिष्कारं सूचयतात्</button><button id="queue-tab" aria-pressed="false">निरीक्षताम्</button></nav><p id="account-status" role="status"></p><section id="edit-view"><!--EDITOR--></section><section id="queue-view" hidden><div class="queue-heading"><h1>सूचनानि</h1><select id="status-filter" aria-label="Filter suggestions"><option value="all">सर्वाः स्थितयः</option><option value="pending">लम्बमानम्</option><option value="approved">अनुमोदितम्</option><option value="rejected">निरस्तम्</option></select><button id="refresh">पुनरायच्छ</button></div><p class="help">निरीक्षानन्तरमनुमोदितानि सूचनानि प्रकाश्यन्ते</p><p id="queue-status" role="status"></p><div id="suggestions"></div><button id="more" hidden>अग्रे दर्शय</button></section></section>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script><script src="../inspector-graph.js"></script><script src="contributor.js"></script></body></html>

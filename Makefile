@@ -6,7 +6,7 @@ COUNTRIES := $(shell jq -r '.datasets.countries' $(CONFIG))
 RIVERS := $(shell jq -r '.datasets.rivers' $(CONFIG))
 
 .PHONY: all
-all: search data etymology
+all: search data etymology contributor
 
 .PHONY: data etymology
 data: cities countries rivers
@@ -86,3 +86,8 @@ search: docs/data/search/cities.json docs/data/search/countries.json docs/data/s
 
 docs/data/search/%.json: data/names/%.json data/mappings/%.json build/geography/%.geojson tools/build_search.py
 	@python3 tools/build_search.py $*
+
+# Optional hosted suggestion editor, generated from the local editor.
+.PHONY: contributor
+contributor:
+	@python3 tools/build_contributor.py

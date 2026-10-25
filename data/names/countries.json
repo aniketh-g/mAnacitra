@@ -1258,25 +1258,121 @@
     "name_en": "Germany",
     "names": [
       {
-        "name": "",
-        "confidence": 1.0,
+        "name": "तुवत्वान्",
         "primary": true,
         "etymologies": [
           {
-            "notes": "",
+            "notes": "द्वितीये शतके रोमकसाम्राज्येन तुवन्तो [युयुधिरे](https://en.wikipedia.org/wiki/Barbarian_invasions_of_the_third_century)। युद्धे च दूरगामित्वात्, हिंसावत्त्वात्, स्वदेशस्य च वृद्धित्वात् तज्जातीयास्तुवन्त इत्यभिदध्महे।",
             "citations": [],
-            "vyutpatti": "",
+            "vyutpatti": "तुवन्तो गच्छन्तो वर्द्धमाना हिंसन्तो वा वसन्त्यत्र।",
             "descendants": [],
-            "prakriyA": null
+            "prakriyA": {
+              "input": {
+                "type": "subanta",
+                "stem": {
+                  "type": "taddhitanta",
+                  "stem": {
+                    "type": "krdanta",
+                    "dhatu": {
+                      "aupadeshika": "तु॒",
+                      "gana": "Adadi"
+                    },
+                    "pratyaya": {
+                      "type": "krt",
+                      "id": "Satf"
+                    }
+                  },
+                  "pratyaya": "matup"
+                },
+                "gender": "masculine",
+                "case": "nominative",
+                "number": "singular"
+              },
+              "variant": 0
+            }
           }
         ],
         "attestations": [],
-        "attestation_status": ""
+        "attestation_status": "newly_proposed"
       }
     ],
     "name_native": "",
-    "description": "",
-    "name_families": []
+    "description": "केतुमाले देशानां जनवत्तमः। १९तमे शतके आङ्ग्लादिशत्रवः।",
+    "name_families": [
+      {
+        "label": "TEVTONĒS",
+        "language": "रोमका",
+        "pronunciation": "तॆव़्तॊनेस्",
+        "descendants": [],
+        "etymologies": [
+          {
+            "vyutpatti": "स्वनामाख्यातजातिविशेषः।",
+            "notes": "",
+            "prakriyA": [
+              {
+                "id": "node-1",
+                "from": [],
+                "form": "*तॆ॒व़्ह्२-",
+                "pronunciation": "",
+                "language": "प्रा.यु.भा",
+                "rules": [],
+                "meaning": "बलनवृद्ध्योः"
+              },
+              {
+                "id": "node-2",
+                "from": [
+                  "node-1"
+                ],
+                "form": "*ते॒व़्‍तॆह्२",
+                "pronunciation": "",
+                "language": "प्रा.यु.भा",
+                "rules": [],
+                "meaning": "चये जनेषु च"
+              },
+              {
+                "id": "node-3",
+                "from": [
+                  "node-1"
+                ],
+                "form": "*तॆव़्ह्२ति॑",
+                "pronunciation": "",
+                "language": "प्रा.यु.भा",
+                "rules": [],
+                "meaning": "बलनवृद्ध्योः"
+              },
+              {
+                "id": "node-4",
+                "from": [
+                  "node-3"
+                ],
+                "form": "तवीति",
+                "pronunciation": "",
+                "language": "संस्कृतम्",
+                "rules": [
+                  "pie-tewh-sanskrit"
+                ],
+                "meaning": " गतिवृद्धिहिंसासु"
+              },
+              {
+                "id": "node-5",
+                "from": [
+                  "node-2"
+                ],
+                "form": "TEVTONĒS",
+                "pronunciation": "तॆव़्तॊनेस्",
+                "language": "रोमका",
+                "rules": [
+                  "pie-tewh-latin"
+                ],
+                "meaning": "जातिविशेषे"
+              }
+            ],
+            "citations": []
+          }
+        ],
+        "attestations": []
+      }
+    ]
   },
   "natural-earth:1159320615": {
     "name_en": "Estonia",

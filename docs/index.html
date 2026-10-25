@@ -27,6 +27,7 @@
   <nav>
     <a href="index.html" class="active">मानचित्रम्</a>
     <a href="about.html">अस्मद्विषये</a>
+    <a href="contribute/">अभिमन्त्रयितुं सम्प्रविश्यासम्</a>
     <a href="feedback.html">प्रतिमन्त्रणम्</a>
   </nav>
 </header>
@@ -93,7 +94,7 @@ function addProse(parent, text, className = "") {
 
 function attestationStatusText(record) {
   const status = record.attestation_status;
-  if (status === 'newly_proposed') return 'निर्मापितं पदम्। न रूढिर्विद्यते। प्रयोगा अर्वाचीनाः।';
+  if (status === 'newly_proposed') return 'योगतः सिद्धं पदम्। न रूढिर्विद्यते। प्रयोगा अर्वाचीनाः।';
   return typeof status === 'string' ? status.trim() : '';
 }
 

@@ -35,7 +35,7 @@ jobs:
         run: make download-cities download-countries download-rivers
 
       - name: Build website data
-        run: make cities countries rivers rules
+        run: make cities countries rivers rules contributor
 
       - name: Upload website
         uses: actions/upload-pages-artifact@v4
