@@ -15,12 +15,19 @@ body > header { gap: 24px; }
 #place-search-status:not(:empty) { position: absolute; top: 100%; left: 0; right: 0; padding: 8px;
   background: var(--ui-surface); font-size: 14px; border: 1px solid var(--ui-border); }
 #place-search:has(#place-search-results:not([hidden])) #place-search-status { position: static; padding: 0; border: 0; font-size: 11px; }
-@media(max-width: 700px) {
-  body > header { height: 100px; flex-wrap: wrap; align-content: center; gap: 4px 12px; }
-  body > header h1 { order: 0; } body > header nav { order: 1; margin-left: auto; }
-  #place-search { order: 2; flex: 0 0 100%; max-width: none; }
-  body { padding-top: 100px; } main { top: 100px; }
+@media(max-width: 999px) {
+  body > header { height: 56px; flex-wrap: nowrap; gap: 12px; }
+  body > header nav { flex: 1; justify-content: flex-start; overflow-x: auto; scrollbar-width: none; }
+  body > header nav::-webkit-scrollbar { display: none; }
+  body > header nav a { flex-shrink: 0; }
+  #place-search {
+    position: absolute; top: calc(100% + 12px); left: 12px; right: 12px;
+    width: auto; max-width: none; min-width: 0; margin: 0; flex: none;
+  }
+  #place-search-input { height: 44px; border-radius: 22px; box-shadow: 0 3px 14px #0002; }
+  body { padding-top: 56px; } main { top: 56px; }
 }
+
 
 .place-search-icon { position: absolute; left: 12px; top: 8px; width: 20px; height: 20px;
   color: var(--ui-hover); pointer-events: none; }
@@ -34,3 +41,23 @@ body > header { gap: 24px; }
 #place-search-clear[hidden] { display: none; }
 #place-search-input::-webkit-search-cancel-button,
 #place-search-input::-webkit-search-decoration { -webkit-appearance: none; }
+
+/* Floating controls share a 44px touch target and the site's gold hover color. */
+#map .maplibregl-ctrl-bottom-right > .maplibregl-ctrl-group:has(.maplibregl-ctrl-compass) { margin: 0 max(12px, env(safe-area-inset-right)) 12px 0; }
+#map .maplibregl-ctrl-group:has(.maplibregl-ctrl-compass) {
+  border: 1px solid var(--ui-border); border-radius: 50%; overflow: hidden;
+  background: var(--ui-surface); box-shadow: 0 3px 14px #0002;
+}
+#map .maplibregl-ctrl-compass { width: 42px; height: 42px; border-radius: 50%; }
+#map .maplibregl-ctrl-compass:hover { background-color: var(--ui-hover-bg); }
+#map .maplibregl-ctrl-compass:focus-visible { outline: 2px solid var(--ui-hover); outline-offset: -3px; }
+@media(max-width: 999px) {
+  .place-search-icon { top: 12px; }
+  #place-search-clear { top: 6px; }
+}
+
+/* MapLibre rotates this E–W image with bearing; clicking still restores north-up. */
+#map .maplibregl-ctrl-compass .maplibregl-ctrl-icon {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2242%22%20height%3D%2242%22%20viewBox%3D%220%200%2042%2042%22%3E%3Cpath%20d%3D%22M7%2021%2021%2016%2021%2026Z%22%20fill%3D%22%23aaa394%22%2F%3E%3Cpath%20d%3D%22M35%2021%2021%2016%2021%2026Z%22%20fill%3D%22%23a47a28%22%2F%3E%3C%2Fsvg%3E");
+  background-size: 42px 42px;
+}

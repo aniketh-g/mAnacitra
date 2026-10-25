@@ -290,6 +290,11 @@ function openSidebar(props, placeKey) {
     zoom: 2
   });
 
+  // MapLibre keeps the compass aligned with bearing and resets north on click.
+  map.addControl(new maplibregl.NavigationControl({
+    showZoom: false, showCompass: true, visualizePitch: false
+  }), 'bottom-right');
+
   let searchMapReady = false;
   const searchDatasets = new Map();
   map.on('load', async () => {
