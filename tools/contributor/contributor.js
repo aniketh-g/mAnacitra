@@ -2,7 +2,7 @@
 (() => {
  const $=id=>document.getElementById(id);
  const node=(tag,text)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;return n;};
- const client=window.supabase?.createClient('https://arqpsglptzkhmugxgabe.supabase.co','sb_publishable_xPbUU4HiTJq2NJ9LjdFLew_LYoy_tb9');
+ const client=window.SiteAuth;
  if(!client){$('auth-status').textContent='Sign-in could not load. Check your connection and reload.';return;}
  let user=null, reviewer=false, loaded=false, offset=0, queueTicket=0;
  const datasets=new Map(),bases=new Map();
@@ -26,7 +26,13 @@
   }
   throw Error('This action is available only in the local editor.');
  }};
- function show(view){$('edit-view').hidden=view!=='edit';$('queue-view').hidden=view!=='queue';$('edit-tab').setAttribute('aria-pressed',String(view==='edit'));$('queue-tab').setAttribute('aria-pressed',String(view==='queue'));if(view==='queue')list(true);}
+ const tabs=$('edit-tab').parentElement;tabs.style.position='relative';
+const indicator=node('span');indicator.className='tab-indicator';tabs.append(indicator);
+function moveIndicator(tab=tabs.querySelector('[aria-pressed="true"]')){indicator.style.left=tab.offsetLeft+'px';indicator.style.width=tab.offsetWidth+'px';}
+for(const tab of [$('edit-tab'),$('queue-tab')])tab.addEventListener('mouseenter',()=>moveIndicator(tab));
+tabs.addEventListener('mouseleave',()=>moveIndicator());
+requestAnimationFrame(()=>moveIndicator());window.addEventListener('resize',()=>moveIndicator());
+ function show(view){$('edit-view').hidden=view!=='edit';$('queue-view').hidden=view!=='queue';$('edit-tab').setAttribute('aria-pressed',String(view==='edit'));$('queue-tab').setAttribute('aria-pressed',String(view==='queue'));moveIndicator();if(view==='queue')list(true);}
  $('edit-tab').onclick=()=>show('edit');$('queue-tab').onclick=()=>show('queue');
  async function login(signup){
   if(!$('auth-form').reportValidity())return;
@@ -66,10 +72,9 @@
     $('auth-status').textContent=e.message;
   }
 };
- $('signout').onclick=async()=>{if(window.contributionDirty?.()&&!confirm('Discard your unsent draft and sign out?'))return;try{check(await client.auth.signOut());location.reload();}catch(e){$('account-status').textContent=e.message;}};
  async function enter(who){
-  user=who;$('auth').hidden=true;$('signed-in').hidden=false;$('signout').hidden=false;
-  try{reviewer=Boolean(check(await client.rpc('manacitra_is_reviewer')));$('account-status').textContent=reviewer?'निरीक्षकः · अनुमोदनपर्यन्तं सूचनानि न प्रकाश्यन्ते':'सम्प्रविष्टवान् · प्रकाशनात्प्राक्सर्वाणि सूचनानि निरीक्ष्यानुमोद्यानि';}
+  user=who;$('auth').hidden=true;$('signed-in').hidden=false;window.setHeaderUser(who);
+  try{reviewer=Boolean(check(await client.rpc('manacitra_is_reviewer')));$('account-status').textContent=reviewer?'निरीक्षकः · आनुमोदनात् सूचनानि न प्रकाश्यन्ते':'सम्प्रविष्टवान् · प्रकाशनात्प्राक्सर्वाणि सूचनानि निरीक्ष्यानुमोद्यानि';}
   catch(e){$('account-status').textContent='Review service unavailable: '+e.message;}
   if(!loaded){loaded=true;const script=node('script');script.src='app.js';script.onerror=()=>{$('account-status').textContent='Editor failed to load. Reload this page.';};document.body.append(script);}
  }
@@ -201,6 +206,6 @@
   try{let q=client.from('manacitra_suggestions').select('id,author_id,dataset,title,reason,status,created_at').order('created_at',{ascending:false}).order('id').range(offset,offset+29);if($('status-filter').value!=='all')q=q.eq('status',$('status-filter').value);const rows=check(await q);if(ticket!==queueTicket)return;rows.forEach(r=>$('suggestions').append(proposal(r)));offset+=rows.length;$('more').hidden=rows.length<30;$('queue-status').textContent=offset?'':'सद्यः सूचनानि न लब्धानि';}catch(e){if(ticket===queueTicket)$('queue-status').textContent=e.message;}
  }
  $('refresh').onclick=() => list(true);$('status-filter').onchange=()=>list(true);$('more').onclick=()=>list(false);
- client.auth.onAuthStateChange((event,session)=>{if(event==='SIGNED_OUT'){user=null;reviewer=false;$('signed-in').hidden=true;$('auth').hidden=false;$('signout').hidden=true;}else if(event==='SIGNED_IN'&&session&&!user)setTimeout(()=>enter(session.user),0);});
+ client.auth.onAuthStateChange((event,session)=>{if(event==='SIGNED_OUT'){user=null;reviewer=false;$('signed-in').hidden=true;$('auth').hidden=false;window.setHeaderUser(null);}else if(event==='SIGNED_IN'&&session&&!user)setTimeout(()=>enter(session.user),0);});
  client.auth.getSession().then(({data,error})=>{if(error)$('auth-status').textContent=error.message;else if(data.session)enter(data.session.user);});
 })();

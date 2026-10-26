@@ -11,26 +11,11 @@
   <link rel="stylesheet" href="theme.css" />
   <link rel="stylesheet" href="mobile-panels.css" />
   <link rel="stylesheet" href="place-search.css" />
+  <link rel="stylesheet" href="site-header.css" />
 </head>
 <body>
-<header>
-  <h1>मानचित्रम्</h1>
-  <div id="place-search" role="search">
-    <span class="place-search-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg></span>
-    <input id="place-search-input" type="search" placeholder="नाम अन्विष्यताम् - 'दानवी', 'DĀNVBIVS', उत 'दानुब्युस्' "
-      aria-label="Search place names" role="combobox" aria-autocomplete="list"
-      aria-expanded="false" aria-controls="place-search-results" autocomplete="off" spellcheck="false" />
-    <button id="place-search-clear" type="button" aria-label="Clear search" hidden>×</button>
-    <ul id="place-search-results" role="listbox" aria-label="Matching places" hidden></ul>
-    <div id="place-search-status" role="status" aria-live="polite"></div>
-  </div>
-  <nav>
-    <a href="index.html" class="active">मानचित्रम्</a>
-    <a href="about.html">अस्मद्विषये</a>
-    <a href="contribute/">अभिमन्त्रयितुं सम्प्रविश्यासम्</a>
-    <a href="feedback.html">प्रतिमन्त्रणम्</a>
-  </nav>
-</header>
+<header data-page="map"></header>
+<script src="site-header.js"></script>
 
 <main>
   <div id="map"></div>
@@ -627,5 +612,6 @@ function openSidebar(props, placeKey) {
 <script src="inspectors.js"></script>
 <script src="header-nav.js"></script>
 <script src="mobile-panels.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script><script defer src="site-auth.js"></script>
 </body>
 </html>

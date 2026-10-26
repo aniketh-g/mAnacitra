@@ -1258,13 +1258,13 @@
     "name_en": "Germany",
     "names": [
       {
-        "name": "तुवत्वान्",
+        "name": "तावतः",
         "primary": true,
         "etymologies": [
           {
             "notes": "द्वितीये शतके रोमकसाम्राज्येन तुवन्तो [युयुधिरे](https://en.wikipedia.org/wiki/Barbarian_invasions_of_the_third_century)। युद्धे च दूरगामित्वात्, हिंसावत्त्वात्, स्वदेशस्य च वृद्धित्वात् तज्जातीयास्तुवन्त इत्यभिदध्महे।",
             "citations": [],
-            "vyutpatti": "तुवन्तो गच्छन्तो वर्द्धमाना हिंसन्तो वा वसन्त्यत्र।",
+            "vyutpatti": "तुवन्तो गच्छन्तो वर्द्धमाना हिंसन्तो वा सन्त्यत्र।",
             "descendants": [],
             "prakriyA": {
               "input": {
@@ -1282,7 +1282,8 @@
                       "id": "Satf"
                     }
                   },
-                  "pratyaya": "matup"
+                  "pratyaya": "aR",
+                  "artha": "Caturarthika"
                 },
                 "gender": "masculine",
                 "case": "nominative",
@@ -1314,7 +1315,7 @@
                 "from": [],
                 "form": "*तॆ॒व़्ह्२-",
                 "pronunciation": "",
-                "language": "प्रा.यु.भा",
+                "language": "प्रा॰यु॰भा॰",
                 "rules": [],
                 "meaning": "बलनवृद्ध्योः"
               },
@@ -1325,7 +1326,7 @@
                 ],
                 "form": "*ते॒व़्‍तॆह्२",
                 "pronunciation": "",
-                "language": "प्रा.यु.भा",
+                "language": "प्रा॰यु॰भा॰",
                 "rules": [],
                 "meaning": "चये जनेषु च"
               },
@@ -1336,7 +1337,7 @@
                 ],
                 "form": "*तॆव़्ह्२ति॑",
                 "pronunciation": "",
-                "language": "प्रा.यु.भा",
+                "language": "प्रा॰यु॰भा॰",
                 "rules": [],
                 "meaning": "बलनवृद्ध्योः"
               },
@@ -2458,7 +2459,7 @@
           {
             "notes": "",
             "citations": [],
-            "vyutpatti": "वत्से गोपुत्रादिस्नेहपात्रे कामो ऽस्यास्तीति",
+            "vyutpatti": "वत्से गोपुत्रादिस्नेहपात्रे कामो ऽस्यास्तीति।",
             "descendants": [],
             "prakriyA": {
               "input": {
@@ -2481,7 +2482,7 @@
           }
         ],
         "attestations": [],
-        "attestation_status": ""
+        "attestation_status": "newly_proposed"
       }
     ],
     "name_native": "ITALIA",
@@ -2490,18 +2491,18 @@
       {
         "label": "ITALIA",
         "language": "रोमका",
-        "pronunciation": "इतल्या",
+        "pronunciation": "इतल्य",
         "descendants": [],
         "etymologies": [
           {
-            "vyutpatti": "वत्समयो गोपुत्रमयो देशः",
+            "vyutpatti": "वत्सवान् गोशिशुमान् देशः।",
             "notes": "",
             "prakriyA": [
               {
                 "id": "node-1",
                 "from": [],
                 "form": "वॆ᳝त्",
-                "language": "प्रा.यु.भा.",
+                "language": "प्रा॰यु॰भा॰",
                 "rules": [],
                 "parts": [
                   {
@@ -2522,7 +2523,7 @@
                   "pie-italy-vitelliu"
                 ],
                 "pronunciation": "वितॆल्ल्यु",
-                "meaning": "वत्समये देशे"
+                "meaning": "वत्सवति देशे"
               },
               {
                 "id": "node-3",

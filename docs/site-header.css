@@ -1,0 +1,32 @@
+@font-face{font-family:Shobhika;src:url('fonts/Shobhika-Regular.otf');font-weight:400}
+@font-face{font-family:Shobhika;src:url('fonts/Shobhika-Bold.otf');font-weight:700}
+body{padding-top:56px}
+body > header.site-header{box-sizing:border-box;position:fixed;inset:0 0 auto;height:56px;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 24px;border-bottom:1px solid var(--ui-border);background:var(--ui-surface);font:16px/1.5 Shobhika,serif;color:var(--ui-text)}
+.site-header h1{margin:0;font-size:20px;font-weight:600;flex:none;line-height:1.5}
+.site-header h1 a{color:#292822;font:inherit;text-decoration:none}
+body > header.site-header nav{display:flex;align-items:center;gap:20px;min-width:0;margin:0;white-space:nowrap}
+body > header.site-header nav a{font:500 16px/1.5 Shobhika,serif;text-decoration:none;flex:none}
+body > header.site-header [hidden]{display:none!important}
+body > header.site-header #signout{margin:0;padding:7px 0;font:inherit;color:var(--ui-text);background:transparent;border:0;cursor:pointer;flex:none}
+body > header.site-header #signout:hover{color:var(--ui-hover)}
+.site-header #signout:focus-visible{outline:2px solid var(--ui-hover);outline-offset:3px}
+body > header.site-header #place-search-input{font:16px/1.5 Shobhika,serif}
+@media(max-width:999px){
+ body > header.site-header{padding:0 12px;gap:12px}
+ body > header.site-header h1{font-size:18px}
+ body > header.site-header nav{flex:1;gap:12px;overflow-x:auto;scrollbar-width:none}
+ body > header.site-header nav a,body > header.site-header #signout{font-size:14px}
+ body.content-page{padding-top:116px}
+}
+@media(max-width:359px){body > header.site-header h1{font-size:16px}body > header.site-header nav{gap:8px}body > header.site-header nav a,body > header.site-header #signout{font-size:12px}}
+body:not(.auth-ready) .auth-dependent {
+  visibility: hidden !important;
+}
+
+.site-header nav .auth-nav-link{display:inline-flex;align-items:center;gap:6px}
+.site-header nav .auth-nav-link svg,.site-header nav #signout svg{width:17px;height:17px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+body > header.site-header #signout{display:inline-flex;align-items:center;gap:7px;padding:6px 12px;border:1px solid #e8c3c3;border-radius:7px;background:#fff1f1;color:#a33333;font:500 15px/1.5 Shobhika,serif;cursor:pointer;transition:background .15s,border-color .15s}
+body > header.site-header #signout:hover{background:#ffe1e1;border-color:#d99b9b;color:#852525}
+body > header.site-header [hidden]{display:none!important}
+@media(max-width:999px){body > header.site-header #signout{padding:5px 9px;font-size:14px}.site-header nav .auth-nav-link svg,.site-header nav #signout svg{width:15px;height:15px}}
+@media(max-width:359px){body > header.site-header #signout{padding:4px 7px;font-size:12px}}

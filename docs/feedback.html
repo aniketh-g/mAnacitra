@@ -1,88 +1,15 @@
 <!DOCTYPE html>
-
-<style>
-.page {
-  margin: 0 auto;
-  max-width: 800px;
-  padding: 24px;
-  text-align: center; /* keep general page centered */
-}
-
-/* Left-align form labels and keep inputs wide */
-form {
-  text-align: left;
-  margin: 0 auto; /* center the whole form */
-}
-
-form input, form textarea {
-  width: 90%;
-  margin-bottom: 12px;
-  padding: 8px;
-  font-size: 14px;
-}
-
-form button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-</style>
-
-<html lang="sa">
-<head>
-  <meta charset="utf-8" />
-  <title>प्रतिमन्त्रणम्</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    .page {
-      margin: 0 auto;
-      max-width: 800px;
-      padding: 24px;
-      text-align: center; /* center align content */
-    }
-
-    form input, form textarea {
-      width: 90%; /* wider boxes */
-      margin-bottom: 12px;
-      padding: 8px;
-      font-size: 14px;
-    }
-
-    form button {
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-  </style>
-  <link rel="stylesheet" href="theme.css" />
-</head>
-<body>
-<header>
-  <h1>मानचित्रम्</h1>
-  <nav>
-    <a href="index.html">मानचित्रम्</a>
-    <a href="about.html">अस्मद्विषये</a>
-    <a href="feedback.html" class="active">प्रतिमन्त्रणम्</a>
-  </nav>
-</header>
-
-<div class="page">
-  <h1>प्रतिमन्त्रणम्</h1>
-
-  <form>
-    <label>नाम</label><br>
-    <input type="text" placeholder="तव नाम"><br>
-
-    <label>वैद्युत-पत्रसङ्केतः</label><br>
-    <input type="email" placeholder="example@email.com"><br>
-
-    <label>सन्देशः</label><br>
-    <textarea rows="5" placeholder="तव सन्देशोऽत्र"></textarea><br>
-
-    <button type="submit">प्रेषय</button>
-  </form>
-</div>
-<script src="header-nav.js"></script>
-</body>
-</html>
+<html lang="sa"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>प्रतिमन्त्रणम् · मानचित्रम्</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="theme.css"><link rel="stylesheet" href="place-search.css"><link rel="stylesheet" href="site-header.css"><link rel="stylesheet" href="feedback.css">
+</head><body><header data-page="feedback"></header><script src="site-header.js"></script>
+<article class="feedback-page">
+<div class="feedback-intro"><span class="feedback-kicker"></span><h1>प्रतिमन्त्रणम्</h1><p>प्रश्नं त्रुटिं वा निवेदयतात्।</p></div>
+<form id="feedback-form" class="feedback-form">
+<div class="feedback-pair"><label for="feedback-name">नाम<input id="feedback-name" name="name" autocomplete="name" placeholder="तव नाम" maxlength="150"></label><label for="feedback-email">वैद्युत-पत्रसङ्केतः<input id="feedback-email" name="email" type="email" autocomplete="email" placeholder="name@example.com"></label></div>
+<label for="feedback-subject">विषयः<input id="feedback-subject" name="subject" required maxlength="200" placeholder="सन्देशस्य विषयः"></label>
+<label for="feedback-message">सन्देशः<textarea id="feedback-message" name="message" rows="7" required maxlength="5000" placeholder="तव सन्देशोऽत्र…"></textarea></label>
+<div class="feedback-send"><button type="submit">पत्रं प्रेष्यासम्<span aria-hidden="true">↗</span></button><p>वैद्युतपत्रतन्त्रांशमुद्घाटयति</p></div>
+<p id="feedback-status" role="status"></p>
+</form></article>
+<script src="header-nav.js"></script><script src="feedback.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script><script defer src="site-auth.js"></script></body></html>

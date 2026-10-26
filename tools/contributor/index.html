@@ -1,11 +1,12 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mānacitra · Contributions</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="contributor.css"></head><body>
-<header><a href="../index.html">मानचित्रम्</a><span>अभिमन्त्रणम्</span><button id="signout" hidden>बहिर्विश्यासम्</button></header>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mānacitra · Contributions</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="contributor.css"><link rel="stylesheet" href="../theme.css"><link rel="stylesheet" href="../place-search.css"><link rel="stylesheet" href="../site-header.css"></head><body>
+<header data-page="editor"></header>
+<script src="../site-header.js"></script>
 <section id="auth" class="auth-page">
   <div class="auth-card">
 
     <div class="auth-brand">
       <a class="auth-logo" href="../index.html">मानचित्रम्</a>
-      <p class="auth-kicker">अभिमन्त्रणम्</p>
+      <p class="auth-kicker">अभिमन्त्रयितुं सम्प्रविशतात्</p>
     </div>
 
     <div class="auth-copy">
@@ -76,5 +77,5 @@
     </p> -->
   </div>
 </section>
-<section id="signed-in" hidden><nav class="contribution-tabs"><button id="edit-tab" aria-pressed="true">परिष्कारं सूचयतात्</button><button id="queue-tab" aria-pressed="false">निरीक्षताम्</button></nav><p id="account-status" role="status"></p><section id="edit-view"><!--EDITOR--></section><section id="queue-view" hidden><div class="queue-heading"><h1>सूचनानि</h1><select id="status-filter" aria-label="Filter suggestions"><option value="all">सर्वाः स्थितयः</option><option value="pending">लम्बमानम्</option><option value="approved">अनुमोदितम्</option><option value="rejected">निरस्तम्</option></select><button id="refresh">पुनरायच्छ</button></div><p class="help">निरीक्षानन्तरमनुमोदितानि सूचनानि प्रकाश्यन्ते</p><p id="queue-status" role="status"></p><div id="suggestions"></div><button id="more" hidden>अग्रे दर्शय</button></section></section>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script><script src="../inspector-graph.js"></script><script src="contributor.js"></script></body></html>
+<section id="signed-in" hidden><nav class="contribution-tabs"><button id="edit-tab" aria-pressed="true">परिष्कारं सूचयतात्</button><button id="queue-tab" aria-pressed="false">निरीक्षताम्</button></nav><p id="account-status" role="status"></p><section id="edit-view"><!--EDITOR--></section><section id="queue-view" hidden><div class="queue-heading"><h1>सूचनानि</h1><select id="status-filter" aria-label="Filter suggestions"><option value="all">सर्वाः स्थितयः</option><option value="pending">लम्बमानम्</option><option value="approved">अनुमोदितम्</option><option value="rejected">निरस्तम्</option></select><button id="refresh">पुनःप्रापय</button></div><p class="help">निरीक्षानन्तरमनुमोदितानि सूचनानि प्रकाश्यन्ते</p><p id="queue-status" role="status"></p><div id="suggestions"></div><button id="more" hidden>अग्रे दर्शय</button></section></section>
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script><script defer src="../site-auth.js"></script><script src="../inspector-graph.js"></script><script defer src="contributor.js"></script><script src="../header-nav.js"></script></body></html>

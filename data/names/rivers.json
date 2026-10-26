@@ -23356,7 +23356,7 @@
       }
     ],
     "name_native": "",
-    "description": "",
+    "description": "प्राचीनस्य महारोमकवर्षस्य सीमारूपा नदी।",
     "name_families": [
       {
         "label": "RHĒNVS",
@@ -23365,7 +23365,7 @@
         "descendants": [
           {
             "form": "RHEIN",
-            "language": "तावत्वती",
+            "language": "तावती",
             "rules": [],
             "pronunciation": "ग़ैन्"
           }
@@ -23379,7 +23379,7 @@
                 "id": "node-1",
                 "from": [],
                 "form": "*ह्रॆ॒३य्ह्-",
-                "language": "प्रा.यु.भा.",
+                "language": "प्रा॰यु॰भा॰",
                 "rules": [],
                 "parts": [
                   {
@@ -23396,7 +23396,7 @@
                   "node-1"
                 ],
                 "form": "*ह्रि॒३ह्नॊस्",
-                "language": "प्रा.यु.भा.",
+                "language": "प्रा॰यु॰भा॰",
                 "rules": [
                   "pie-rhein"
                 ]
@@ -23407,7 +23407,7 @@
                   "node-1"
                 ],
                 "form": "*ह्रि॒३न्हॆन्ति॑",
-                "language": "प्रा.यु.भा.",
+                "language": "प्रा॰यु॰भा॰",
                 "rules": [
                   "pie-rhein"
                 ]
@@ -23418,7 +23418,7 @@
                   "node-2"
                 ],
                 "form": "*रॆय्नॊस्",
-                "language": "प्रा.कै.",
+                "language": "प्रा॰कै॰",
                 "rules": [
                   "pie-celtic"
                 ],
@@ -24099,7 +24099,7 @@
                     "highlight": false
                   }
                 ],
-                "language": "प्रा.यु.भा.",
+                "language": "प्रा॰यु॰भा॰",
                 "notes": "काचन टिप्पणी",
                 "rules": [],
                 "status": "",
@@ -24119,7 +24119,7 @@
                 "rules": [
                   "pie-danowyos"
                 ],
-                "language": "प्रा.यु.भा.",
+                "language": "प्रा॰यु॰भा॰",
                 "status": "",
                 "pronunciation": "",
                 "id": "step-1",
@@ -24152,7 +24152,7 @@
                   "step-1"
                 ],
                 "form": "*दानॊव्य़ॊस्",
-                "language": "प्रा.कै.",
+                "language": "प्रा॰कै॰",
                 "rules": [
                   "pie-celtic"
                 ],
@@ -24184,7 +24184,7 @@
                 "from": [],
                 "form": "*धॆन्ह्२",
                 "pronunciation": "",
-                "language": "प्रा.यु.भा",
+                "language": "प्रा॰यु॰भा॰",
                 "rules": [],
                 "meaning": "धावने स्रवणे च"
               },
@@ -24195,7 +24195,7 @@
                 ],
                 "form": "*दानॊव्य़ॊस्",
                 "pronunciation": "",
-                "language": "प्रा.कै",
+                "language": "प्रा॰कै",
                 "rules": [],
                 "meaning": "नदीभेदे"
               },
@@ -24244,7 +24244,7 @@
             ],
             "form": "Donau",
             "pronunciation": "दोनौ",
-            "language": "तावत्वती",
+            "language": "तावती",
             "rules": []
           },
           {
@@ -24307,7 +24307,7 @@
         "name": "दानवी",
         "etymologies": [
           {
-            "notes": "दानु वर्षण इति वाचस्पत्यम् “यवं न वृष्टिर्दिव्येन दानुना” ऋ॰ १०।४३।७ “दानुना दानेन वर्षणेन वा” भा॰।\n\nप्रायेण प्रा॰यु॰भा॰ \\*दानु\\ (सरिति) शब्देन सम्बद्धमिति <a href=\"https://archive.org/details/indogermanisches01pokouoft/page/174/mode/2up?q=donau\">[भा॰व्यु॰को॰] १७५</a>\nअपि पीवराणां आक्रमणग्रन्थे वर्णितया \\*दनु\\नाम्न्या देवतया सम्बद्धं भवितुमर्हतीति [के॰ऐ॰को॰] <a href=\"https://archive.org/details/dictionaryofcelt0000mack/page/114/mode/2up?q=ana\">१४</a>, <a href=\"https://archive.org/details/dictionaryofcelt0000mack/page/114/mode/2up?q=ana\">११४</a>",
+            "notes": "दानु वर्षण इति वाचस्पत्यम् “यवं न वृष्टिर्दिव्येन दानुना” ऋ॰ १०।४३।७ “दानुना दानेन वर्षणेन वा” भा॰।\n\nप्रायेण प्रा॰यु॰भा॰ \\\\*दानु\\\\ (सरिति) शब्देन सम्बद्धमिति <a href=\"https://archive.org/details/indogermanisches01pokouoft/page/174/mode/2up?q=donau\">[भा॰व्यु॰को॰] १७५</a>",
             "citations": [],
             "descendants": [],
             "vyutpatti": "दानोर्वर्षणस्येयम्।",
@@ -24338,7 +24338,7 @@
           },
           {
             "vyutpatti": "दनुर्दक्षकन्यास्य देवता।",
-            "notes": "दनुर्दक्षकन्याभेदे सा च कश्यपर्षिपत्नी दानवमाता\n\nकैश्चित्सरितः स्वनाम दनुना सम्बद्ध्यते।",
+            "notes": "दनुर्दक्षकन्याभेदे सा च कश्यपर्षिपत्नी दानवमाता\n\nकैश्चित्सरितः स्वनाम दनुना सम्बद्ध्यते। यथा, पीवराणां आक्रमणग्रन्थे वर्णितया \\\\*दनु\\\\नाम्न्या देवतया सम्बद्धं भवितुमर्हतीति [के॰ऐ॰को॰] <a href=\"https://archive.org/details/dictionaryofcelt0000mack/page/114/mode/2up?q=ana\">१४</a>, <a href=\"https://archive.org/details/dictionaryofcelt0000mack/page/114/mode/2up?q=ana\">११४</a>।",
             "citations": [],
             "descendants": [],
             "prakriyA": {
@@ -24364,14 +24364,14 @@
         ],
         "primary": true,
         "attestations": null,
-        "attestation_status": ""
+        "attestation_status": "newly_proposed"
       },
       {
         "name": "धन्वित्री",
         "etymologies": [
           {
             "vyutpatti": "धन्वति गच्छतीति।",
-            "notes": "एवं ण्वुल्-शतृ-तः **धन्विका**, **धन्वन्ती** पदेऽपि योज्ये।\n\nसरितः स्वनाम प्रा॰यु॰भा॰ [\\*धॆन्ह्२\\](https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/d%CA%B0enh%E2%82%82-) (धावने स्रवणे च, =धविँ गतौ [भा॰व्यु॰को॰](https://archive.org/details/indogermanisches01pokouoft/page/248/mode/2up)) धातो[रेके व्युत्पादयन्ति](https://en.wiktionary.org/wiki/Danube)।",
+            "notes": "एवं ण्वुल्-शतृ-तः **धन्विका**, **धन्वन्ती** पदेऽपि योज्ये।\n\nसरितः स्वनाम प्रा॰यु॰भा॰ [\\\\*धॆन्ह्२\\\\](https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/d%CA%B0enh%E2%82%82-) (धावने स्रवणे च, =धविँ गतौ [भा॰व्यु॰को॰](https://archive.org/details/indogermanisches01pokouoft/page/248/mode/2up)) धातो[रेके व्युत्पादयन्ति](https://en.wiktionary.org/wiki/Danube)।",
             "citations": [],
             "descendants": [],
             "prakriyA": {

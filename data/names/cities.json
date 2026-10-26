@@ -28818,7 +28818,7 @@
           {
             "notes": "ऐतिह्यमेतदलॆक्सॅण्डर्कन्निङ्घामा कथ्यते — \\n\nअनङ्गपालेन तोमरराजेन ढिल्लिकाया अयस्स्तम्भो निहितः। स च राजा केनचन विदुषा ब्राह्मणेनाभिमन्त्रितो यत्स स्तम्भो भूमेरधोगत्य वासुकिशिरसि प्रतिष्ठित इति। राजा ब्राह्मणवाक्यमाशङ्क्य स्तम्भमुत्खाटयामास। उद्घाटितस्य च स्तम्भस्य पादं रक्तेन शोणितं वासुकिशिरश्छेदनात्। शङ्कायै परितप्यमानेन राज्ञा पुनः स स्तम्भः प्रत्यस्थाप्यत। तथापि तच्छङ्कितत्वात्स अयस्स्तम्भः शिथिलिमेवातिष्ठत्। अपभ्रंशे शैथिल्ये **ढीला**शब्दः प्रयुज्यते; शिथिलत्वात्तन्नगरस्य **ढिल्ली**ति नामाजायतेत्यैतिह्यम्।",
             "citations": [],
-            "vyutpatti": "\"ढिलः\" (<शिथिलः) स्तम्भो ऽस्त्यत्र",
+            "vyutpatti": "\"ढिलः\" (<शिथिलः) स्तम्भो ऽस्त्यत्र।",
             "descendants": [],
             "prakriyA": null
           }
@@ -30993,20 +30993,115 @@
     "country": "Italy",
     "names": [
       {
-        "name": "रोमका",
-        "confidence": 1.0,
+        "name": "रोमकः",
         "primary": true,
         "etymologies": [
           {
-            "notes": "प्राचीना रूढिः।\nआर्यभटीये - \"रोमकविषयेऽर्धरात्रं स्यात्\"।\nसूर्यसिद्धान्ते - \"पश्चिमे केतुमालाख्ये रोमकाख्या प्रकीर्तिता\"",
+            "notes": "[इति वाचस्पत्यम्](https://www.sanskrit-lexicon.uni-koeln.de/scans/csl-apidev/servepdf.php?dict=VCP&page=4815,a)",
             "citations": [],
-            "vyutpatti": "",
+            "vyutpatti": "रोमेव निविडं कायति।",
             "descendants": [],
-            "prakriyA": null
+            "prakriyA": {
+              "input": {
+                "type": "subanta",
+                "stem": {
+                  "type": "samasa",
+                  "samasa_type": "karmadharaya",
+                  "members": [
+                    {
+                      "stem": {
+                        "type": "basic",
+                        "text": "रोम"
+                      },
+                      "gender": "masculine",
+                      "case": "nominative",
+                      "number": "singular"
+                    },
+                    {
+                      "stem": {
+                        "type": "krdanta",
+                        "dhatu": {
+                          "aupadeshika": "कै॒",
+                          "gana": "Bhvadi"
+                        },
+                        "pratyaya": {
+                          "type": "krt",
+                          "id": "ka"
+                        }
+                      },
+                      "gender": "masculine",
+                      "case": "nominative",
+                      "number": "singular"
+                    }
+                  ]
+                },
+                "gender": "masculine",
+                "case": "nominative",
+                "number": "singular"
+              },
+              "variant": 0
+            }
           }
         ],
-        "attestations": [],
-        "attestation_status": ""
+        "attestations": [
+          {
+            "language": "संस्कृतम्",
+            "date": "४२१",
+            "quote": "उदयो यो लङ्कायां सो ऽस्तमयः सवितुरेव सिद्धपुरे।\nमध्याह्नो यवकोट्यां **रोमक**विषयेऽर्धरात्रः स्यात्॥",
+            "notes": "",
+            "citations": [
+              {
+                "title": "आर्यभटीयम्",
+                "url": "https://indike.org/pramana/in.astro.siddhanta.early.aryabhatiya.4.13",
+                "locator": "४.१३"
+              }
+            ],
+            "sort_year": "421"
+          },
+          {
+            "language": "संस्कृतम्",
+            "date": "५५०",
+            "quote": "याम्यायां भारते वर्षे लङ्का तद्वन्महापुरी।\nपश्चिमे केतुमालाख्ये **रोमका**ख्या प्रकीर्तिता॥",
+            "notes": "",
+            "citations": [
+              {
+                "title": "सूर्यसिद्धान्तम्",
+                "url": "https://indike.org/pramana/in.astro.siddhanta.early.suryasiddhanta.12.39",
+                "locator": "१२.३९"
+              }
+            ],
+            "sort_year": "550"
+          },
+          {
+            "language": "संस्कृतम्",
+            "date": "-५०० : ३००",
+            "quote": "परिगृह्य महाराज द्वारि तिष्ठन्ति वारिताः।\nशकास्तुषाराः कौरव्य **रोमकाः** शृङ्गिणोऽश्मकाः॥",
+            "notes": "",
+            "citations": [
+              {
+                "title": "महाभारतम्",
+                "url": "https://indike.org/pramana/in.lit.mahabharata.vyasa*southern.2.78.60",
+                "locator": "दाक्षिणात्यपाठः २.७८.६०"
+              }
+            ],
+            "sort_year": "-500"
+          },
+          {
+            "language": "पालिः",
+            "date": "-३०० : ०",
+            "quote": "वस्सानि पञ्ञास समाधिकानि\nवसिम्ह सेलस्स गुहाय **रोमक**।\nअसङ्कमाना अभिनिब्बुतत्ता\nहत्थत्तमायन्ति ममण्डजा पुरे॥",
+            "notes": "",
+            "citations": [
+              {
+                "title": "रोमकजातकम्",
+                "url": "https://indike.org/pramana/in.bauddha.theravada.sp.khuddaka.jataka.277.1",
+                "locator": "१"
+              }
+            ],
+            "sort_year": "-300"
+          }
+        ],
+        "attestation_status": "प्राचीना रूढिः"
       }
     ],
     "name_native": "",

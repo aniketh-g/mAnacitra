@@ -328,3 +328,9 @@
 .review-button.delete:hover {
   background: #f7dfdd;
 }
+/* The common header is fixed; editor content remains in normal document flow. */
+body.content-page #signed-in main { position:relative; inset:auto; height:calc(100dvh - 160px); }
+@media(max-width:999px){body.content-page #signed-in main{height:calc(100dvh - 220px)}}
+@media(max-width:800px){body.content-page #signed-in main{height:auto}}
+#edit-tab,#queue-tab{border-bottom:2px solid transparent!important}
+.tab-indicator{position:absolute;bottom:0;height:2px;background:var(--ui-hover,#a77a32);transition:left .2s ease,width .2s ease;pointer-events:none}
