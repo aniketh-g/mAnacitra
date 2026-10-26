@@ -221,6 +221,7 @@ function openSidebar(props, placeKey) {
 }
 
   function closeSidebar() {
+    ++selectionRequest; activePlace = null; saveRoute();
     selectedMapLabel = null;
     hoveredMapLabel = null;
     updateMapLabelColours();
@@ -285,15 +286,15 @@ function openSidebar(props, placeKey) {
   map.on('load', async () => {
     map.addSource('cities', {
       type: 'geojson',
-      data: 'data/cities.geojson'
+      data: 'data/cities.map.geojson'
     });
     
     map.addSource('rivers', {
       type: 'geojson',
-      data: 'data/rivers.geojson'
+      data: 'data/rivers.map.geojson'
     });
 
-    const response = await fetch('data/countries.geojson');
+    const response = await fetch('data/countries.map.geojson');
     if (!response.ok) {
       throw new Error(`Could not load countries: ${response.status}`);
     }
@@ -487,6 +488,7 @@ function openSidebar(props, placeKey) {
     });
 
     searchMapReady = true;
+    restoreRoute();
   });
 
   // Clicking Logic
@@ -548,10 +550,62 @@ function openSidebar(props, placeKey) {
     if (!features.length) return;
 
     const feature = features[0];
-    selectPlace(feature.properties, feature.layer.id);
+    selectPlace(feature.properties, feature.layer.id).catch(showLoadError);
   });
 
-  function selectPlace(props, layer) {
+  const datasetsByLayer = {'countries-label':'countries','capital-labels-sa':'cities','rivers-labels':'rivers'};
+  let selectionRequest=0, activePlace=null, restoring=false;
+  const detailCache=new Map();
+  function showLoadError(error) {
+    console.error(error);
+    document.getElementById('place-search-status').textContent='स्थानं न उद्घाटितम्। पुनः प्रयतस्व।';
+  }
+  function saveRoute() {
+    if (restoring) return;
+    const params=new URLSearchParams();
+    if (activePlace) {
+      params.set('place',activePlace.dataset+':'+activePlace.id);
+      params.set('inspectors',JSON.stringify(window.NameInspectors?.snapshot() || []));
+    }
+    const hash=params.toString();
+    if (location.hash.slice(1)!==hash) history.replaceState(null,'',location.pathname+location.search+(hash?'#'+hash:''));
+  }
+  window.addEventListener('inspectors-change',saveRoute);
+  async function restoreRoute() {
+    if (!searchMapReady) return;
+    const params=new URLSearchParams(location.hash.slice(1)), place=params.get('place');
+    if (!place) { closeSidebar(); return; }
+    const colon=place.indexOf(':'), dataset=place.slice(0,colon), id=place.slice(colon+1);
+    if (!['cities','countries','rivers'].includes(dataset)) return;
+    restoring=true;
+    try {
+      const response=await fetch(`data/search/${dataset}.json`);
+      if (!response.ok) throw Error('Search unavailable');
+      const entry=(await response.json()).find(e=>e.id===id);
+      if (!entry) throw Error('Place not found');
+      await choosePlace(entry,()=>true);
+      NameInspectors.closeAll();
+      let inspectors=[];
+      try { inspectors=JSON.parse(params.get('inspectors') || '[]'); } catch {}
+      if (Array.isArray(inspectors)) NameInspectors.restore(inspectors.filter(x=>x && typeof x==='object'));
+      await Promise.resolve();
+    } catch(error) { showLoadError(error); }
+    finally { restoring=false; }
+  }
+  window.addEventListener('hashchange',restoreRoute);
+  async function selectPlace(props, layer) {
+    const request=++selectionRequest, dataset=datasetsByLayer[layer];
+    if (!dataset) return;
+    const id=String(props.name_record_id || props.place_id), key=dataset+':'+id;
+    // The generated filename itself contains percent escapes; encode those for HTTP.
+    const filename = encodeURIComponent(id).replace(/[!'()*]/g, c => '%' + c.charCodeAt(0).toString(16).toUpperCase());
+    if (!detailCache.has(key)) detailCache.set(key,fetch(`data/details/${dataset}/${encodeURIComponent(filename)}.json`).then(r=>{
+      if (!r.ok) throw Error('Details unavailable'); return r.json();
+    }).catch(e=>{detailCache.delete(key);throw e;}));
+    const detail=await detailCache.get(key);
+    if (request!==selectionRequest) return;
+    props={...props,...detail};
+    activePlace={dataset,id};
     selectedMapLabel = {layer: layer, key: mapPlaceKey(props)};
     updateMapLabelColours();
 
@@ -585,11 +639,12 @@ function openSidebar(props, placeKey) {
 
     // SIDEBAR (unchanged logic)
     openSidebar(props, `${layer}:${props.name_record_id || props.place_id}`);
+    saveRoute();
   }
-  PlaceSearch.init(async (entry, isCurrent) => {
+  async function choosePlace(entry, isCurrent) {
     if (!searchMapReady) throw Error('Map is still loading');
     if (!searchDatasets.has(entry.dataset)) {
-      const request = fetch(`data/${entry.dataset}.geojson`).then(response => {
+      const request = fetch(`data/${entry.dataset}.map.geojson`).then(response => {
         if (!response.ok) throw Error('Dataset unavailable'); return response.json();
       }).catch(error => { searchDatasets.delete(entry.dataset); throw error; });
       searchDatasets.set(entry.dataset, request);
@@ -599,14 +654,16 @@ function openSidebar(props, placeKey) {
     const feature = data.features.find(feature => String(feature.properties.name_record_id || feature.properties.place_id) === entry.id);
     if (!feature) throw Error('Place missing');
     const layer = {countries:'countries-label', cities:'capital-labels-sa', rivers:'rivers-labels'}[entry.dataset];
-    selectPlace(feature.properties, layer);
+    await selectPlace(feature.properties, layer);
+    if (!isCurrent()) return;
     const mobile = matchMedia('(max-width: 999px)').matches;
     const zoom = {countries:4, cities:8, rivers:6}[entry.dataset];
     map.easeTo({center:entry.center, zoom,
       offset: mobile ? [0, -map.getContainer().clientHeight / 4] : [220, 0],
       duration: matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 700});
     document.querySelector('.sidebar-close')?.focus({preventScroll:true});
-  });
+  }
+  PlaceSearch.init(choosePlace);
 </script>
 <script src="inspector-graph.js"></script>
 <script src="inspectors.js"></script>

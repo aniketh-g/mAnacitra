@@ -394,6 +394,7 @@
     trigger.setAttribute('aria-controls', foreign ? 'mi-foreign' : 'mi-sanskrit');
   }
   function render(state) {
+    queueMicrotask(() => window.dispatchEvent(new Event("inspectors-change")));
     state.cleanups.forEach(fn => fn()); state.cleanups = [];
     state.treeView = null;
     const body = state.body; body.replaceChildren(); body.scrollTop = 0;
@@ -482,6 +483,7 @@
     }
   }
   function positioning() {
+    queueMicrotask(() => window.dispatchEvent(new Event("inspectors-change")));
     const opened = Object.values(states).filter(state => state.open);
     const modal = mobilePanels.matches && opened.length > 0;
     document.body.classList.toggle('mi-both', !mobilePanels.matches && opened.length === 2);
@@ -551,6 +553,21 @@
     return state;
   }
   window.NameInspectors = {
+    snapshot() {
+      return Object.values(states).filter(s=>s.open).sort((a,b)=>a.lastOpened-b.lastOpened).map(s=>({type:s.type, name:s.record.name || s.record.label, tab:s.tab, etymology:s.etymology}));
+    },
+    restore(items) {
+      for (const item of items) {
+        const selector = item.type === 'foreign' ? '#sb-families button' : item.type === 'sanskrit' ? '#sb-names h4 button' : null;
+        if (!selector) continue;
+        const button = [...document.querySelectorAll(selector)].find(b=>b.textContent===item.name);
+        if (!button) continue;
+        button.click(); const state=states[item.type];
+        state.tab = [0,1,2].includes(item.tab) ? item.tab : 0;
+        state.etymology = Number.isInteger(item.etymology) && item.etymology>=0 && item.etymology<(state.record.etymologies||[]).length ? item.etymology : 0;
+        render(state);
+      }
+    },
     closeAll() {
       const opened = Object.values(states).filter(state => state.open);
 

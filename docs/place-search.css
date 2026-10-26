@@ -61,3 +61,5 @@ body > header { gap: 24px; }
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2242%22%20height%3D%2242%22%20viewBox%3D%220%200%2042%2042%22%3E%3Cpath%20d%3D%22M7%2021%2021%2016%2021%2026Z%22%20fill%3D%22%23aaa394%22%2F%3E%3Cpath%20d%3D%22M35%2021%2021%2016%2021%2026Z%22%20fill%3D%22%23a47a28%22%2F%3E%3C%2Fsvg%3E");
   background-size: 42px 42px;
 }
+
+#place-search-results mark { color: inherit; background: #f2d575; border-radius: 2px; }

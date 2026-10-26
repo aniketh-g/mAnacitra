@@ -15,6 +15,31 @@
       return best ? [{...entry, ...best}] : [];
     }).sort((a, b) => a.score - b.score || a.title.localeCompare(b.title)).slice(0, 20);
   }
+  function marked(element, text, query) {
+    text = String(text);
+    // Map normalized offsets back to original graphemes (including vowel signs).
+    const chunks = Array.from(new Intl.Segmenter(undefined, {granularity:'grapheme'}).segment(text));
+    let normalized = '', offsets = [];
+    for (const chunk of chunks) {
+      const part = chunk.segment.normalize('NFC').replace(/[\u200c\u200d]/g, '').toLocaleLowerCase();
+      for (const char of part) {
+        if (/\s/.test(char) && normalized.endsWith(' ')) { offsets[offsets.length-1][1] = chunk.index + chunk.segment.length; continue; }
+        const value = /\s/.test(char) ? ' ' : char;
+        normalized += value;
+        for (let i=0;i<value.length;i++) offsets.push([chunk.index, chunk.index + chunk.segment.length]);
+      }
+    }
+    const q = normalize(query); let cursor = 0, at = q ? normalized.indexOf(q) : -1;
+    while (at >= 0) {
+      const start = offsets[at][0], end = offsets[at+q.length-1][1];
+      if (start >= cursor) {
+        element.append(document.createTextNode(text.slice(cursor,start)));
+        const mark = document.createElement('mark'); mark.textContent = text.slice(start,end); element.append(mark); cursor=end;
+      }
+      at = normalized.indexOf(q,at+q.length);
+    }
+    element.append(document.createTextNode(text.slice(cursor)));
+  }
   function init(onSelect) {
     const box = document.getElementById('place-search');
     const input = document.getElementById('place-search-input');
@@ -47,9 +72,13 @@
       results.forEach((entry, i) => {
         const item = document.createElement('li'); item.id = `place-result-${i}`;
         item.setAttribute('role','option'); item.setAttribute('aria-selected','false');
-        const title = document.createElement('span'); title.textContent = entry.title;
+        const title = document.createElement('span'); marked(title, entry.title, input.value);
         const description = document.createElement('small');
-        description.textContent = [entry.name !== entry.title ? entry.name : '', kinds[entry.dataset]].filter(Boolean).join(' · ');
+        if (entry.name !== entry.title) {
+          marked(description, entry.name, input.value);
+          description.append(document.createTextNode(' · '));
+        }
+        description.append(document.createTextNode(kinds[entry.dataset] || ''));
         item.append(title, description); item.addEventListener('pointerdown', e => e.preventDefault());
         item.addEventListener('click', () => choose(entry)); list.append(item);
       });

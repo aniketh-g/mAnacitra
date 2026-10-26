@@ -16,6 +16,7 @@ etymology: rules vidyut
 .PHONY: cities download-cities
 
 cities: docs/data/cities.geojson docs/data/search/cities.json
+	@python3 tools/split_map_data.py cities
 
 download-cities:
 	@bash tools/download_geography.sh cities
@@ -31,6 +32,7 @@ docs/data/cities.geojson: build/geography/cities.geojson data/names/cities.json 
 .PHONY: countries download-countries
 
 countries: docs/data/countries.geojson docs/data/search/countries.json
+	@python3 tools/split_map_data.py countries
 
 download-countries:
 	@bash tools/download_geography.sh countries
@@ -45,6 +47,7 @@ docs/data/countries.geojson: build/geography/countries.geojson data/names/countr
 .PHONY: rivers download-rivers
 
 rivers: docs/data/rivers.geojson docs/data/search/rivers.json
+	@python3 tools/split_map_data.py rivers
 
 download-rivers:
 	@bash tools/download_geography.sh rivers

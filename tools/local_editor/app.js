@@ -67,8 +67,8 @@ function field(parent,obj,key,kind,scope){
  if(Array.isArray(value)){const itemKind=key==='prakriyA'?'node':types[key]||'generic';value.forEach((item,index)=>{const details=el('details');details.className='array-item';const summary=el('summary',`${index+1}. ${item?.name||item?.label||item?.vyutpatti||item?.title||item?.form||labels[key]||key}`);details.append(summary);
  if(key==='names'){
  const label=el('label');label.className='preferred-toggle';
- const cb=el('input');cb.type='checkbox';cb.checked=!!item.primary;
- cb.onchange=()=>{item.primary=cb.checked;changed();};
+ const cb=el('input');cb.type='radio';cb.name='preferred-name';cb.checked=!!item.primary;
+ cb.onchange=()=>{value.forEach(name=>name.primary=name===item);changed();};
  label.append(cb,el('span','Preferred'));
  summary.append(label);
 }
