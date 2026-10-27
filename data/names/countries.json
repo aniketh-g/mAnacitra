@@ -299,17 +299,17 @@
                 "title": "ऋग्वेदः",
                 "locator": "२.७.५",
                 "url": "https://indike.org/pramana/in.veda.samhita.rg*sakala.2.7.5",
-                "note": "अग्नेर्नाम, न देशनिर्देशकम्।"
+                "note": ""
               }
             ],
-            "notes": ""
+            "notes": "अग्नेर्नाम, न देशनिर्देशकम्।"
           }
         ],
         "attestation_status": "प्राचीना रूढिः।"
       },
       {
         "name": "आर्यावर्तः",
-        "confidence": 1.0,
+        "confidence": 1,
         "primary": false,
         "attestations": [
           {

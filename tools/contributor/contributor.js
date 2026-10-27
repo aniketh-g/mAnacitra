@@ -12,7 +12,7 @@
  async function requireUser(){const data=check(await client.auth.getUser());if(!data.user)throw Error('Please sign in again.');return data.user;}
  window.Contributor={async api(path,body){
   if(!user)throw Error('Sign in to suggest changes.');const u=new URL(path,location.origin),kind=u.searchParams.get('dataset');
-  if(u.pathname==='/api/session')return {token:''};
+  if(u.pathname==='/api/session')return {token:'',userId:user.id};
   if(u.pathname==='/api/catalog'){const d=await records(kind);return Object.entries(d).map(([id,r])=>({id,label:r.names?.find(n=>n.primary)?.name||r.name_en||id,reference:r.name_en||''}));}
   if(u.pathname==='/api/record'){const id=u.searchParams.get('id'),r=(await records(kind))[id];if(!r)throw Error('Record not found');bases.set(`${kind}/${id}`,structuredClone(r));return {record:structuredClone(r),revision:canonical(r)};}
   if(u.pathname==='/api/save'){
@@ -73,6 +73,7 @@ requestAnimationFrame(()=>moveIndicator());window.addEventListener('resize',()=>
   }
 };
  async function enter(who){
+  if(loaded && user?.id!==who.id){location.reload();return;}
   user=who;$('auth').hidden=true;$('signed-in').hidden=false;window.setHeaderUser(who);
   try{reviewer=Boolean(check(await client.rpc('manacitra_is_reviewer')));$('account-status').textContent=reviewer?'निरीक्षकः · आनुमोदनात् सूचनानि न प्रकाश्यन्ते':'सम्प्रविष्टवान् · प्रकाशनात्प्राक्सर्वाणि सूचनानि निरीक्ष्यानुमोद्यानि';}
   catch(e){$('account-status').textContent='Review service unavailable: '+e.message;}

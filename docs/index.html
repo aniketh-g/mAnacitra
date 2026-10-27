@@ -31,7 +31,12 @@
 
   <div class="sidebar-content">
     <div class="place-introduction">
-      <h2 id="sb-title" lang="sa"></h2>
+      <div class="place-title-row">
+        <h2 id="sb-title" lang="sa"></h2>
+        <a id="suggest-place" class="suggest-place" aria-label="Edit place" title="परिष्कारं सूचनां वा अभिमन्त्रयताम्" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L9 17l-4 1 1-4Z"/></svg>
+        </a>
+      </div>
       <div id="sb-families" class="name-families"></div>
       <div id="sb-description" class="prose"></div>
     </div>
@@ -267,6 +272,7 @@ function openSidebar(props, placeKey) {
                   'https://b.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png?key=cb1_4lxi_1_09f8e55e794590ba1750f50f',
                   'https://c.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png?key=cb1_4lxi_1_09f8e55e794590ba1750f50f',
                 ], 
+          // tiles: ['https://tiles.stadiamaps.com/tiles/stamen_terrain_background/{z}/{x}/{y}.png'],
           tileSize: 256 
         } 
       },
@@ -283,7 +289,17 @@ function openSidebar(props, placeKey) {
 
   let searchMapReady = false;
   const searchDatasets = new Map();
+  const mapNotice=document.createElement('div');mapNotice.className='map-notice';mapNotice.setAttribute('role','status');document.body.append(mapNotice);
+  let loadFailed=false;
+  function notifyMap(text,retry){
+    mapNotice.replaceChildren(document.createTextNode(text));mapNotice.hidden=false;
+    if(retry){loadFailed=true;const b=document.createElement('button');b.textContent='पुनर्लम्भय';b.onclick=()=>{mapNotice.hidden=true;loadFailed=false;Promise.resolve().then(retry).catch(e=>{console.error(e);notifyMap(text,retry);});};mapNotice.append(b);}
+  }
+  window.retryPlaceLoad=(retry)=>notifyMap('देशादिविवरणानि न लब्धानि ',retry);
+  notifyMap('मानचित्रं लम्भ्यमानम्...');
+  map.on('error',e=>{console.error(e.error);notifyMap('केचन दत्तांशा न लब्धाः ',()=>location.reload());});
   map.on('load', async () => {
+    try {
     map.addSource('cities', {
       type: 'geojson',
       data: 'data/cities.map.geojson'
@@ -356,9 +372,9 @@ function openSidebar(props, placeKey) {
         'text-field': ['get', 'NAME_SA'],
         'text-font': ['Noto Sans Devanagari Regular v1'],
         'text-size': ['interpolate', ['linear'], ['zoom'],
-                      2, 10,
-                      5, 14,
-                      8, 18],
+                      2, 15,
+                      5, 19,
+                      8, 23],
         'symbol-sort-key': ['coalesce', ['get', 'LABELRANK'], 99],
         'text-padding': 4,
         'text-anchor': 'center',
@@ -366,9 +382,9 @@ function openSidebar(props, placeKey) {
         'symbol-placement': 'point'
       },
       paint: {
-        'text-color': '#292822',
+        'text-color': '#786038',
         'text-halo-color': '#fffefa',
-        'text-halo-width': 1
+        'text-halo-width': 1.4
       }
     });
 
@@ -386,7 +402,7 @@ function openSidebar(props, placeKey) {
                       3, 2,
                       5, 3],
         'circle-color': '#fff',
-        'circle-stroke-color': '#000',
+        'circle-stroke-color': '#786038',
         'circle-stroke-width': 2
       }
     });
@@ -399,7 +415,7 @@ function openSidebar(props, placeKey) {
         'circle-radius': ['interpolate', ['linear'], ['zoom'],
                       3, 1,
                       5, 2],
-        'circle-color': '#000'
+        'circle-color': '#615b51'
       }
     });
     map.addLayer({
@@ -409,7 +425,7 @@ function openSidebar(props, placeKey) {
       paint: {
         'circle-radius': 6,
         'circle-color': '#c9ad70',
-        'circle-stroke-color': '#000',
+        'circle-stroke-color': '#786038',
         'circle-stroke-width': 2
       },
       filter: ['==', ['get', 'ADM0_A3'], ''] // empty initially
@@ -423,9 +439,9 @@ function openSidebar(props, placeKey) {
         'text-field': ['get', 'NAME_SA'],
         'text-font': ['Noto Sans Devanagari Regular v1'],
         'text-size': ['interpolate', ['linear'], ['zoom'],
-                      3, 8,
-                      5, 12,
-                      8, 16],
+                      3, ['case', ['match', ['get', 'FEATURECLA'], ['Admin-0 capital', 'Admin-0 capital alt'], true, false], 15, 12],
+                      5, ['case', ['match', ['get', 'FEATURECLA'], ['Admin-0 capital', 'Admin-0 capital alt'], true, false], 18, 15],
+                      8, ['case', ['match', ['get', 'FEATURECLA'], ['Admin-0 capital', 'Admin-0 capital alt'], true, false], 21, 18]],
         'symbol-sort-key': ['coalesce', ['get', 'SCALERANK'], ['get', 'LABELRANK'], 99],
         'text-variable-anchor': ['bottom', 'top', 'left', 'right'],
         'text-radial-offset': 0.8,
@@ -433,7 +449,7 @@ function openSidebar(props, placeKey) {
         'text-allow-overlap': false
       },
       paint: {
-        'text-color': '#292822',
+        'text-color': ['case', ['match', ['get', 'FEATURECLA'], ['Admin-0 capital', 'Admin-0 capital alt'], true, false], '#493b27', '#615b51'],
         'text-halo-color': '#fffefa',
         'text-halo-width': 1
       }
@@ -464,18 +480,18 @@ function openSidebar(props, placeKey) {
       id: 'rivers-labels',
       type: 'symbol',
       source: 'rivers',
-      filter: ['>=', ['zoom'], ['max',
+      filter: ['>=', ['zoom'], ['max', 0, ['-', ['max',
         ['coalesce', ['get', 'min_zoom'], 4],
         ['coalesce', ['get', 'min_label'], ['get', 'min_zoom'], 4]
-      ]],
+      ], 6]]],
       layout: {
         'text-field': ['get', 'NAME_SA'], // use the river name property
         'text-font': ['Noto Sans Devanagari Regular v1'], // or Shobhika/Noto Devanagari for Sanskrit names
         'text-size': 14,
         'symbol-sort-key': ['coalesce', ['get', 'scalerank'], 99],
-        'symbol-spacing': 500,
+        'symbol-spacing': 250,
         'text-padding': 3,
-        'text-allow-overlap': false,
+        'text-allow-overlap': true,
         'symbol-placement': 'line',       // aligns text along river path
         'text-rotation-alignment': 'map',
         'text-keep-upright': true
@@ -488,7 +504,9 @@ function openSidebar(props, placeKey) {
     });
 
     searchMapReady = true;
+    if(!loadFailed)mapNotice.hidden=true;
     restoreRoute();
+    } catch(error) {console.error(error);notifyMap("Map data could not load. ",()=>location.reload());}
   });
 
   // Clicking Logic
@@ -506,7 +524,7 @@ function openSidebar(props, placeKey) {
       const hovered = hoveredMapLabel?.layer === layer ? hoveredMapLabel.key : null;
       const colours = layer === 'rivers-labels'
         ? {normal: '#38b3d0', hover: '#79d2e5', selected: '#247f98'}
-        : {normal: '#292822', hover: '#927746', selected: '#695028'};
+        : {normal: layer === 'countries-label' ? '#786038' : ['case', ['match', ['get', 'FEATURECLA'], ['Admin-0 capital', 'Admin-0 capital alt'], true, false], '#493b27', '#615b51'], hover: '#927746', selected: '#695028'};
       map.setPaintProperty(layer, 'text-color', [
         'case',
         selected === null ? false : ['==', featureKey, selected], colours.selected,
@@ -550,7 +568,8 @@ function openSidebar(props, placeKey) {
     if (!features.length) return;
 
     const feature = features[0];
-    selectPlace(feature.properties, feature.layer.id).catch(showLoadError);
+    const retry=()=>selectPlace(feature.properties, feature.layer.id);
+    retry().catch(error=>{showLoadError(error);window.retryPlaceLoad(retry);});
   });
 
   const datasetsByLayer = {'countries-label':'countries','capital-labels-sa':'cities','rivers-labels':'rivers'};
@@ -560,7 +579,14 @@ function openSidebar(props, placeKey) {
     console.error(error);
     document.getElementById('place-search-status').textContent='स्थानं न उद्घाटितम्। पुनः प्रयतस्व।';
   }
+  const suggest=document.getElementById('suggest-place');
+  function updateSuggest(){
+    suggest.hidden=!(window.headerUser && activePlace && document.getElementById('sidebar').classList.contains('open'));
+    if(activePlace)suggest.href='contribute/?'+new URLSearchParams({dataset:activePlace.dataset,id:activePlace.id});
+  }
+  window.addEventListener('site-user',updateSuggest);
   function saveRoute() {
+    updateSuggest();
     if (restoring) return;
     const params=new URLSearchParams();
     if (activePlace) {
@@ -589,7 +615,7 @@ function openSidebar(props, placeKey) {
       try { inspectors=JSON.parse(params.get('inspectors') || '[]'); } catch {}
       if (Array.isArray(inspectors)) NameInspectors.restore(inspectors.filter(x=>x && typeof x==='object'));
       await Promise.resolve();
-    } catch(error) { showLoadError(error); }
+    } catch(error) { showLoadError(error);window.retryPlaceLoad(restoreRoute); }
     finally { restoring=false; }
   }
   window.addEventListener('hashchange',restoreRoute);
@@ -605,6 +631,7 @@ function openSidebar(props, placeKey) {
     const detail=await detailCache.get(key);
     if (request!==selectionRequest) return;
     props={...props,...detail};
+    if(!loadFailed)mapNotice.hidden=true;
     activePlace={dataset,id};
     selectedMapLabel = {layer: layer, key: mapPlaceKey(props)};
     updateMapLabelColours();

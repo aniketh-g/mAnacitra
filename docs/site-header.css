@@ -16,7 +16,7 @@ body > header.site-header #place-search-input{font:16px/1.5 Shobhika,serif}
  body > header.site-header h1{font-size:18px}
  body > header.site-header nav{flex:1;gap:12px;overflow-x:auto;scrollbar-width:none}
  body > header.site-header nav a,body > header.site-header #signout{font-size:14px}
- body.content-page{padding-top:116px}
+ body.content-page{padding-top:56px}
 }
 @media(max-width:359px){body > header.site-header h1{font-size:16px}body > header.site-header nav{gap:8px}body > header.site-header nav a,body > header.site-header #signout{font-size:12px}}
 body:not(.auth-ready) .auth-dependent {

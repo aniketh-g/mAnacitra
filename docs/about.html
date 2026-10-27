@@ -5,21 +5,22 @@
   <title>अस्मद्विषये</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="theme.css" />
+  <link rel="stylesheet" href="place-search.css">
+  <link rel="stylesheet" href="site-header.css">
   <style>
     /* Ensure text inside the page is left-aligned */
-    body {
-      text-align: left; /* overrides any global centering */
-    }
-
-    /* Center the page block horizontally */
-    .page {
-      max-width: 800px;
-      margin: 0 auto;   /* centers the container */
-      padding: 24px;
-    }
+    body{background:var(--ui-bg,#fffefa);color:var(--ui-text,#292822);text-align:left}
+    .page{max-width:850px;margin:36px auto 80px;padding:0 32px;font:18px/1.9 Shobhika,serif}
+    .page h1{font-size:32px;font-weight:700;margin:0 0 28px;padding-bottom:16px;border-bottom:1px solid var(--ui-border,#ddd5c8)}
+    .page h2{font-size:24px;color:#786038;margin:40px 0 16px;font-weight:700}
+    .page h4{font-size:19px;color:var(--ui-text,#292822);margin:28px 0 12px;font-weight:700}
+    .page p{margin:0 0 20px}
+    .page a{color:#786038;text-decoration:none;border-bottom:1px solid #c9ad70}
+    .page a:hover{color:#a1834d;border-color:currentColor}
+    .page b{font-weight:700}
+    @media(max-width:999px){.page{margin:24px auto 60px;padding:0 20px;font-size:16px}.page h1{font-size:27px}.page h2{font-size:22px}.page h4{font-size:18px}}
   </style>
-  <link rel="stylesheet" href="theme.css" />
-<link rel="stylesheet" href="place-search.css"><link rel="stylesheet" href="site-header.css">
 </head>
 <body>
 <header data-page="about"></header>
@@ -27,9 +28,7 @@
 
 <div class="page">
   <h1>अस्मद्विषये</h1>
-  
-  <p>
-    <h2>प्रयोजनम्</h2>
+  <h2>प्रयोजनम्</h2>
 	एष प्रयासो वैदेशिकनगनगरजनपदसरित्तडागादीनां संस्कृतनामकरणायारब्धः। अत्र लोके द्विधा शङ्का जायेत — <br>
 	<h4>१) लौकिकाः पृच्छेयुः – को लाभो गीर्वाणीशब्दैः? नेयं वाणी व्यवह्रियते लोके। </h4>
 	भारतेषु सर्वासामपि वाणीनां तत्सम-तद्भवसञ्ज्ञितानि पदानि विद्यन्ते। तानि च संस्कृतादेव शब्दविकारैर्जायन्ते। अतो गीर्वाणीनामानि भाषासाधारणानि भारतीयानि वै। <br>
@@ -41,18 +40,17 @@
 	<br>
 	एवं स्थितावर्वाचीनेषु भारतेषु चित्रं व्यवहारं पश्यामः — यद्भारता विदेशेभ्यः (कदाचित्स्वदेशेभ्योऽपि!) साधुशब्दांस्त्यक्त्वा ऽऽङ्ग्लपदैर्व्यवहरामहे। <br>
 
-    <h2>पद्धतिः</h2>
+  <h2>पद्धतिः</h2>
 	विदेशस्त्रेधः — <br>
 	१) <b>यः प्राचीनकालेष्वेव भारतैः सम्पृक्तः।</b><br>एवं चेत्कस्मिंश्चित्प्राचीने ग्रन्थेऽस्य नाम लभ्येत। यथा यवनबर्बरपारसीकादयः। अत्र केवलं देशपरिमितिर्विवेचनीया भवति। <br>
 	२) <b>यत्रार्यसम्बद्धा जना ऊषुः।</b><br>अस्मात्तद्देशस्य नामार्यासम्बद्धवाण्यां लभ्येत। तत्सम्बन्धं सम्परीक्ष्य नाम्नः संस्करणं बहुत्र शक्यम्। <br>
 	३) <b>इतरम्</b><br>यत्रोपर्युक्तवदशक्यमुत नामार्यासम्बद्धवाण्याल्प्स्यत, तत्र नाम्नोऽर्थमधिकृत्याभिधानं शक्यम्। यत्र तदपि दुर्लभं, तत्र रूपसादृश्याद्या भिन्ना उपाया विवेचनीयाः।<br>
-    <!-- <h2>नामैतिह्यस्त्रोतानि</h2>
-    [भा॰व्यु॰को॰] <a href="https://archive.org/details/indogermanisches03pokouoft">भारततावतीयव्युत्पत्तिकोशः (जुलियुः पोकोर्नी, १८८१)</a><br>
-    [के॰ऐ॰को॰] <a href="https://archive.org/details/dictionaryofcelt0000mack">केल्टैतिह्यकोशः (जेमः मक्किलोपः, १९२०)</a>  -->
-    <h2>मानचित्रस्त्रोतानि</h2>
-    - <a href="https://www.naturalearthdata.com/">Natural Earth</a><br>
-    - <a href="https://gadm.org/">GADM</a>
-  </p>
+  <!-- <h2>नामैतिह्यस्त्रोतानि</h2>
+  [भा॰व्यु॰को॰] <a href="https://archive.org/details/indogermanisches03pokouoft">भारततावतीयव्युत्पत्तिकोशः (जुलियुः पोकोर्नी, १८८१)</a><br>
+  [के॰ऐ॰को॰] <a href="https://archive.org/details/dictionaryofcelt0000mack">केल्टैतिह्यकोशः (जेमः मक्किलोपः, १९२०)</a>  -->
+  <h2>मानचित्रस्त्रोतानि</h2>
+  - <a href="https://www.naturalearthdata.com/">Natural Earth</a><br>
+  - <a href="https://gadm.org/">GADM</a>
 </div>
 <script src="header-nav.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script><script defer src="site-auth.js"></script>

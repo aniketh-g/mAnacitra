@@ -61,7 +61,7 @@
       const token = ++generation;
       close(); input.value = entry.name; clear.hidden = !input.value; status.textContent = 'स्थानं उद्घाट्यते…';
       try { await onSelect(entry, () => token === generation); if (token === generation) status.textContent = ''; }
-      catch { if (token === generation) status.textContent = 'स्थानं न उद्घाटितम्। पुनः प्रयतस्व।'; }
+      catch { if (token === generation) {status.textContent = 'स्थानं न उद्घाटितम्। पुनः प्रयतस्व।';window.retryPlaceLoad?.(()=>choose(entry));} }
     }
     function render() {
       clear.hidden = !input.value;
