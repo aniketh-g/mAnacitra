@@ -14,7 +14,7 @@
       (n.branch && !['common', 'foreign', 'sanskrit'].includes(n.branch)));
     function connect(from, to) {
       edges.push({from, to: to.id, kind: to.kind || 'morphology',
-        rules: to.rules || [], rule: to.rule || '', sutra: to.sutra,
+        rules: to.rules || [], rule: to.rule || '', rule_url: to.rule_url || '', sutra: to.sutra,
         // All inputs to this step share one operation and one displayed rule.
         join: to.id});
     }
@@ -141,6 +141,39 @@
       if (!edge.kind) throw Error('Every edge needs an operation kind.');
       incoming.set(edge.to, incoming.get(edge.to) + 1);
       outgoing.get(edge.from).push(edge);
+    }
+    // Lay out disconnected components independently, then place their complete
+    // column ranges side by side. Branches and long-edge routes stay in that range.
+    const neighbours = new Map(nodes.map(n => [n.id, []]));
+    for (const edge of edges) {
+      neighbours.get(edge.from).push(edge.to);
+      neighbours.get(edge.to).push(edge.from);
+    }
+    const seen = new Set(), components = [];
+    for (const node of nodes) {
+      if (seen.has(node.id)) continue;
+      const ids = new Set([node.id]), pending = [node.id]; seen.add(node.id);
+      for (let i = 0; i < pending.length; i++) {
+        for (const id of neighbours.get(pending[i])) {
+          if (seen.has(id)) continue;
+          seen.add(id); ids.add(id); pending.push(id);
+        }
+      }
+      components.push(ids);
+    }
+    if (components.length > 1) {
+      const rows = [], bands = []; let offset = 0;
+      for (const ids of components) {
+        const part = layout({nodes: nodes.filter(n => ids.has(n.id)), edges: edges.filter(e => ids.has(e.from))});
+        part.rows.forEach((row, i) => {
+          (rows[i] ||= []).push(...row.map(item => ({...item, column: item.column + offset})));
+        });
+        part.bands.forEach((band, i) => {
+          (bands[i] ||= []).push(...band.map(segment => ({...segment, column: segment.column + offset})));
+        });
+        offset += part.columns + 1; // Empty gutter between unrelated trees.
+      }
+      return {rows, bands, columns: offset - 1};
     }
     const queue = nodes.filter(n => !incoming.get(n.id)).map(n => n.id);
     const rank = new Map(nodes.map(n => [n.id, 0]));

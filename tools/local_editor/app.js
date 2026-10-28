@@ -4,7 +4,43 @@ let options,token,catalog=[],record=null,identifier='',dataset='countries',revis
 const el=(tag,text)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;return n;};
 const button=(text,fn,cls='')=>{const b=el('button',text);b.type='button';b.className=cls;b.onclick=fn;return b;};
 function status(text,error=false){$('status').textContent=text;$('status').classList.toggle('error',error);}
-function changed(){dirty=true;storeDraft();$('save').disabled=conflict||saving;status(conflict?'File changed on disk. Download draft and reload before saving.':'Unsaved changes · Public website is unchanged.',conflict);}
+// Record-wide history; typing is grouped, structural edits stay separate.
+let undoStack=[],redoStack=[],historyCurrent=null,lastTyping=null,lastEdit=0;
+const historySnapshot=()=>JSON.stringify({record,reason:$('suggestion-reason')?.value||''});
+function resetHistory(){undoStack=[];redoStack=[];historyCurrent=record?historySnapshot():null;lastTyping=null;}
+function rememberEdit(){
+ if(!record)return;
+ const next=historySnapshot();if(next===historyCurrent)return;
+ const active=document.activeElement;
+ const typing=active?.matches('textarea,input:not([type=radio]):not([type=checkbox])')?active:null;
+ const now=Date.now();
+ if(historyCurrent!==null && !(typing && typing===lastTyping && now-lastEdit<650)){
+  undoStack.push(historyCurrent);if(undoStack.length>100)undoStack.shift();
+ }
+ historyCurrent=next;redoStack=[];lastTyping=typing;lastEdit=now;
+}
+function travelHistory(redo){
+ if(saving||!record)return;
+ const from=redo?redoStack:undoStack,to=redo?undoStack:redoStack;
+ if(!from.length)return;
+ const controls=[...$('form').querySelectorAll('input,textarea,select')],active=document.activeElement;
+ const index=controls.indexOf(active),reasonFocused=active===$('suggestion-reason');
+ to.push(historySnapshot());const restored=JSON.parse(from.pop());record=restored.record;
+ if($('suggestion-reason'))$('suggestion-reason').value=restored.reason;
+ historyCurrent=historySnapshot();lastTyping=null;dirty=true;storeDraft();redraw();
+ $('save').disabled=conflict||saving;status(conflict?'Source changed. Reconcile before saving.':redo?'Redone · Unsaved changes.':'Undone · Unsaved changes.',conflict);
+ if(reasonFocused)$('suggestion-reason').focus();
+ else if(index>=0)$('form').querySelectorAll('input,textarea,select')[index]?.focus({preventScroll:true});
+}
+document.addEventListener('keydown',event=>{
+ if(!(event.ctrlKey||event.metaKey)||event.altKey||event.isComposing)return;
+ const key=event.key.toLowerCase();if(key!=='z'&&key!=='y')return;
+ const active=document.activeElement;
+ // Search, login and other unrelated inputs keep their normal undo behaviour.
+ if(!record || !(active?.closest('#form') || active?.closest('.toolbar') || active===$('suggestion-reason') || active===document.body))return;
+ event.preventDefault();travelHistory(key==='y'||event.shiftKey);
+});
+function changed(){rememberEdit();dirty=true;storeDraft();$('save').disabled=conflict||saving;status(conflict?'File changed on disk. Download draft and reload before saving.':'Unsaved changes · Public website is unchanged.',conflict);}
 // Browser-only recovery, isolated by account, editor path, dataset and record.
 let draftOwner='local';
 const draftPrefix=()=>`manacitra:draft:${location.pathname}:${draftOwner}:`;
@@ -24,7 +60,7 @@ function offerDraft(){
   record=copy(draft.record);conflict=draft.revision!==revision;
   if($('suggestion-reason'))$('suggestion-reason').value=draft.reason||'';
   // Preserve the old baseline: changed published data must never be overwritten.
-  revision=draft.revision;dirty=true;$('save').disabled=conflict;redraw();box.remove();
+  revision=draft.revision;rememberEdit();dirty=true;$('save').disabled=conflict;redraw();box.remove();
   status(conflict?'Source changed since this draft. Download it, then reset and reconcile before saving.':'Draft restored; not submitted.',conflict);
  }),button('Discard draft',()=>{if(confirm('Delete this saved draft?'))clearDraft();}));
  $('status').after(box);
@@ -54,9 +90,95 @@ function renderObject(parent,obj,kind,scope){
   r.append(s,button('Add field',()=>{obj[s.value]=defaultValue(s.value);changed();redraw();}));parent.append(r);
  }
 }
+function quotationEntry(parent,entry){
+ if(!entry.source)entry.source=initial('citation');
+ renderObject(parent,entry.source,'citation','');
+ inputField(parent,'Quotation · Markdown',entry.quote||'',v=>entry.quote=v,'textarea');
+ optional(parent,entry,'notes','Explanation · Markdown',null,'textarea');
+}
+function citationEditor(parent,items){
+ items.forEach((citation,index)=>{
+  const box=el('details');box.className='array-item';
+  box.append(el('summary',citation.type==='passage'?'Passage with commentary':citation.title||'Simple source'));
+  box.append(button('Remove source',()=>{if(confirm('Remove this source?')){items.splice(index,1);changed();redraw();}},'danger'));
+  if(citation.type==='passage'){
+   const passage=el('div');passage.append(el('strong','Original passage'));box.append(passage);
+   quotationEntry(passage,citation.passage);
+   (citation.commentaries||[]).forEach((entry,i)=>{
+    const commentary=el('details');commentary.open=true;commentary.append(el('summary',entry.source?.title||'Commentary '+(i+1)));
+    quotationEntry(commentary,entry);
+    commentary.append(button('Remove commentary',()=>{if(confirm('Remove this commentary?')){citation.commentaries.splice(i,1);changed();redraw();}},'danger'));
+    box.append(commentary);
+   });
+   box.append(button('Add commentary',()=>{(citation.commentaries??=[]).push({quote:'',source:initial('citation')});changed();redraw();}));
+   optional(box,citation,'note','Note · Markdown',null,'textarea');
+  }else renderObject(box,citation,'citation','');
+  parent.append(box);
+ });
+ const row=el('div');row.className='add-row';const type=el('select');type.setAttribute('aria-label','Source format');
+ for(const [value,label] of [['simple','Simple source'],['passage','Passage with commentary']]){const option=el('option',label);option.value=value;type.append(option);}
+ row.append(type,button('Add source',()=>{
+  items.push(type.value==='simple'?initial('citation'):{type:'passage',passage:{quote:'',source:initial('citation')},commentaries:[]});changed();redraw();
+ }));parent.append(row);
+}
+const languageChoices=()=>[{value:'',label:'— Language —'},...(options.languages||[])];
+
+function languageField(parent, label, value, onChange) {
+  const choices = languageChoices();
+  const current = String(value ?? '');
+  const known = choices.some(c => c.value === current);
+  if (!known && current) {
+    choices.push({value: current, label: current + ' (existing value)'});
+  }
+  const customValue = '__new_language__';
+
+  const select = inputField(
+    parent,
+    label,
+    current,
+    selected => {
+      if (selected === customValue) {
+        customWrap.style.setProperty('display', 'block', 'important');
+        customInput.value = '';
+        onChange('');
+        customInput.focus();
+      } else {
+        customWrap.style.setProperty('display', 'none', 'important');
+        customInput.value = '';
+        onChange(selected);
+      }
+    },
+    'text',
+    [...choices, {value: customValue, label: '+ New language…'}]
+  );
+
+  const customWrap = el('label');
+  const customInput = el('input');
+  customInput.type = 'text';
+  customInput.placeholder = 'Enter new language';
+  customInput.value = known ? '' : current;
+  customWrap.style.setProperty('display', 'none', 'important');
+
+  customInput.addEventListener('input', () => {
+    onChange(customInput.value.trim());
+    changed();
+  });
+
+  customWrap.append(customInput);
+  parent.append(customWrap);
+
+  return select;
+}
+
 function field(parent,obj,key,kind,scope){
  const value=obj[key],wrap=el('div');wrap.className='field';parent.append(wrap);
  const remove=button('Remove',()=>{if(confirm('Remove this field?')){delete obj[key];changed();redraw();}},'danger');
+ if(key==='language'){
+  wrap.classList.add('one-line');
+  languageField(wrap,'Language',value,v=>obj[key]=v);
+  wrap.append(remove);
+  return;
+}
  const multiline=['notes','note','description','quote'].includes(key);
 
  if(value!==null&&!Array.isArray(value)&&typeof value!=='object'&&!multiline){
@@ -64,6 +186,7 @@ function field(parent,obj,key,kind,scope){
   const i=inputField(wrap,labels[key]||key,value,v=>obj[key]=v,typeof value==='boolean'?'checkbox':typeof value==='number'?'number':'text');
   i.setAttribute('aria-label',labels[key]||key);wrap.append(remove);return;
  }
+ if(key==='citations' && Array.isArray(value)){wrap.append(el('strong','Source references'));citationEditor(wrap,value);return;}
  const heading=el('div');heading.className='field-head';
  heading.append(el('strong',labels[key]||key),remove);wrap.append(heading);
  if (key === 'descendants') {
@@ -110,33 +233,34 @@ function foreignTree(parent, value, { descendants = false } = {}) {
  const diagram=el('div');diagram.className='fe-diagram';shell.append(diagram);
  const ns='http://www.w3.org/2000/svg',svg=document.createElementNS(ns,'svg');diagram.append(svg);
  const slots=new Map(),links=[];
- const incoming = new Map(graph.nodes.map(n => [n.id, []]));
- const outgoing = new Map(graph.nodes.map(n => [n.id, []]));
- 
- for (const edge of graph.edges || []) {
-    incoming.get(edge.to)?.push(edge.from);
-    outgoing.get(edge.from)?.push(edge.to);
+ // Independent roots stay in their assigned lanes, including compound trees.
+ diagram.style.minWidth=`${model.columns * 250 + (model.columns - 1) * 24}px`;
+ const control=(host,label,value,set,cls='')=>{
+  const multiline=['Form','Meaning','Rule','Rule IDs · comma separated'].includes(label);
+  const i=label==='Language'
+  ? languageField(host,label,value,set)
+  : inputField(host,label,value,set,multiline?'textarea':'text');
+  i.placeholder=label;i.setAttribute('aria-label',label);i.className=cls;
+  if(multiline){
+   i.rows=1;
+   const fit=()=>{i.style.height='auto';i.style.height=`${Math.max(36,i.scrollHeight)}px`;};
+   i.addEventListener('input',fit);requestAnimationFrame(fit);
+   const resize=new ResizeObserver(()=>{if(i.clientWidth)fit();});
+   resize.observe(i.parentElement);treeObservers.push(resize);
+  }
+  return i;
+ };
+ function removeNode(id){
+  if(!confirm('Remove this node and its connecting arrows? Other nodes are kept; disconnected children become roots.'))return;
+  if(Array.isArray(value)){
+   graph.nodes.forEach(n=>{const original=source(n.id);original.id=n.id;original.from=graph.edges.filter(e=>e.to===n.id && e.from!==id).map(e=>e.from);});
+   value.splice(value.indexOf(source(id)),1);
+  }else{
+   value.nodes=value.nodes.filter(n=>n.id!==id);
+   value.edges=(value.edges||[]).filter(e=>e.from!==id && e.to!==id);
+  }
+  changed();redraw();
  }
- 
- const commonNodes = new Set();
- 
- let current = graph.nodes.find(n =>
-    !incoming.get(n.id)?.length &&
-    (!n.branch || n.branch === 'common')
- );
- 
- while (current) {
-    commonNodes.add(current.id);
-    
-    const children = outgoing.get(current.id) || [];
-    if (children.length !== 1) break;
-    
-    const next = graph.nodes.find(n => n.id === children[0]);
-    if (!next || (next.branch && next.branch !== 'common')) break;
-    
-    current = next;
- }
- const control=(host,label,value,set,cls='')=>{const i=inputField(host,label,value,set);i.placeholder=label;i.setAttribute('aria-label',label);i.className=cls;return i;};
  function add(after) {
   if (!Array.isArray(value)) return;
 
@@ -167,14 +291,9 @@ function foreignTree(parent, value, { descendants = false } = {}) {
   redraw();
 }
  model.rows.forEach((row,r)=>{
-  const line=el('div');line.className='fe-row';line.style.gridTemplateColumns=`repeat(${model.columns},minmax(180px,1fr))`;diagram.append(line);
+  const line=el('div');line.className='fe-row';line.style.gridTemplateColumns=`repeat(${model.columns},minmax(250px,1fr))`;diagram.append(line);
   row.forEach(item=>{
    const node=el('div');node.className='fe-node';node.style.gridRow=1;node.style.gridColumn=String(item.column+1);
-   if (item.node && commonNodes.has(item.node.id) && model.columns > 1) {
-    node.style.gridColumn = `1 / ${model.columns + 1}`;
-    node.style.justifySelf = 'center';
-    node.style.width = `${100 / model.columns}%`;
-    }
    line.append(node);slots.set(item.key,node);if(!item.node)return;
    const data=source(item.node.id),form=el('div');form.className='fe-form';node.append(form);
    if(data.parts?.length)data.parts.forEach((part,i)=>{if(i)form.append(el('span','+'));const component=el('div');component.className='fe-component';form.append(component);control(component,'Form',part.text,v=>part.text=v,part.highlight?'fe-highlight':'');control(component,'Meaning',part.meaning??(data.parts.length===1?data.meaning:'')??'',v=>{part.meaning=v;},'fe-muted');});
@@ -198,6 +317,7 @@ function foreignTree(parent, value, { descendants = false } = {}) {
    
    control(meta,'Language',data.language||'',v=>data.language=v,'fe-muted');
    if(Array.isArray(value))node.append(button('+ Next / branch',()=>add(item.node.id)));
+   node.append(button('Remove node',()=>removeNode(item.node.id),'danger'));
     if (Array.isArray(value) && descendants) {
         const tools = el('div');
         tools.className = 'fe-node-tools';
@@ -239,33 +359,19 @@ function foreignTree(parent, value, { descendants = false } = {}) {
             choices
         );
 
-        tools.append(button('Delete node', () => {
-            if (!confirm('Delete this node? Its children will become roots.')) return;
 
-            graph.nodes.forEach(n => {
-            const original = source(n.id);
-            original.id = n.id;
-            original.from = graph.edges
-                .filter(e => e.to === n.id)
-                .map(e => e.from)
-                .filter(id => id !== item.node.id);
-            });
-
-            value.splice(value.indexOf(data), 1);
-            changed();
-            redraw();
-        }, 'danger'));
     }
   });
   const band=model.bands[r];if(!band?.length)return;
   const line2=el('div');line2.className='fe-band';diagram.append(line2);
   const groups=[];for(const segment of band){let group=segment.join&&groups.find(g=>g[0].join===segment.join);if(!group){group=[];groups.push(group);}group.push(segment);}
-  line2.style.gridTemplateColumns=`repeat(${model.columns},minmax(180px,1fr))`;
+  line2.style.gridTemplateColumns=`repeat(${model.columns},minmax(250px,1fr))`;
   groups.forEach(segments=>{
    const segment=segments[0],pill=el('div');pill.className='fe-rule';pill.style.gridColumn=String(segment.column+1);line2.append(pill);
    if(segment.label){const target=Array.isArray(value)?source(segment.edge.to):segment.edge;
     control(pill,'Rule IDs · comma separated',Array.isArray(target.rules)?target.rules.join(', '):target.rules||'',v=>target.rules=v.split(',').map(s=>s.trim()).filter(Boolean));
-    if(target.rule||target.sutra)control(pill,'Rule',target.rule||target.sutra,v=>{if(target.sutra&&!target.rule)target.sutra=v;else target.rule=v;});
+    control(pill,'Rule',target.rule||target.sutra||'',v=>{if(target.sutra&&!target.rule)target.sutra=v;else target.rule=v;});
+    control(pill,'Source link',target.rule_url||'',v=>target.rule_url=v);
    }else pill.className='fe-route';
    links.push({segments,pill,label:segment.label,to:segment.to});
   });
@@ -289,12 +395,33 @@ const numbers=choice(['singular','dual','plural'],['एक','द्वि','ब�
 const operations=choice(['basic','krdanta','taddhitanta','samasa','subanta'],['प्रातिपदिकम्','कृदन्तम्','तद्धितान्तम्','समासः','सुबन्तम्']);
 function newInput(type){return type==='basic'?{type,text:''}:type==='krdanta'?{type,dhatu:{aupadeshika:'',gana:'Bhvadi'},pratyaya:{type:'krt',id:''}}:type==='samasa'?{type,samasa_type:'tatpurusha',members:[newMember(),newMember()]}:type==='subanta'?{type,stem:newInput('basic'),gender:'neuter',case:'nominative',number:'singular'}:{type,stem:newInput('basic'),pratyaya:''};}
 function newMember(){return {stem:newInput('basic'),gender:'masculine',case:'nominative',number:'singular'};}
+function wrapInput(input,type){
+ const wrapped=newInput(type);
+ if(type==='samasa'){
+  const member=newMember();
+  if(input.type==='subanta'){
+   member.stem=input.stem;
+   for(const key of ['gender','case','number'])member[key]=input[key];
+  }else member.stem=input;
+  wrapped.members[0]=member;
+ }else{
+  if(input.type==='subanta')throw Error('An inflected form can be wrapped as a compound member only.');
+  wrapped.stem=input;
+ }
+ return wrapped;
+}
 function enums(name){return [{value:'',label:'— Select —'},...options[name]];}
 function optional(parent,obj,key,label,values=null,type='text'){if(!Object.hasOwn(obj,key)){parent.append(button('+ '+label,()=>{obj[key]=type==='checkbox'?false:type==='array'?[]:'';changed();redraw();}));return;}
  const row=el('div');row.className='field';inputField(row,label,obj[key],v=>obj[key]=type==='array'?v.split(',').map(s=>s.trim()).filter(Boolean):v,type==='array'?'text':type,values);row.append(button('Omit '+label,()=>{delete obj[key];changed();redraw();}));parent.append(row);}
 function grammar(parent,input,replace,stemOnly=false,depth=0,owner=null){
  if(depth>24){parent.append(el('p','Nesting exceeds supported depth.'));return;}
  const box=el('div');box.className='grammar';parent.append(box);const h=line(box);
+ const wrapping=el('div');wrapping.className='add-row';box.append(wrapping);
+ const wrapper=el('select');wrapper.setAttribute('aria-label','Wrap existing input');
+ const choices=input.type==='subanta'?['samasa']:stemOnly?['taddhitanta','samasa']:['taddhitanta','samasa','subanta'];
+ for(const type of choices){const opt=el('option',operations.find(o=>o.value===type).label);opt.value=type;wrapper.append(opt);}
+ wrapping.append(wrapper,button('Wrap existing',()=>{replace(wrapInput(input,wrapper.value));changed();redraw();}));
+
  small(h,input.type,t=>{if(confirm('Change operation? This replaces the fields for this component.')){replace(newInput(t));changed();redraw();}else redraw();},operations.filter(o=>!stemOnly||o.value!=='subanta'),'Operation');
  if(input.type==='basic')small(h,input.text,v=>input.text=v,null,'प्रातिपदिकम्');
  if(input.type==='samasa')small(h,input.samasa_type,v=>input.samasa_type=v,choice(['avyayibhava','tatpurusha','karmadharaya','dvigu','ekadeshin','bahuvrihi','dvandva','samahara_dvandva'],['अव्ययीभावः','तत्पुरुषः','कर्मधारयः','द्विगुः','एकदेशी','बहुव्रीहिः','द्वन्द्वः','समाहारद्वन्द्वः']),'समासभेदः');
@@ -336,13 +463,13 @@ function requestForm(parent,obj,key){if(!obj[key]){parent.append(button('Add प
  const preview=el('div');preview.className='preview';details.append(button('Preview with Vidyut',async()=>{const snapshot=JSON.stringify(request);preview.replaceChildren(el('p','Deriving…'));try{const result=await api('/api/preview',{request});if(JSON.stringify(request)!==snapshot){preview.replaceChildren(el('p','Input changed. Preview again.'));return;}preview.replaceChildren();for(const variant of result.variants){const row=el('details');row.append(el('summary',`${variant.form} · Variant ${variant.variant}`));row.append(button('Use this result',()=>{if(JSON.stringify(request)!==snapshot){preview.replaceChildren(el('p','Input changed. Preview again.'));return;}request.variant=variant.variant;changed();redraw();}));const steps=el('ol');for(const step of variant.history){steps.append(el('li',`${step.parts.join(' + ')} · ${step.source} ${step.rule}`));}row.append(steps);preview.append(row);}}catch(error){preview.replaceChildren(el('p',error.message));}}),preview);}
 function redraw(){treeObservers.splice(0).forEach(o=>o.disconnect());const open=[...$('form').querySelectorAll('details')].map(d=>d.open);$('form').replaceChildren();if(record)renderObject($('form'),record,'place','');[...$('form').querySelectorAll('details')].forEach((d,i)=>{if(open[i]!==undefined)d.open=open[i];});}
 function drawCatalog(){const q=$('filter').value.toLocaleLowerCase();$('records').replaceChildren();for(const row of catalog.filter(r=>`${r.label} ${r.reference} ${r.id}`.toLocaleLowerCase().includes(q)).slice(0,100)){const b=button(row.label,()=>load(row.id));b.classList.toggle('selected',row.id===identifier);b.append(el('small',`${row.reference} · ${row.id}`));$('records').append(b);}}
-async function load(id,force=false){if(saving)return;if(dirty&&!force&&!confirm('Leave this entry? Your unsent draft is saved in this browser.'))return;$('draft-recovery')?.remove();const ticket=++serial;try{const data=await api(`/api/record?dataset=${dataset}&id=${encodeURIComponent(id)}`);if(ticket!==serial)return;identifier=id;if($('suggestion-reason'))$('suggestion-reason').value='';record=data.record||{name_en:'',name_native:'',description:'',names:[],name_families:[]};revision=data.revision;dirty=false;conflict=false;$('title').textContent=record.name_en||id;$('save').disabled=true;$('reload').disabled=false;$('download').disabled=false;redraw();drawCatalog();status('Loaded from disk. Save updates the source JSON; rebuild the website separately.');if(!force)offerDraft();}catch(e){status(e.message,true);}}
+async function load(id,force=false){if(saving)return;if(dirty&&!force&&!confirm('Leave this entry? Your unsent draft is saved in this browser.'))return;$('draft-recovery')?.remove();const ticket=++serial;try{const data=await api(`/api/record?dataset=${dataset}&id=${encodeURIComponent(id)}`);if(ticket!==serial)return;identifier=id;if($('suggestion-reason'))$('suggestion-reason').value='';record=data.record||{name_en:'',name_native:'',description:'',names:[],name_families:[]};revision=data.revision;resetHistory();dirty=false;conflict=false;$('title').textContent=record.name_en||id;$('save').disabled=true;$('reload').disabled=false;$('download').disabled=false;redraw();drawCatalog();status('Loaded from disk. Save updates the source JSON; rebuild the website separately.');if(!force)offerDraft();}catch(e){status(e.message,true);}}
 $('filter').oninput=drawCatalog;
-$('dataset').onchange=async()=>{if(saving){$('dataset').value=dataset;return;}if(dirty&&!confirm('Leave this dataset? Your unsent draft is saved in this browser.')){$('dataset').value=dataset;return;}$('draft-recovery')?.remove();++serial;dataset=$('dataset').value;identifier='';record=null;dirty=false;conflict=false;$('form').replaceChildren();$('title').textContent='Choose a place';$('save').disabled=true;try{catalog=await api('/api/catalog?dataset='+dataset);drawCatalog();}catch(e){status(e.message,true);}};
+$('dataset').onchange=async()=>{if(saving){$('dataset').value=dataset;return;}if(dirty&&!confirm('Leave this dataset? Your unsent draft is saved in this browser.')){$('dataset').value=dataset;return;}$('draft-recovery')?.remove();++serial;dataset=$('dataset').value;identifier='';record=null;resetHistory();dirty=false;conflict=false;$('form').replaceChildren();$('title').textContent='Choose a place';$('save').disabled=true;try{catalog=await api('/api/catalog?dataset='+dataset);drawCatalog();}catch(e){status(e.message,true);}};
 $('reload').onclick=()=>{if(confirm('Discard this draft and reload the source?')){clearDraft();dirty=false;load(identifier,true);}};
 $('new-record').onclick=()=>{const id=prompt('Existing geographic place ID, or mapped record ID. New places also need geography/mappings.');if(id)load(id.trim());};
 $('download').onclick=()=>{const a=el('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(record,null,2)],{type:'application/json'}));a.download='manacitra-draft.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);};
-$('save').onclick=async()=>{if(saving)return;saving=true;const text=JSON.stringify(record),id=identifier,kind=dataset;$('save').disabled=true;try{const result=await api('/api/save',{dataset:kind,id,record:JSON.parse(text),revision});if(id!==identifier||kind!==dataset)return;revision=result.revision;conflict=false;dirty=JSON.stringify(record)!==text;if(dirty)storeDraft();else clearDraft();status(`Saved. Backup: ${result.backup}. Run make ${kind} to update the website.`);catalog=await api('/api/catalog?dataset='+dataset);drawCatalog();}catch(e){status(e.message,true);}finally{saving=false;$('save').disabled=!dirty||conflict;}};
+$('save').onclick=async()=>{if(saving)return;saving=true;const text=JSON.stringify(record),id=identifier,kind=dataset;$('save').disabled=true;try{const result=await api('/api/save',{dataset:kind,id,record:JSON.parse(text),revision});if(id!==identifier||kind!==dataset)return;revision=result.revision;conflict=false;dirty=JSON.stringify(record)!==text;if(dirty)storeDraft();else {clearDraft();resetHistory();}status(`Saved. Backup: ${result.backup}. Run make ${kind} to update the website.`);catalog=await api('/api/catalog?dataset='+dataset);drawCatalog();}catch(e){status(e.message,true);}finally{saving=false;$('save').disabled=!dirty||conflict;}};
 window.addEventListener('beforeunload',e=>{if(dirty){e.preventDefault();e.returnValue='';}});
 setInterval(async()=>{if(!identifier||!record||document.hidden||saving)return;const id=identifier,kind=dataset,ticket=serial;try{const fresh=await api(`/api/record?dataset=${kind}&id=${encodeURIComponent(id)}`);if(id!==identifier||kind!==dataset||ticket!==serial)return;if(fresh.revision!==revision){if(dirty){conflict=true;$('save').disabled=true;status('Record changed on disk. Download your draft, then reload to reconcile changes.',true);}else{await load(id,true);}}}catch(e){status('Disk check: '+e.message,true);}},3000);
 (async()=>{try{const session=await api('/api/session');token=session.token;draftOwner=session.userId||'local';options=await(await fetch('/options.json')).json();const params=new URLSearchParams(location.search);
@@ -351,5 +478,5 @@ setInterval(async()=>{if(!identifier||!record||document.hidden||saving)return;co
  if(['cities','countries','rivers'].includes(requested))dataset=requested;
  $('dataset').value=dataset;catalog=await api('/api/catalog?dataset='+dataset);drawCatalog();
  const id=params.get('id')||(!params.has('dataset')?last?.identifier:null);if(id)await load(id);
- $('suggestion-reason')?.addEventListener('input',()=>{dirty=true;storeDraft();});
+ $('suggestion-reason')?.addEventListener('input',()=>{changed();});
  }catch(e){status(e.message,true);}})();

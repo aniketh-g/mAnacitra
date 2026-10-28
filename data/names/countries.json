@@ -2405,12 +2405,11 @@
     "name_en": "Austria",
     "names": [
       {
-        "name": "",
-        "confidence": 1.0,
+        "name": "उषोराज्यम्",
         "primary": true,
         "etymologies": [
           {
-            "notes": "",
+            "notes": "उषसो दिशि पूर्वस्यां स्थितं राज्यम्",
             "citations": [],
             "vyutpatti": "",
             "descendants": [],
@@ -2611,25 +2610,158 @@
     "name_en": "Netherlands",
     "names": [
       {
-        "name": "",
-        "confidence": 1.0,
+        "name": "नितरान्देशः",
         "primary": true,
         "etymologies": [
           {
-            "notes": "",
-            "citations": [],
-            "vyutpatti": "",
+            "notes": "औपचारिकप्रयोगे बहुवचनं प्रयुज्यते, यथा 'राज्यं नितरान्देशानाम्'।\\n\n**धेयम्!** विद्युत्प्रक्रिया ऽत्राशुद्धा। नि+तरप्+आमु=नितराम् (अव्ययम्); +देशः (अव्ययीभावः)।",
+            "citations": [
+              {
+                "type": "passage",
+                "passage": {
+                  "quote": "**नि॒त॒राम॒**र्चिरु॒पावै॑ति लोहि॒नीके॑व भव॒तीन्द्र॒स्तर्ह्य॒ग्निः।\nतस्मि॒न्यस्य॒ तथा॑विधे॒ जुह्व॒तीन्द्र॑ ए॒वास्या॑ग्निहो॒त्रँ हु॒तम्भ॑वति॥",
+                  "source": {
+                    "title": "तैत्तिरीयब्राह्मणम्",
+                    "url": "https://indike.org/pramana/in.veda.brahmana.taittiriya.2.1.10.2",
+                    "locator": "२.१.१०.२"
+                  }
+                },
+                "commentaries": [
+                  {
+                    "quote": "**नितरामिति॥ नीचैस्तराम**र्चिरुपावैति अतिस्वल्पा भवति।",
+                    "source": {
+                      "title": "भट्टभास्करभाष्यम्",
+                      "url": "https://indike.org/pramana/in.veda.brahmana.taittiriya!bhattabhaskara.36.57",
+                      "locator": "३६.५७"
+                    }
+                  }
+                ]
+              }
+            ],
+            "vyutpatti": "पार्श्वस्थदेशेभ्यो नितरां नीचैस्तरां स्थितो ऽसौ देशः।",
             "descendants": [],
-            "prakriyA": null
+            "prakriyA": {
+              "input": {
+                "type": "subanta",
+                "stem": {
+                  "type": "samasa",
+                  "samasa_type": "karmadharaya",
+                  "members": [
+                    {
+                      "stem": {
+                        "type": "basic",
+                        "text": "नितराम्",
+                        "avyaya": true
+                      },
+                      "gender": "masculine",
+                      "case": "nominative",
+                      "number": "singular"
+                    },
+                    {
+                      "stem": {
+                        "type": "basic",
+                        "text": "देश"
+                      },
+                      "gender": "masculine",
+                      "case": "nominative",
+                      "number": "singular"
+                    }
+                  ]
+                },
+                "gender": "masculine",
+                "case": "nominative",
+                "number": "singular"
+              },
+              "expected": "नितरान्देशः"
+            }
           }
         ],
         "attestations": [],
-        "attestation_status": ""
+        "attestation_status": "newly_proposed"
       }
     ],
     "name_native": "",
-    "description": "",
-    "name_families": []
+    "description": "तुवद्भेदः। ",
+    "name_families": [
+      {
+        "label": "NIDERLAND",
+        "language": "प्राचीना तावती",
+        "pronunciation": "नीड़ॆर्लाण्ड़्",
+        "descendants": [],
+        "etymologies": [
+          {
+            "vyutpatti": "",
+            "notes": "",
+            "citations": [],
+            "prakriyA": [
+              {
+                "id": "node-1",
+                "from": [],
+                "form": "*नि",
+                "pronunciation": "",
+                "language": "प्रा॰यु॰भा॰",
+                "rules": [],
+                "meaning": "अधस्तात्"
+              },
+              {
+                "id": "node-2",
+                "from": [],
+                "form": "*लॆ॒न्ध्",
+                "pronunciation": "",
+                "language": "प्रा॰यु॰भा॰",
+                "rules": [],
+                "meaning": "देशे"
+              },
+              {
+                "id": "node-3",
+                "from": [
+                  "node-1"
+                ],
+                "form": "*नि॒तॆरॊ॑स्",
+                "pronunciation": "",
+                "language": "प्रा॰यु॰भा॰",
+                "rules": [],
+                "meaning": "अधोमुखे"
+              },
+              {
+                "id": "node-4",
+                "from": [
+                  "node-2"
+                ],
+                "form": "LAND",
+                "pronunciation": "लाण्ड़्",
+                "language": "तावती",
+                "rules": [],
+                "meaning": "देशे"
+              },
+              {
+                "id": "node-5",
+                "from": [
+                  "node-3"
+                ],
+                "form": "NIDER",
+                "pronunciation": "नीड़ॆर्",
+                "language": "तावती",
+                "rules": [],
+                "meaning": "अधःस्थिते"
+              },
+              {
+                "id": "node-6",
+                "from": [
+                  "node-3"
+                ],
+                "form": "नि॒त॒राम्",
+                "pronunciation": "",
+                "language": "संस्कृतम्",
+                "rules": [],
+                "meaning": "नीचैस्तराम्"
+              }
+            ]
+          }
+        ],
+        "attestations": []
+      }
+    ]
   },
   "natural-earth:1159321021": {
     "name_en": "Liechtenstein",
@@ -3451,16 +3583,52 @@
     "name_en": "Montenegro",
     "names": [
       {
-        "name": "",
-        "confidence": 1.0,
+        "name": "कार्ष्णगिरः",
         "primary": true,
         "etymologies": [
           {
             "notes": "",
             "citations": [],
-            "vyutpatti": "",
+            "vyutpatti": "कृष्णगिरिरस्त्यस्मिन्देशे।",
             "descendants": [],
-            "prakriyA": null
+            "prakriyA": {
+              "input": {
+                "type": "subanta",
+                "stem": {
+                  "type": "taddhitanta",
+                  "stem": {
+                    "type": "samasa",
+                    "samasa_type": "karmadharaya",
+                    "members": [
+                      {
+                        "stem": {
+                          "type": "basic",
+                          "text": "कृष्ण"
+                        },
+                        "gender": "masculine",
+                        "case": "nominative",
+                        "number": "singular"
+                      },
+                      {
+                        "stem": {
+                          "type": "basic",
+                          "text": "गिरि"
+                        },
+                        "gender": "masculine",
+                        "case": "nominative",
+                        "number": "singular"
+                      }
+                    ]
+                  },
+                  "pratyaya": "aR",
+                  "artha": "Caturarthika"
+                },
+                "gender": "masculine",
+                "case": "nominative",
+                "number": "singular"
+              },
+              "variant": 0
+            }
           }
         ],
         "attestations": [],
@@ -3469,7 +3637,157 @@
     ],
     "name_native": "",
     "description": "",
-    "name_families": []
+    "name_families": [
+      {
+        "label": "ЧРНА ГОРА",
+        "language": "माद्ध्यमिकी स्लावकी",
+        "pronunciation": "कृन गॊर",
+        "descendants": [
+          {
+            "id": "node-1",
+            "from": [],
+            "form": "ЧРНА ГОРА",
+            "pronunciation": "त्सृन-गॊर",
+            "language": "माद्ध्यमिकी स्लावकी",
+            "rules": [],
+            "meaning": "कृष्णे गिरौ"
+          },
+          {
+            "id": "node-2",
+            "from": [
+              "node-1"
+            ],
+            "form": "MONTENEGRO",
+            "pronunciation": "मॊन्तेनेग्रॊ",
+            "language": "रोमका",
+            "rules": [],
+            "meaning": "कृष्णे गिरौ"
+          }
+        ],
+        "etymologies": [
+          {
+            "vyutpatti": "कृष्णगिरिरस्त्यस्मिन्देशे।",
+            "notes": "",
+            "prakriyA": [
+              {
+                "id": "node-1",
+                "from": [],
+                "form": "*कृ॒स्नॊस्",
+                "pronunciation": "",
+                "language": "प्रा॰यु॰भा॰",
+                "rules": [],
+                "meaning": "असितवर्णे"
+              },
+              {
+                "id": "node-2",
+                "from": [],
+                "form": "*ग़ॆ॒र्ह्२-",
+                "pronunciation": "",
+                "language": "प्रा॰यु॰भा॰",
+                "rules": [],
+                "meaning": "शंसनोच्छ्रयणयोः"
+              },
+              {
+                "id": "node-3",
+                "from": [
+                  "node-1"
+                ],
+                "form": "ЦРН",
+                "pronunciation": "त्सृन्",
+                "language": "दाक्षिणी स्लावकी",
+                "rules": [],
+                "meaning": "असितवर्णे",
+                "rule_url": "https://en.wiktionary.org/wiki/%D1%86%D1%80%D0%BD#Macedonian",
+                "rule": "प्रा॰यु॰भा॰तो दाक्षिणी स्लावी"
+              },
+              {
+                "id": "node-4",
+                "from": [
+                  "node-1"
+                ],
+                "form": "कृ॒ष्णः",
+                "pronunciation": "",
+                "language": "संस्कृतम्",
+                "rules": [],
+                "rule_url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Slavic/%C4%8D%D1%8Crn%D1%8A",
+                "rule": "प्रा॰यु॰भा॰तः संस्कृतम्",
+                "meaning": "असितवर्णे"
+              },
+              {
+                "id": "node-5",
+                "from": [
+                  "node-2"
+                ],
+                "form": "*ग़ॊ॒र्हॆ॒ह्२",
+                "pronunciation": "",
+                "language": "प्रा॰यु॰भा॰",
+                "rules": [],
+                "meaning": "अरण्ये",
+                "rule_url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Balto-Slavic/gar%C4%81%CC%81%CB%80",
+                "rule": "तद्धितान्तम्?"
+              },
+              {
+                "id": "node-6",
+                "from": [
+                  "node-2"
+                ],
+                "form": "*ग़ृ॒हिस्",
+                "pronunciation": "",
+                "language": "प्रा॰यु॰भा॰",
+                "rules": [],
+                "rule_url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/g%CA%B7erH-",
+                "meaning": "पर्वते",
+                "rule": "तद्धितान्तम्?"
+              },
+              {
+                "id": "node-7",
+                "from": [
+                  "node-5"
+                ],
+                "form": "ГОРА",
+                "pronunciation": "गॊर",
+                "language": "दाक्षिणी स्लावकी",
+                "rules": [],
+                "rule_url": "https://en.wiktionary.org/wiki/%D0%B3%D0%BE%D1%80%D0%B0#Macedonian",
+                "rule": "प्रा॰यु॰भा॰तो दाक्षिणी स्लावी",
+                "meaning": "अरण्ये पर्वते च"
+              },
+              {
+                "id": "node-8",
+                "from": [
+                  "node-6"
+                ],
+                "form": "गि॒रिः",
+                "pronunciation": "",
+                "language": "संस्कृतम्",
+                "rules": [],
+                "rule": "प्रा॰यु॰भा॰तः संस्कृतम्",
+                "rule_url": "https://en.wiktionary.org/wiki/%E0%A4%97%E0%A4%BF%E0%A4%B0%E0%A4%BF#Sanskrit",
+                "meaning": "पर्वते"
+              }
+            ],
+            "citations": []
+          }
+        ],
+        "attestations": [
+          {
+            "language": "माद्ध्यमिकी स्लावकी",
+            "date": "१२१८",
+            "quote": "еште придах оть **Чрне Горе** оть Арбанась Васила са децом да есть такожде работник светомь Николе, иже и више писани",
+            "notes": "",
+            "citations": [
+              {
+                "title": "'मिलुतिन्'राज्ञः शासनम्",
+                "url": "https://books.google.ch/books?id=sH5KAAAAYAAJ&pg=PA219&redir_esc=y#v=onepage&q&f=false",
+                "locator": "219"
+              }
+            ],
+            "sort_year": "1218"
+          }
+        ],
+        "attestation_status": "newly_proposed"
+      }
+    ]
   },
   "natural-earth:1159320417": {
     "name_en": "Bosnia and Herzegovina",

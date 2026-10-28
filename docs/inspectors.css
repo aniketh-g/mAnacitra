@@ -270,3 +270,135 @@ a.mi-rule-reference:focus-visible { outline: 2px solid #927746; outline-offset: 
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+/* Plain root tabs, with the active root serving as the graph's first node. */
+.mi-root-choices {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  margin: 0 -22px 12px;
+  width: calc(100% + 44px);
+  max-width: none;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.mi-root-choice {
+  flex: 1 0 auto;
+  font: inherit;
+  color: var(--ui-text, #493b27);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 8px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: inset 0 -1px #ded3ba;
+}
+
+/* Root tab geometry */
+.mi-root-choice {
+  position: relative;
+  border-left: 0;
+  border-right: 0;
+}
+
+/* Selected root: overline, no underline */
+.mi-root-choice[aria-selected="true"] {
+  box-shadow: none;
+  color: var(--ui-text, #493b27);
+  background-image: linear-gradient(#ded3ba, #ded3ba);
+  background-size: calc(100% - 14px) 1px;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+/* RIGHT of selected root: top curve */
+.mi-root-choice[aria-selected="true"]::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 8px;
+  height: 50%;
+  box-sizing: border-box;
+  border-top: 1px solid #ded3ba;
+  border-right: 1px solid #ded3ba;
+  border-top-right-radius: 8px 10px;
+  pointer-events: none;
+}
+
+/* RIGHT of selected root: bottom curve */
+.mi-root-choice[aria-selected="true"] + .mi-root-choice::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  bottom: 0;
+  width: 8px;
+  height: 50%;
+  box-sizing: border-box;
+  border-left: 1px solid #ded3ba;
+  border-bottom: 1px solid #ded3ba;
+  border-bottom-left-radius: 8px 10px;
+  pointer-events: none;
+}
+
+/* LEFT of selected root: top curve */
+.mi-root-choice[aria-selected="true"]::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 0;
+  width: 8px;
+  height: 50%;
+  box-sizing: border-box;
+  border-top: 1px solid #ded3ba;
+  border-left: 1px solid #ded3ba;
+  border-top-left-radius: 8px 10px;
+  pointer-events: none;
+}
+
+/* LEFT of selected root: bottom curve */
+.mi-root-choice:has(+ .mi-root-choice[aria-selected="true"])::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 8px;
+  height: 50%;
+  box-sizing: border-box;
+  border-right: 1px solid #ded3ba;
+  border-bottom: 1px solid #ded3ba;
+  border-bottom-right-radius: 8px 10px;
+  pointer-events: none;
+}
+
+/* Underline immediately right of selected root */
+.mi-root-choice[aria-selected="true"] + .mi-root-choice {
+  box-shadow: none;
+  background-image: linear-gradient(#ded3ba, #ded3ba);
+  background-size: calc(100% - 7px) 1px;
+  background-position: right bottom;
+  background-repeat: no-repeat;
+}
+
+/* Underline immediately left of selected root */
+.mi-root-choice:has(+ .mi-root-choice[aria-selected="true"]) {
+  box-shadow: none;
+  background-image: linear-gradient(#ded3ba, #ded3ba);
+  background-size: calc(100% - 7px) 1px;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+}
+
+.mi-root-choice:hover{color:#927746;background-color:transparent}
+.mi-root-choice:focus-visible{outline:2px solid #a78b53;outline-offset:-3px}
+.mi-root-label{display:block}
+.mi-root-label .mi-meaning{margin-left:.5em}
+.mi-root-choice { font-size: 21px; line-height: 1.45; }
+.mi-root-label > .mi-meta {
+  display: block;
+  font: 11px/1.5 sans-serif;
+  color: #777164;
+  margin-top: 4px;
+  text-align: center;
+}

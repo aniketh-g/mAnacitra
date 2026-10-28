@@ -74,3 +74,22 @@
   color: #8b7552;
   text-align: center;
 }
+
+/* Keep wide compound trees within the editor, never over adjacent controls. */
+main{grid-template-columns:280px minmax(0,1fr)}
+#workspace,#form,.field,details{min-width:0}
+.fe-tree{max-width:100%;overflow-x:auto;padding:14px 8px;overscroll-behavior-x:contain}
+.fe-row,.fe-band{gap:24px}
+.fe-node{padding:8px;background:#fffefa;border-radius:6px}
+.fe-tree label > span{position:static;display:block;width:auto;height:auto;clip-path:none;overflow:visible;font:11px/1.4 system-ui;color:#8a806c;text-align:left;margin-bottom:2px}
+.fe-tree input,.fe-tree textarea{background:#fffdf8;border:1px solid #e4ddcf;text-align:center;padding:4px 6px}
+.fe-tree textarea{display:block;width:100%;min-width:0;min-height:36px;resize:vertical;overflow-wrap:anywhere;line-height:1.5}
+.fe-form textarea{font-size:23px}
+.fe-tree textarea.fe-muted{font-size:15px;color:#827d72}
+.fe-tree textarea.fe-highlight{color:#b33d32}
+.fe-form > label,.fe-component{flex:1 1 150px;max-width:100%}
+.fe-component > label + label{margin-top:6px}
+.fe-rule textarea{font-size:15px;color:#695028}
+.fe-tree textarea:focus{border-color:#b79857;outline:1px solid #b79857}
+.fe-pronunciation label{width:100%}
+@media(max-width:800px){main{display:block}}

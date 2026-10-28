@@ -345,3 +345,22 @@ main {
 .place-title-row .suggest-place:hover{background:transparent;color:#aaa}
 .place-title-row .suggest-place:active{background:transparent;color:#666}
 .place-title-row .suggest-place[hidden]{display:none}
+
+/* Original passage followed by its commentaries, without enclosing cards. */
+.citation-passage{margin:12px 0}
+.citation-quotation + .citation-quotation{margin-top:12px;padding-top:10px;border-top:1px solid #e4dfd5}
+.citation-kind{font-size:.85em;color:#82745d}
+.citation-quotation .name-citations{list-style:none;padding-left:0;margin:2px 0}
+.citation-quotation blockquote{margin:6px 0;padding:0 0 0 12px;border-left:2px solid #d9cba9}
+.citation-quotation blockquote strong{color:#b33d32}
+
+.citation-heading{display:flex;align-items:baseline;flex-wrap:wrap;gap:0 .4em}
+.citation-heading > .name-citations{display:inline;margin:0;padding:0;list-style:none}
+.citation-original{margin:10px 0 0;padding:0;border:0}
+.citation-original > summary{cursor:pointer;color:#81745f;font:inherit}
+.citation-original > summary:hover{color:#695028}
+.citation-original:not([open]) .citation-original-heading{display:none}
+.citation-original[open] .citation-original-label{display:none}
+.citation-original[open] > summary{list-style:none}
+.citation-original[open] > summary::-webkit-details-marker{display:none}
+.citation-original > .citation-quotation{margin-top:6px}

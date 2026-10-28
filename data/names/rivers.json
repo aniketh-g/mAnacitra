@@ -24307,9 +24307,36 @@
         "name": "दानवी",
         "etymologies": [
           {
-            "notes": "दानु वर्षण इति वाचस्पत्यम् “यवं न वृष्टिर्दिव्येन दानुना” ऋ॰ १०।४३।७ “दानुना दानेन वर्षणेन वा” भा॰।\n\nप्रायेण प्रा॰यु॰भा॰ \\\\*दानु\\\\ (सरिति) शब्देन सम्बद्धमिति <a href=\"https://archive.org/details/indogermanisches01pokouoft/page/174/mode/2up?q=donau\">[भा॰व्यु॰को॰] १७५</a>",
-            "citations": [],
-            "descendants": [],
+            "notes": "प्रायेण प्रा॰यु॰भा॰ \\\\*दानु\\\\ (सरिति) शब्देन सम्बद्धमिति [[भा॰व्यु॰को॰] १७५](https://archive.org/details/indogermanisches01pokouoft/page/174/mode/2up?q=donau)",
+            "citations": [
+              {
+                "title": "वाचस्पत्यम्",
+                "url": "https://www.sanskrit-lexicon.uni-koeln.de/scans/csl-apidev/servepdf.php?dict=VCP&page=3543,a",
+                "locator": "दानु",
+                "note": "७ **वर्षणे** “यवं न वृष्टिर्दिव्येन दानुना” ऋ॰ १०।४३।७ “दानुना दानेन वर्षणेन वा” भा॰।"
+              },
+              {
+                "type": "passage",
+                "passage": {
+                  "quote": "आपो॒ न सिन्धु॑म॒भि यत्स॒मक्ष॑र॒न् सोमा॑स॒ इन्द्रं॑ कु॒ल्या इ॑व ह्र॒दम्।\nवर्ध॑न्ति॒ विप्रा॒ महो॑ अस्य॒ साद॑ने॒ यवं॒ न वृ॒ष्टिर्दि॒व्येन॒ **दानु॑ना**॥",
+                  "source": {
+                    "title": "ऋग्वेदः",
+                    "url": "https://indike.org/pramana/in.veda.samhita.rg*sakala.10.43.7",
+                    "locator": "१०.४३.७"
+                  }
+                },
+                "commentaries": [
+                  {
+                    "quote": "वर्षिता पर्जन्यः दिव्येन दिवि भवेन **दानुना** दानेन **वर्षणेन** वर्धयति तद्वदित्यर्थः॥",
+                    "source": {
+                      "title": "सायणभाष्यम्",
+                      "url": "https://vishvasa.github.io/vedAH_Rk/shAkalam/saMhitA/sarva-prastutiH/10/043/",
+                      "locator": ""
+                    }
+                  }
+                ]
+              }
+            ],
             "vyutpatti": "दानोर्वर्षणस्येयम्।",
             "prakriyA": {
               "input": {
@@ -24340,7 +24367,6 @@
             "vyutpatti": "दनुर्दक्षकन्यास्य देवता।",
             "notes": "दनुर्दक्षकन्याभेदे सा च कश्यपर्षिपत्नी दानवमाता\n\nकैश्चित्सरितः स्वनाम दनुना सम्बद्ध्यते। यथा, पीवराणां आक्रमणग्रन्थे वर्णितया \\\\*दनु\\\\नाम्न्या देवतया सम्बद्धं भवितुमर्हतीति [के॰ऐ॰को॰] <a href=\"https://archive.org/details/dictionaryofcelt0000mack/page/114/mode/2up?q=ana\">१४</a>, <a href=\"https://archive.org/details/dictionaryofcelt0000mack/page/114/mode/2up?q=ana\">११४</a>।",
             "citations": [],
-            "descendants": [],
             "prakriyA": {
               "input": {
                 "type": "subanta",
@@ -24373,7 +24399,6 @@
             "vyutpatti": "धन्वति गच्छतीति।",
             "notes": "एवं ण्वुल्-शतृ-तः **धन्विका**, **धन्वन्ती** पदेऽपि योज्ये।\n\nसरितः स्वनाम प्रा॰यु॰भा॰ [\\\\*धॆन्ह्२\\\\](https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/d%CA%B0enh%E2%82%82-) (धावने स्रवणे च, =धविँ गतौ [भा॰व्यु॰को॰](https://archive.org/details/indogermanisches01pokouoft/page/248/mode/2up)) धातो[रेके व्युत्पादयन्ति](https://en.wiktionary.org/wiki/Danube)।",
             "citations": [],
-            "descendants": [],
             "prakriyA": {
               "input": {
                 "type": "subanta",

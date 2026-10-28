@@ -110,6 +110,10 @@ class Handler(BaseHTTPRequestHandler):
                 _, _, records = read_records(self.server.root, query.get('dataset',[''])[0])
                 record = records.get(query.get('id',[''])[0])
                 return self.send(200, {'record':record, 'revision':digest(record)})
+            if url.path == '/options.json':
+                options = json.loads((ASSETS/'options.json').read_text())
+                options['languages'] = json.loads((self.server.root/'data/languages.json').read_text())
+                return self.send(200, options)
             files = {'/':('index.html','text/html; charset=utf-8'), '/app.js':('app.js','text/javascript; charset=utf-8'), '/style.css':('style.css','text/css; charset=utf-8'), '/options.json':('options.json','application/octet-stream')}
             if url.path == '/inspector-graph.js': return self.send(200, (self.server.root/'docs/inspector-graph.js').read_bytes(), 'text/javascript; charset=utf-8')
             if url.path == '/font.otf': return self.send(200, (self.server.root/'docs/fonts/Shobhika-Regular.otf').read_bytes(), 'font/otf')

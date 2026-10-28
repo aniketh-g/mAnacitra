@@ -96,6 +96,35 @@ function addCitations(parent, citations = [], {locatorSeparator = ' — '} = {})
 
   for (const citation of citations) {
     const item = document.createElement("li");
+    if (citation.type === 'passage') {
+      item.className = 'citation-passage';
+      const sourceHeading = (entry, label) => {
+        const heading = document.createElement('div');heading.className = 'citation-heading';
+        if(entry.source) addCitations(heading, [entry.source], {locatorSeparator:' '});
+        const kind=document.createElement('span');kind.className='citation-kind';kind.textContent=' · '+label;heading.append(kind);
+        return heading;
+      };
+      const quotation = (entry, label, host, withHeading=true) => {
+        if (!entry) return;
+        const section = document.createElement('section');section.className = 'citation-quotation';
+        if(withHeading)section.append(sourceHeading(entry,label));
+        if (entry.quote) {
+          const quote = document.createElement('blockquote');quote.className = 'prose';quote.innerHTML = markdown(entry.quote);section.append(quote);
+        }
+        addProse(section, entry.notes);host.append(section);
+      };
+      for (const commentary of citation.commentaries || []) quotation(commentary, 'व्याख्या', item);
+      if(citation.passage){
+        const original=document.createElement('details');original.className='citation-original';
+        const summary=document.createElement('summary');
+        const collapsed=document.createElement('span');collapsed.className='citation-original-label';collapsed.textContent='मूलम्';
+        const expanded=sourceHeading(citation.passage,'मूलम्');expanded.classList.add('citation-original-heading');
+        summary.append(collapsed,expanded);original.append(summary);
+        quotation(citation.passage,'मूलम्',original,false);item.append(original);
+      }
+      addProse(item, citation.note);
+      list.append(item);continue;
+    }
     const label = citation.title || citation.source_id || "Source";
     let url;
 

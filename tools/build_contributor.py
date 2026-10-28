@@ -1,6 +1,7 @@
 """Generate the hosted suggestion editor from the independent local editor."""
 from pathlib import Path
 import shutil
+import json
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -33,7 +34,9 @@ def build(root=ROOT):
     (output/'app.js').write_text(app)
     style=(editor/'style.css').read_text().replace("url('/font.otf')", "url('../fonts/Shobhika-Regular.otf')").replace('url("/font.otf")','url("../fonts/Shobhika-Regular.otf")')
     (output/'style.css').write_text(style)
-    shutil.copy2(editor/'options.json', output/'options.json')
+    options = json.loads((editor/'options.json').read_text())
+    options['languages'] = json.loads((root/'data/languages.json').read_text())
+    (output/'options.json').write_text(json.dumps(options, ensure_ascii=False))
     for name in ['contributor.js','contributor.css']: shutil.copy2(source/name,output/name)
     (output/'data').mkdir(exist_ok=True)
     for dataset in ['cities','countries','rivers']:

@@ -94,8 +94,14 @@
           }
           summary.append(link);
         }
-      } else {
-        summary.textContent = [data.sutra, data.rule].filter(Boolean).join(' — ');
+      }
+      const inlineText=[data.sutra,data.rule].filter(Boolean).join(' — ');
+      if(inlineText){
+        let url;
+        try{const parsed=new URL(data.rule_url);if(['https:','http:'].includes(parsed.protocol))url=parsed.href;}catch{}
+        const link=el(url?'a':'span','mi-rule-reference',inlineText);
+        if(url){link.href=url;link.target='_blank';link.rel='noopener noreferrer';}
+        summary.append(link);
       }
     }
     box.append(summary);
@@ -111,6 +117,53 @@
     if (!graph?.nodes?.length) {
       parent.append(el('p', 'mi-empty', state.tab === 1 ? 'सद्यो विकाराणि न लभ्यानि।' : 'सद्यः प्रक्रिया न लभ्या।'));
       return;
+    }
+    // Switch between unrelated trees; converging compound roots stay together.
+    const neighbours = new Map(graph.nodes.map(n => [n.id, []]));
+    const childIds = new Set();
+    for (const edge of graph.edges || []) {
+      neighbours.get(edge.from)?.push(edge.to);neighbours.get(edge.to)?.push(edge.from);childIds.add(edge.to);
+    }
+    const visited = new Set(), groups = [];
+    for (const node of graph.nodes) {
+      if (visited.has(node.id)) continue;
+      const ids = new Set([node.id]), queue = [node.id];visited.add(node.id);
+      for (let i=0;i<queue.length;i++) for (const id of neighbours.get(queue[i]) || []) {
+        if (!visited.has(id)) {visited.add(id);ids.add(id);queue.push(id);}
+      }
+      groups.push({ids, roots:graph.nodes.filter(n=>ids.has(n.id)&&!childIds.has(n.id))});
+    }
+    let rootTabs=null;const rootPorts=new Map();
+    if (groups.length > 1) {
+      const key=state.tab+':'+state.etymology;
+      state.rootSelections ||= {};
+      const selected=Number.isInteger(state.rootSelections[key]) && groups[state.rootSelections[key]] ? state.rootSelections[key] : 0;
+      const choices=el('div','mi-root-choices');choices.setAttribute('aria-label','Derivation roots');choices.setAttribute('role','tablist');rootTabs=choices;
+      groups.forEach((group,index)=>{
+        const button=el('button','mi-root-choice');button.type='button';
+        button.setAttribute('role','tab');button.setAttribute('aria-selected',String(selected===index));button.tabIndex=selected===index?0:-1;
+        button.addEventListener('keydown',event=>{
+          let next;if(event.key==='ArrowRight')next=(index+1)%groups.length;if(event.key==='ArrowLeft')next=(index+groups.length-1)%groups.length;if(event.key==='Home')next=0;if(event.key==='End')next=groups.length-1;
+          if(next===undefined)return;event.preventDefault();state.rootSelections[key]=next;render(state);state.body.querySelectorAll('.mi-root-choice')[next]?.focus({preventScroll:true});
+        });
+        for (const root of group.roots) {
+          const label=el('span','mi-root-label',root.form || root.label || root.parts?.map(p=>p.text).join(' + ') || root.id);
+          const meaning=root.meaning || root.parts?.map(p=>p.meaning).filter(Boolean).join(' + ');
+          if(selected===index && meaning)label.append(el('span','mi-meaning',meaning));
+          if(root.language || root.status) {
+            label.append(el('span','mi-meta',[root.language,root.status].filter(Boolean).join(' · ')));
+          }
+          if(selected===index)rootPorts.set(root.id,label);
+          button.append(label);
+        }
+        button.addEventListener('click',()=>{
+          state.rootSelections[key]=index;
+          render(state);state.body.querySelectorAll('.mi-root-choice')[index]?.focus({preventScroll:true});
+        });choices.append(button);
+      });
+      const group=groups[selected];
+      if(!group)return;
+      graph={...graph,nodes:graph.nodes.filter(n=>group.ids.has(n.id)),edges:(graph.edges||[]).filter(e=>group.ids.has(e.from)&&group.ids.has(e.to))};
     }
     if (state.tab === 0) {
       const controls = el('div', 'mi-tree-controls');
@@ -154,6 +207,7 @@
     const sanjnaNodes = new Set(graph.nodes.filter(node => node.sanjnaRules).map(node => node.id));
     const scroll = el('div', 'mi-graph-scroll');
     const diagram = el('div', 'mi-graph');
+    if (rootTabs) {parent.append(rootTabs);diagram.classList.add('mi-tabbed-graph');diagram.style.paddingTop = '24px';}
     diagram.setAttribute('aria-label', graph.label || 'Derivation tree, read from top to bottom');
     const slots = new Map(), links = [], motionItems = new Map();
     const maxColumns = model.columns;
@@ -169,11 +223,11 @@
       incoming.get(edge.to)?.push(edge.from);
     }
 
-    // Follow the common chain until it splits.
-    let current = graph.nodes.find(n =>
-      !incoming.get(n.id)?.length &&
-      (!n.branch || n.branch === 'common')
-    );
+    // Centre a common ancestor only when the graph has exactly one root.
+    // Independent roots must remain in their own lanes.
+    const roots = graph.nodes.filter(n => !incoming.get(n.id)?.length);
+    let current = roots.length === 1 && (!roots[0].branch || roots[0].branch === 'common')
+      ? roots[0] : null;
 
     while (current) {
       commonNodes.add(current.id);
@@ -191,6 +245,7 @@
       const line = el('div', 'mi-row');
       line.style.gridTemplateColumns = `repeat(${model.columns}, minmax(0, 1fr))`;
       row.forEach(item => {
+        if(item.node && rootPorts.has(item.node.id)){slots.set(item.key,rootPorts.get(item.node.id));return;}
         const cell = item.node?.sanjnaRules ? el('div', 'mi-sanjna-pills') :
           item.node ? detail(item.node, 'node') : el('div', 'mi-route');
         if (item.node?.sanjnaRules) {
@@ -211,7 +266,7 @@
         }
         slots.set(item.key, cell); line.append(cell);
       });
-      diagram.append(line);
+      if(line.childNodes.length)diagram.append(line);
       const band = model.bands[index];
       if (!band?.length) return;
       const edgeRow = el('div', 'mi-edge-row');
@@ -271,7 +326,17 @@
       const base = diagram.getBoundingClientRect();
       const port = (element, bottom) => {
         const r = element.getBoundingClientRect();
-        return [r.left + r.width / 2 - base.left, (bottom ? r.bottom : r.top) - base.top];
+
+        const x = r.left + r.width / 2 - base.left;
+        const y = (bottom ? r.bottom : r.top) - base.top;
+
+        // Roots are outside the graph; start their connectors
+        // at the graph's top edge.
+        if (rootTabs?.contains(element)) {
+          return [x, 0];
+        }
+
+        return [x, y];
       };
       const connect = (a, b, arrow, edge) => {
         const refs = Array.isArray(edge.rules) ? edge.rules : edge.rules ? [edge.rules] : [];
@@ -587,7 +652,7 @@
       hideOtherMobilePanels(state);
       state.panel.classList.remove('mi-superseded');
       state.lastOpened = ++openingOrder;
-      if (state.record !== record) { state.record=record; state.etymology=0; state.showAllRules=false; }
+      if (state.record !== record) { state.record=record; state.rootSelections={}; state.etymology=0; state.showAllRules=false; }
       if (state.trigger !== trigger) markTrigger(state.trigger, false);
       state.trigger = trigger;
 
