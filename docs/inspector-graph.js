@@ -75,6 +75,7 @@
       if (!node.introduces_particle && incoming.length && incoming.every(edge => !edge.rule && !edge.sutra &&
           (Array.isArray(edge.rules) ? edge.rules.length : Boolean(edge.rules))) && refs.every(isSanjna)) {
         node.sanjnaRules = [...new Set(refs)];
+        node.sanjnaOrigins = Object.fromEntries(node.sanjnaRules.map(ref => [ref, node.id]));
       }
     }
     let merged = true;
@@ -87,6 +88,7 @@
         const parent = nodes.find(candidate => candidate.id === incoming[0].from);
         if (!parent?.sanjnaRules || edges.filter(edge => edge.from === parent.id).length !== 1) continue;
         parent.sanjnaRules = [...new Set([...parent.sanjnaRules, ...node.sanjnaRules])];
+        parent.sanjnaOrigins = {...node.sanjnaOrigins, ...parent.sanjnaOrigins};
         edges = edges.filter(edge => edge.to !== node.id).map(edge =>
           edge.from === node.id ? {...edge, from: parent.id} : edge);
         nodes = nodes.filter(candidate => candidate.id !== node.id);

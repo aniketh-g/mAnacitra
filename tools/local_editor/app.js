@@ -410,19 +410,39 @@ function wrapInput(input,type){
  }
  return wrapped;
 }
+// Change only the outer operation; retain existing stems and compound members.
+function changeOperation(input,type){
+ if(type===input.type)return input;
+ const wrappers=['subanta','taddhitanta','samasa'];
+ if(!wrappers.includes(type)){
+  const emptyBasic=input.type==='basic' && !input.text && Object.keys(input).every(k=>['type','text'].includes(k));
+  if(emptyBasic)return newInput(type);
+  throw Error('This operation cannot contain the existing derivation. No data was changed. Edit the inner component instead.');
+ }
+ if(['subanta','taddhitanta'].includes(input.type)){
+  if(!input.stem)throw Error('This entry has no stem to preserve. No data was changed.');
+  const result=newInput(type);
+  if(type==='samasa'){
+   result.members[0].stem=input.stem;
+   if(input.type==='subanta')for(const key of ['gender','case','number'])result.members[0][key]=input[key];
+  }else result.stem=input.stem;
+  return result;
+ }
+ // A compound stays intact as the stem of the new outer operation.
+ return wrapInput(input,type);
+}
 function enums(name){return [{value:'',label:'— Select —'},...options[name]];}
 function optional(parent,obj,key,label,values=null,type='text'){if(!Object.hasOwn(obj,key)){parent.append(button('+ '+label,()=>{obj[key]=type==='checkbox'?false:type==='array'?[]:'';changed();redraw();}));return;}
  const row=el('div');row.className='field';inputField(row,label,obj[key],v=>obj[key]=type==='array'?v.split(',').map(s=>s.trim()).filter(Boolean):v,type==='array'?'text':type,values);row.append(button('Omit '+label,()=>{delete obj[key];changed();redraw();}));parent.append(row);}
 function grammar(parent,input,replace,stemOnly=false,depth=0,owner=null){
  if(depth>24){parent.append(el('p','Nesting exceeds supported depth.'));return;}
  const box=el('div');box.className='grammar';parent.append(box);const h=line(box);
- const wrapping=el('div');wrapping.className='add-row';box.append(wrapping);
- const wrapper=el('select');wrapper.setAttribute('aria-label','Wrap existing input');
- const choices=input.type==='subanta'?['samasa']:stemOnly?['taddhitanta','samasa']:['taddhitanta','samasa','subanta'];
- for(const type of choices){const opt=el('option',operations.find(o=>o.value===type).label);opt.value=type;wrapper.append(opt);}
- wrapping.append(wrapper,button('Wrap existing',()=>{replace(wrapInput(input,wrapper.value));changed();redraw();}));
+ box.append(button('Wrap existing',()=>{
+  const type=input.type==='subanta'?'samasa':stemOnly?'taddhitanta':'subanta';
+  try{replace(wrapInput(input,type));changed();redraw();}catch(error){status(error.message,true);}
+ },'wrap-rail'));
 
- small(h,input.type,t=>{if(confirm('Change operation? This replaces the fields for this component.')){replace(newInput(t));changed();redraw();}else redraw();},operations.filter(o=>!stemOnly||o.value!=='subanta'),'Operation');
+ small(h,input.type,t=>{try{const next=changeOperation(input,t);replace(next);changed();redraw();}catch(error){redraw();status(error.message,true);}},operations.filter(o=>!stemOnly||o.value!=='subanta'),'Operation');
  if(input.type==='basic')small(h,input.text,v=>input.text=v,null,'प्रातिपदिकम्');
  if(input.type==='samasa')small(h,input.samasa_type,v=>input.samasa_type=v,choice(['avyayibhava','tatpurusha','karmadharaya','dvigu','ekadeshin','bahuvrihi','dvandva','samahara_dvandva'],['अव्ययीभावः','तत्पुरुषः','कर्मधारयः','द्विगुः','एकदेशी','बहुव्रीहिः','द्वन्द्वः','समाहारद्वन्द्वः']),'समासभेदः');
  if(input.type==='krdanta'){

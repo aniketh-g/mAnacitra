@@ -1451,25 +1451,348 @@
     "name_en": "Sweden",
     "names": [
       {
-        "name": "",
-        "confidence": 1.0,
+        "name": "आरित्रकः",
         "primary": true,
         "etymologies": [
           {
             "notes": "",
             "citations": [],
-            "vyutpatti": "",
+            "vyutpatti": "अरित्रका नौककचालनकाष्ठवन्तः सन्त्यत्र।",
             "descendants": [],
-            "prakriyA": null
+            "prakriyA": {
+              "input": {
+                "type": "subanta",
+                "stem": {
+                  "type": "taddhitanta",
+                  "stem": {
+                    "type": "taddhitanta",
+                    "stem": {
+                      "type": "basic",
+                      "text": "अरित्र"
+                    },
+                    "pratyaya": "ka"
+                  },
+                  "pratyaya": "aY",
+                  "artha": "Janapada"
+                },
+                "gender": "masculine",
+                "case": "nominative",
+                "number": "singular"
+              }
+            }
           }
         ],
         "attestations": [],
-        "attestation_status": ""
+        "attestation_status": "newly_proposed",
+        "citations": []
+      },
+      {
+        "name": "स्वराज्यम्",
+        "primary": false,
+        "descendants": [],
+        "etymologies": [],
+        "attestations": [],
+        "attestation_status": "newly_proposed"
       }
     ],
     "name_native": "",
     "description": "",
-    "name_families": []
+    "name_families": [
+      {
+        "label": "RUOTSI",
+        "language": "",
+        "pronunciation": "रुओत्सि",
+        "descendants": [],
+        "etymologies": [
+          {
+            "vyutpatti": "अरित्रका नौककचालनकाष्ठवन्तः सन्त्यत्र।",
+            "notes": "",
+            "prakriyA": [
+              {
+                "id": "node-1",
+                "from": [],
+                "form": "ह्रॆ१ह्१",
+                "pronunciation": "",
+                "language": "प्रा॰यु॰भा॰",
+                "rules": [],
+                "meaning": "काष्ठैर्नौकाचालने"
+              },
+              {
+                "id": "node-2",
+                "from": [
+                  "node-1"
+                ],
+                "form": "RUOTSI",
+                "pronunciation": "रुओत्सि",
+                "language": "",
+                "rules": [],
+                "rule_url": "https://en.wiktionary.org/wiki/Ruotsi",
+                "meaning": "अरित्रवज्जातिभेदे"
+              },
+              {
+                "id": "node-3",
+                "from": [
+                  "node-1"
+                ],
+                "form": "अरित्रम्",
+                "pronunciation": "",
+                "language": "संस्कृतम्",
+                "rules": [],
+                "meaning": "नौकाचालनकाष्ठे",
+                "rule_url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/h%E2%82%81reh%E2%82%81-#Proto-Indo-European:_row"
+              }
+            ],
+            "citations": [
+              {
+                "title": "The Relations Between Ancient Russia and Scandinavia and the Origin of the Russian state",
+                "url": "https://archive.org/stream/relationsbetween00thomuoft/relationsbetween00thomuoft_djvu.txt",
+                "locator": "96, Lecture III"
+              }
+            ]
+          }
+        ],
+        "attestations": [
+          {
+            "language": "",
+            "date": "१४७०",
+            "quote": "Ette Anno Christi incarnati 1150. **Rotzis** wloswalittin yxi Kuningas",
+            "notes": "",
+            "citations": [
+              {
+                "title": "Se Wsi Testamenti",
+                "url": "https://vvks.it.helsinki.fi/tekstit/1500_1_agricola/4b/index.html",
+                "locator": ""
+              }
+            ],
+            "sort_year": "1470"
+          }
+        ],
+        "attestation_status": "newly_proposed"
+      },
+      {
+        "label": "SVERIGE",
+        "language": "",
+        "pronunciation": "स्वेरिय",
+        "descendants": [
+          {
+            "id": "node-1",
+            "from": [],
+            "form": "*स्वॆयर्",
+            "pronunciation": "",
+            "language": "",
+            "rules": [],
+            "meaning": "जातिभेदे"
+          },
+          {
+            "id": "node-2",
+            "from": [
+              "node-1"
+            ],
+            "form": "*स्वॆयरीकि",
+            "pronunciation": "",
+            "language": "",
+            "rules": [],
+            "meaning": "तज्जातीयराज्ये"
+          },
+          {
+            "id": "node-3",
+            "from": [
+              "node-1"
+            ],
+            "form": "*स्वॆद्युद्",
+            "pronunciation": "",
+            "language": "",
+            "rules": [],
+            "meaning": "तज्जातीयजने"
+          },
+          {
+            "id": "node-4",
+            "from": [
+              "node-2"
+            ],
+            "form": "SVERIGE",
+            "pronunciation": "स्वेरिय",
+            "language": "",
+            "rules": []
+          },
+          {
+            "id": "node-5",
+            "from": [
+              "node-3"
+            ],
+            "form": "SWEDEN",
+            "pronunciation": "स्वी᳝ड़ॆन्",
+            "language": "",
+            "rules": []
+          },
+          {
+            "id": "node-6",
+            "from": [
+              "node-3"
+            ],
+            "form": "SVÍÞJÓÐ",
+            "pronunciation": "स्वीथ्यॊथ्",
+            "language": "",
+            "rules": []
+          }
+        ],
+        "etymologies": [
+          {
+            "vyutpatti": "",
+            "notes": "",
+            "prakriyA": [
+              {
+                "id": "node-1",
+                "from": [],
+                "form": "*स्वॆ",
+                "pronunciation": "",
+                "language": "प्रा॰यु॰भा॰",
+                "rules": [],
+                "meaning": "स्वार्थे"
+              },
+              {
+                "id": "node-2",
+                "from": [
+                  "node-1"
+                ],
+                "form": "*स्विहॊ",
+                "pronunciation": "",
+                "language": "प्रा॰ता॰",
+                "rules": [],
+                "rule_url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Germanic/swih%C3%B4",
+                "rule": "प्रा॰यु॰भा॰तः प्रा॰ता॰",
+                "meaning": "जातिभेदे"
+              },
+              {
+                "id": "node-3",
+                "from": [
+                  "node-2"
+                ],
+                "form": "SVEAR",
+                "pronunciation": "स्वॆयर्",
+                "language": "",
+                "rules": [],
+                "rule_url": "https://en.wiktionary.org/wiki/svear#Old_Swedish",
+                "meaning": "जातिभेदे"
+              },
+              {
+                "id": "node-4",
+                "from": [
+                  "node-1"
+                ],
+                "form": "स्व",
+                "pronunciation": "",
+                "language": "संस्कृतम्",
+                "rules": [],
+                "meaning": "स्वार्थे",
+                "rule_url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/sw%C3%A9"
+              },
+              {
+                "id": "node-5",
+                "from": [],
+                "form": "*ह्रे३ज्",
+                "pronunciation": "",
+                "language": "प्रा॰यु॰भा॰",
+                "rules": [],
+                "meaning": "ऋजीकरणे"
+              },
+              {
+                "id": "node-6",
+                "from": [
+                  "node-5"
+                ],
+                "form": "*ह्रे३ज्स्",
+                "pronunciation": "",
+                "language": "प्रा॰यु॰भा॰",
+                "rules": [],
+                "meaning": "राजनि"
+              },
+              {
+                "id": "node-7",
+                "from": [
+                  "node-6"
+                ],
+                "form": "RIKE",
+                "pronunciation": "रीकॆ",
+                "language": "",
+                "rules": [],
+                "meaning": "राज्ये",
+                "rule_url": "https://en.wiktionary.org/wiki/rike#Swedish"
+              },
+              {
+                "id": "node-8",
+                "from": [
+                  "node-5"
+                ],
+                "form": "*ह्रे३ज्यॊम्",
+                "pronunciation": "",
+                "language": "प्रा॰यु॰भा॰",
+                "rules": [],
+                "meaning": "राज्ये",
+                "rule_url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/h%E2%82%83r%E1%B8%97%C7%B5s"
+              },
+              {
+                "id": "node-9",
+                "from": [
+                  "node-8"
+                ],
+                "form": "राज्यम्",
+                "pronunciation": "",
+                "language": "संस्कृतम्",
+                "rules": [],
+                "rule_url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/h%E2%82%83r%E1%B8%97%C7%B5s",
+                "meaning": "राष्ट्रे"
+              }
+            ],
+            "citations": []
+          }
+        ],
+        "attestations": [
+          {
+            "language": "रोमका",
+            "date": "२०",
+            "quote": "**Suionum** hinc civitates ipso in Oceano, praeter viros armaque classibus valent.",
+            "notes": "",
+            "citations": [
+              {
+                "title": "GERMANIA",
+                "url": "https://beta.perseus.tufts.edu/urn:cts:latinLit:phi1351.phi002.perseus-lat1:44/",
+                "locator": ""
+              }
+            ],
+            "sort_year": "20"
+          },
+          {
+            "language": "आङ्ग्ला",
+            "date": "~९२०",
+            "quote": "ofer sæ sohtan, suna Ohteres;\nhæfdon hy forhealden helm Scylfinga,\nþone selestan sæcyninga\nþara ðe in **Swiorice** sinc brytnade,\nmærne þeoden. Him þæt to mearce wearð;",
+            "notes": "",
+            "citations": [
+              {
+                "title": "BEOWULF",
+                "url": "https://sacred-texts.com/book/beowulf-in-anglo-saxon/beowulf-in-anglo-saxon",
+                "locator": "2384"
+              }
+            ],
+            "sort_year": "920"
+          },
+          {
+            "language": "",
+            "date": "~१२२०",
+            "quote": "hær byrias landamærke mællin danmark ok **sueriki**",
+            "notes": "",
+            "citations": [
+              {
+                "title": "Codex Runicus",
+                "url": "https://tekstnet.dk/books/anon_landegraense/001/",
+                "locator": ""
+              }
+            ],
+            "sort_year": "1220"
+          }
+        ]
+      }
+    ]
   },
   "natural-earth:1159320623": {
     "name_en": "Finland",
@@ -1691,8 +2014,7 @@
     "name_en": "Azerbaijan",
     "names": [
       {
-        "name": "",
-        "confidence": 1.0,
+        "name": "स्ताःपातः",
         "primary": true,
         "etymologies": [
           {
@@ -1700,16 +2022,253 @@
             "citations": [],
             "vyutpatti": "",
             "descendants": [],
-            "prakriyA": null
+            "prakriyA": {
+              "input": {
+                "type": "subanta",
+                "stem": {
+                  "type": "taddhitanta",
+                  "stem": {
+                    "type": "samasa",
+                    "samasa_type": "tatpurusha",
+                    "members": [
+                      {
+                        "stem": {
+                          "type": "basic",
+                          "text": "स्तृ"
+                        },
+                        "gender": "neuter",
+                        "case": "instrumental",
+                        "number": "singular"
+                      },
+                      {
+                        "stem": {
+                          "type": "basic",
+                          "text": "पात"
+                        },
+                        "gender": "masculine",
+                        "case": "nominative",
+                        "number": "singular"
+                      }
+                    ]
+                  },
+                  "pratyaya": "aR",
+                  "artha": "Caturarthika"
+                },
+                "gender": "masculine",
+                "case": "nominative",
+                "number": "singular"
+              }
+            }
           }
         ],
         "attestations": [],
         "attestation_status": ""
+      },
+      {
+        "name": "आग्निपातः",
+        "primary": false,
+        "descendants": [],
+        "etymologies": [
+          {
+            "vyutpatti": "अग्निपातेन निर्वृत्तम्",
+            "notes": "",
+            "prakriyA": {
+              "input": {
+                "type": "subanta",
+                "stem": {
+                  "type": "taddhitanta",
+                  "stem": {
+                    "type": "samasa",
+                    "samasa_type": "tatpurusha",
+                    "members": [
+                      {
+                        "stem": {
+                          "type": "basic",
+                          "text": "अग्नि"
+                        },
+                        "gender": "neuter",
+                        "case": "instrumental",
+                        "number": "singular"
+                      },
+                      {
+                        "stem": {
+                          "type": "basic",
+                          "text": "पात"
+                        },
+                        "gender": "masculine",
+                        "case": "nominative",
+                        "number": "singular"
+                      }
+                    ]
+                  },
+                  "pratyaya": "aR",
+                  "artha": "Caturarthika"
+                },
+                "gender": "masculine",
+                "case": "nominative",
+                "number": "singular"
+              }
+            },
+            "citations": []
+          }
+        ],
+        "attestations": []
       }
     ],
     "name_native": "",
     "description": "",
-    "name_families": []
+    "name_families": [
+      {
+        "label": "𐮀𐮑𐮅𐮅𐮎𐮀𐮑",
+        "language": "पारसिकी",
+        "pronunciation": "आतुर्पात्",
+        "etymologies": [
+          {
+            "vyutpatti": "स्तृपाताख्येन क्षेत्रपेन निःसृतो देशः।",
+            "notes": "",
+            "prakriyA": [
+              {
+                "id": "node-1",
+                "from": [],
+                "form": "*हॆ॒२ह्१",
+                "pronunciation": "",
+                "language": "प्रा॰यु॰भा॰",
+                "rules": [],
+                "meaning": "तापशोषणयोः"
+              },
+              {
+                "id": "node-2",
+                "from": [],
+                "form": "*पॆ॒ह्२तॊस्",
+                "pronunciation": "",
+                "language": "प्रा॰यु॰भा॰",
+                "rules": [],
+                "meaning": "रक्षिते"
+              },
+              {
+                "id": "node-3",
+                "from": [
+                  "node-1"
+                ],
+                "form": "*हे२ह्१ते॑र्",
+                "pronunciation": "",
+                "language": "प्रा॰यु॰भा॰",
+                "rules": [],
+                "rule": "+तेर्",
+                "rule_url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/h%E2%82%82eh%E2%82%81ter-",
+                "meaning": "अग्नौ"
+              },
+              {
+                "id": "node-4",
+                "from": [
+                  "node-3"
+                ],
+                "form": "*हह्तृ॑श्",
+                "pronunciation": "",
+                "language": "प्रा॰पा॰",
+                "rules": [],
+                "rule": "प्रा॰यु॰भा॰तः प्रा॰पा॰",
+                "rule_url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Iranian/H%C3%A1Htr%CC%A5%C5%A1",
+                "meaning": "अग्नौ"
+              },
+              {
+                "id": "node-5",
+                "from": [
+                  "node-4"
+                ],
+                "form": "𐮀𐮑𐮅",
+                "pronunciation": "आतुर्",
+                "language": "पारसिकी",
+                "rules": [],
+                "rule": "प्रा॰पा॰तः मद्ध्यपरसिकी",
+                "rule_url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/peh%E2%82%82-",
+                "meaning": "अग्नौ"
+              },
+              {
+                "id": "node-6",
+                "from": [
+                  "node-1"
+                ],
+                "form": "*हॆ॒२ह्स्",
+                "pronunciation": "",
+                "language": "प्रा॰यु॰भा॰",
+                "rules": [],
+                "rule": "+स्",
+                "rule_url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/h%E2%82%82eHs-#Proto-Indo-European:_to_be_dry,_to_burn",
+                "meaning": "दीप्तिशोषणयोः"
+              },
+              {
+                "id": "node-7",
+                "from": [
+                  "node-6"
+                ],
+                "form": "*ह्२स्तेर्",
+                "pronunciation": "",
+                "language": "प्रा॰यु॰भा॰",
+                "rules": [],
+                "rule": "+तेर्",
+                "rule_url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/h%E2%82%82st%E1%B8%97r",
+                "meaning": "नक्षत्रे"
+              },
+              {
+                "id": "node-8",
+                "from": [
+                  "node-7"
+                ],
+                "form": "स्तृ",
+                "pronunciation": "",
+                "language": "संस्कृतम्",
+                "rules": [],
+                "rule": "प्रा॰यु॰भा॰तः संस्कृतम्",
+                "rule_url": "https://en.wiktionary.org/wiki/%E0%A4%A4%E0%A5%83#Sanskrit",
+                "meaning": "नक्षत्रे"
+              },
+              {
+                "id": "node-9",
+                "from": [
+                  "node-7"
+                ],
+                "form": "तृ",
+                "pronunciation": "",
+                "language": "संस्कृतम्",
+                "rules": [],
+                "rule": "प्रा॰यु॰भा॰तः संस्कृतम्",
+                "rule_url": "https://en.wiktionary.org/wiki/%E0%A4%A4%E0%A5%83#Sanskrit",
+                "meaning": "नक्षत्रे"
+              },
+              {
+                "id": "node-10",
+                "from": [
+                  "node-2"
+                ],
+                "form": "𐮎𐮀𐮑𐮄",
+                "pronunciation": "पातः",
+                "language": "",
+                "rules": [],
+                "rule_url": "https://en.wiktionary.org/wiki/Reconstruction:Old_Persian/%C4%80tr%CC%A5p%C4%81tah",
+                "meaning": "रक्षिते",
+                "rule": "प्रा॰यु॰भा॰तः मद्ध्यपारसिकी"
+              },
+              {
+                "id": "node-11",
+                "from": [
+                  "node-2"
+                ],
+                "form": "पातः",
+                "pronunciation": "",
+                "language": "",
+                "rules": [],
+                "rule_url": "https://en.wiktionary.org/wiki/Reconstruction:Proto-Indo-European/peh%E2%82%82-",
+                "meaning": "रक्षिते",
+                "rule": "प्रा॰यु॰भा॰तः संस्कृतम्"
+              }
+            ],
+            "citations": []
+          }
+        ],
+        "attestations": []
+      }
+    ]
   },
   "natural-earth:1159321267": {
     "name_en": "Serbia",

@@ -23958,53 +23958,162 @@
     "description": "",
     "name_families": []
   },
-  "natural-earth:1159125617": {
+  "volga": {
     "name_en": "Volga",
     "names": [
       {
-        "name": "",
-        "confidence": 1.0,
+        "name": "रसा",
         "primary": true,
         "etymologies": [
           {
-            "notes": "",
-            "citations": [],
-            "vyutpatti": "",
+            "notes": "सिन्धोरुपनद्यपि रसाख्येति केचित्",
+            "citations": [
+              {
+                "title": "यास्कनिरुक्तम्",
+                "url": "https://indike.org/pramana/in.vedanga.nirukta.yaska.11.25",
+                "locator": "११.२५",
+                "note": "**रसा नदी**, रसतेः शब्दकर्मणः"
+              },
+              {
+                "type": "passage",
+                "passage": {
+                  "quote": "याभी॑ **र॒सां** क्षोद॑सो॒द्नः पि॑पि॒न्वथु॑रन॒श्वं याभी॒ रथ॒माव॑तं जि॒षे।\nयाभि॑स्त्रि॒शोक॑ उ॒स्रिया॑ उ॒दाज॑त॒ ताभि॑रू॒ षु ऊ॒तिभि॑रश्वि॒ना ग॑तम्॥",
+                  "source": {
+                    "title": "ऋग्वेदः",
+                    "url": "https://indike.org/pramana/in.veda.samhita.rg*sakala.1.112.12",
+                    "locator": "१.११२.१२"
+                  }
+                },
+                "commentaries": [
+                  {
+                    "quote": "‘**रसा नदी** भवति रसतेः शब्दकर्मणः’ (निरु. ११. २५) इति यास्कः। हे अश्विनौ याभिः ऊतिभिः हेतुभूताभिः **रसां नदीम**नावृष्ट्या जलरहितां क्षोदसा कूलानि संपिंषता उद्नः उदकेन पिपिन्वथुः युवां पूरितवन्तौ।",
+                    "source": {
+                      "title": "वेदार्थप्रकाशः",
+                      "url": "https://indike.org/pramana/in.veda.samhita.rg!sayana.1.112.12",
+                      "locator": "१.११२.१२"
+                    }
+                  }
+                ]
+              }
+            ],
+            "vyutpatti": "रसो ऽस्यास्तीति",
             "descendants": [],
             "prakriyA": null
           }
         ],
         "attestations": [],
-        "attestation_status": ""
+        "attestation_status": "newly_proposed"
       }
     ],
     "name_native": "",
     "description": "",
-    "name_families": []
-  },
-  "natural-earth:1159125629": {
-    "name_en": "Volga",
-    "names": [
+    "name_families": [
       {
-        "name": "",
-        "confidence": 1.0,
-        "primary": true,
-        "etymologies": [
+        "label": "𐬭𐬀𐬢𐬵𐬁",
+        "language": "आवस्थी",
+        "pronunciation": "रङ्हा",
+        "descendants": [
           {
-            "notes": "",
-            "citations": [],
-            "vyutpatti": "",
-            "descendants": [],
-            "prakriyA": null
+            "id": "node-1",
+            "from": [],
+            "form": "ह्रॊ१सॆह्२",
+            "pronunciation": "",
+            "language": "प्रा॰यु॰भा॰",
+            "rules": [],
+            "meaning": "रसमये"
+          },
+          {
+            "id": "node-3",
+            "from": [
+              "node-1"
+            ],
+            "form": "𐬭𐬀𐬢𐬵𐬁",
+            "pronunciation": "रङ्हा",
+            "language": "आवस्थी",
+            "rules": [],
+            "meaning": "नदीभेदे"
+          },
+          {
+            "id": "node-4",
+            "from": [
+              "node-3"
+            ],
+            "form": "*रह",
+            "pronunciation": "",
+            "language": "पारसिकी",
+            "rules": [],
+            "meaning": "नदीभेदे"
+          },
+          {
+            "id": "node-5",
+            "from": [
+              "node-4"
+            ],
+            "form": "ῬΑ͂",
+            "pronunciation": "र्ह᳝॑",
+            "language": "यावनी",
+            "rules": [],
+            "meaning": "नदीभेदे"
+          },
+          {
+            "id": "node-2",
+            "from": [
+              "node-1"
+            ],
+            "form": "र॒सा",
+            "pronunciation": "",
+            "language": "संस्कृतम्",
+            "rules": [],
+            "meaning": "नद्याम्"
           }
         ],
-        "attestations": [],
-        "attestation_status": ""
+        "etymologies": [],
+        "attestations": [
+          {
+            "language": "आवस्थी",
+            "date": "-१०००",
+            "quote": "𐬙𐬄𐬨 · 𐬫𐬀𐬰𐬀𐬙𐬀 · 𐬫𐬋𐬌𐬱𐬙𐬋 · 𐬫𐬋 · 𐬟𐬭𐬌𐬌𐬀𐬥𐬀𐬥𐬄𐬨 · 𐬞𐬀𐬌𐬙𐬌 · 𐬞𐬇𐬛𐬎𐬎𐬀𐬉𐬞𐬇 · **𐬭𐬀𐬢𐬵𐬀𐬌𐬌𐬃** · 𐬯𐬀𐬙𐬆𐬨 ·\n𐬀𐬯𐬞𐬀𐬥𐬄𐬨 · 𐬀𐬭𐬴𐬥𐬄𐬨 · 𐬵𐬀𐬰𐬀𐬢𐬭𐬆𐬨 · 𐬔𐬀𐬎𐬎𐬄𐬨 · 𐬠𐬀𐬉𐬎𐬎𐬀𐬭𐬆 · 𐬀𐬥𐬎𐬨𐬀𐬌𐬌𐬀𐬥𐬄𐬨",
+            "notes": "",
+            "citations": [
+              {
+                "title": "𐬁𐬠𐬁𐬥𐬀 𐬫𐬀𐬱𐬀𐬙𐬀",
+                "url": "https://wikisource.org/wiki/Avesta/Ya%C5%A1t",
+                "locator": "५.८१"
+              }
+            ],
+            "sort_year": "-1000"
+          },
+          {
+            "language": "यावनी",
+            "date": "~७०",
+            "quote": "Ἔστι δὲ καὶ ἑτέρα τοῦ **Ῥᾶ** ποταμοῦ ἐκβολὴ πλησιάζουσα τῇ τοῦ Τανάϊδος",
+            "notes": "",
+            "citations": [
+              {
+                "title": "Γεωγραφικὴ Ὑφήγησις",
+                "url": "https://archive.org/details/claudiiptolemaei02ptol/page/n7/mode/1up",
+                "locator": "40"
+              }
+            ],
+            "sort_year": "70"
+          },
+          {
+            "language": "आवस्थी",
+            "date": "-५००",
+            "quote": "𐬑𐬴𐬎𐬎𐬀𐬱 · 𐬐𐬀𐬯𐬆𐬨 · 𐬀𐬯𐬀𐬢𐬵𐬄𐬨𐬗𐬀 · 𐬴𐬋𐬌𐬚𐬭𐬀𐬥𐬄𐬨𐬗𐬀 ·\n𐬬𐬀𐬵𐬌𐬱𐬙𐬆𐬨 · 𐬟𐬭𐬁𐬚𐬡𐬆𐬭𐬆𐬯𐬆𐬨 · 𐬀𐬰𐬆𐬨 · 𐬫𐬋 · 𐬀𐬵𐬎𐬭𐬋 · 𐬨𐬀𐬰𐬛𐬃 ·\n𐬎𐬞𐬀 · 𐬀𐬊𐬜𐬀𐬉𐬴𐬎 · **𐬭𐬀𐬢𐬵𐬀𐬌𐬌𐬃** ·\n𐬫𐬋 · 𐬀𐬯𐬁𐬭𐬋 · 𐬀𐬌𐬡𐬌𐬌𐬁𐬑𐬴𐬀𐬌𐬌𐬈𐬌𐬧𐬙𐬌 ·\n𐬁𐬀𐬝 · 𐬀𐬵𐬈 · 𐬞𐬀𐬌𐬙𐬌𐬌𐬁𐬭𐬆𐬨 · 𐬟𐬭𐬁𐬐𐬆𐬭𐬆𐬧𐬙𐬀𐬝 ·\n𐬀𐬢𐬭𐬋 · 𐬨𐬀𐬌𐬥𐬌𐬌𐬎𐬱 · 𐬞𐬊𐬎𐬭𐬎 · 𐬨𐬀𐬵𐬭𐬐𐬋 ·\n𐬰𐬌𐬌𐬄𐬨𐬗𐬀 · 𐬛𐬀𐬉𐬎𐬎𐬋 · 𐬛𐬁𐬙𐬆𐬨 · 𐬙𐬀𐬊𐬲𐬌𐬌𐬁𐬗𐬀 · 𐬛𐬀𐬌𐬣𐬵𐬏𐬱 · 𐬀𐬌𐬡𐬌𐬱𐬙𐬁𐬭𐬀",
+            "notes": "",
+            "citations": [
+              {
+                "title": "𐬬𐬍𐬛𐬉𐬎𐬎𐬛𐬁𐬛",
+                "url": "https://titus.uni-frankfurt.de/texte/etcs/iran/airan/avesta/avest.htm?avest089.htm",
+                "locator": "१.१९"
+              }
+            ],
+            "sort_year": "-500"
+          }
+        ]
       }
-    ],
-    "name_native": "",
-    "description": "",
-    "name_families": []
+    ]
   },
   "natural-earth:1159125935": {
     "name_en": "Euphrates",
@@ -24195,7 +24304,7 @@
                 ],
                 "form": "*दानॊव्य़ॊस्",
                 "pronunciation": "",
-                "language": "प्रा॰कै",
+                "language": "प्रा॰कै॰",
                 "rules": [],
                 "meaning": "नदीभेदे"
               },
@@ -26038,54 +26147,6 @@
   },
   "natural-earth:1159129657": {
     "name_en": "Ōhau",
-    "names": [
-      {
-        "name": "",
-        "confidence": 1.0,
-        "primary": true,
-        "etymologies": [
-          {
-            "notes": "",
-            "citations": [],
-            "vyutpatti": "",
-            "descendants": [],
-            "prakriyA": null
-          }
-        ],
-        "attestations": [],
-        "attestation_status": ""
-      }
-    ],
-    "name_native": "",
-    "description": "",
-    "name_families": []
-  },
-  "natural-earth:1729992327": {
-    "name_en": "Volga–Don Canal",
-    "names": [
-      {
-        "name": "",
-        "confidence": 1.0,
-        "primary": true,
-        "etymologies": [
-          {
-            "notes": "",
-            "citations": [],
-            "vyutpatti": "",
-            "descendants": [],
-            "prakriyA": null
-          }
-        ],
-        "attestations": [],
-        "attestation_status": ""
-      }
-    ],
-    "name_native": "",
-    "description": "",
-    "name_families": []
-  },
-  "natural-earth:1729992329": {
-    "name_en": "Volga–Don Canal",
     "names": [
       {
         "name": "",

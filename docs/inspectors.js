@@ -250,12 +250,14 @@
           item.node ? detail(item.node, 'node') : el('div', 'mi-route');
         if (item.node?.sanjnaRules) {
           for (const reference of item.node.sanjnaRules) {
-            cell.append(detail({rules: [reference]}, 'edge', generatedRules));
+            const pill=detail({rules:[reference]}, 'edge', generatedRules);
+            cell.append(pill);
+            motionItems.set(`rule:${item.node.sanjnaOrigins?.[reference] || item.node.id}:${reference}`,pill);
           }
         }
         if (!item.node) cell.setAttribute('aria-hidden', 'true');
         if (item.node) {
-          motionItems.set(`node:${item.node.id}`, cell);
+          if(!item.node.sanjnaRules)motionItems.set(`node:${item.node.id}`, cell);
           cell.classList.toggle('mi-secondary-step', secondaryNodes.has(item.node.id));
         }
         cell.style.gridRow = 1; cell.style.gridColumn = String(item.column + 1);
@@ -292,7 +294,11 @@
         const label = showLabel ? detail(segment.edge, 'edge', generatedRules) : el('div', 'mi-route');
         if (!showLabel) label.setAttribute('aria-hidden', 'true');
         if (showLabel) {
-          motionItems.set(`rule:${segment.edge.to}:${JSON.stringify(segment.edge.rules || [])}`, label);
+          const refs=Array.isArray(segment.edge.rules)?segment.edge.rules:segment.edge.rules?[segment.edge.rules]:[];
+          if(refs.length){
+            const parts=label.querySelectorAll('.mi-rule-reference');
+            refs.forEach((ref,i)=>motionItems.set(`rule:${segment.edge.to}:${ref}`,refs.length===1?label:(parts[i] || label)));
+          }else motionItems.set(`rule:${segment.edge.to}:inline`,label);
           label.classList.toggle('mi-secondary-step', secondaryEdge(segment.edge));
         }
         label.style.gridRow = 1; label.style.gridColumn = String(segment.column + 1);

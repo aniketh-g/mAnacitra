@@ -93,3 +93,14 @@ main{grid-template-columns:280px minmax(0,1fr)}
 .fe-tree textarea:focus{border-color:#b79857;outline:1px solid #b79857}
 .fe-pronunciation label{width:100%}
 @media(max-width:800px){main{display:block}}
+
+/* A subtle bracket around the exact input that will be wrapped. */
+.grammar{position:relative;min-height:100px;border-left:0;padding-left:38px}
+.grammar > .wrap-rail{position:absolute;inset:0 auto 0 0;width:28px;padding:8px 4px;border:1px solid #dfd3b9;border-radius:7px;background:#f7f2e6;color:#82704c;font:12px/1.4 system-ui;writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:.02em;transition:background .15s,color .15s}
+.grammar > .wrap-rail:hover,.grammar > .wrap-rail[aria-expanded="true"]{background:#eadbb9;color:#624d26;border-color:#c8ad73}
+.grammar > .wrap-rail:focus-visible{outline:2px solid #a78b53;outline-offset:2px}
+.grammar > .wrap-options{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:8px 0 12px;padding:8px 0;border-bottom:1px solid #e8dfcd}
+.grammar > .wrap-options[hidden]{display:none}
+.wrap-options select{width:auto;max-width:100%;min-width:130px}
+.wrap-options button{font-size:14px}
+@media(prefers-reduced-motion:reduce){.grammar > .wrap-rail{transition:none}}
